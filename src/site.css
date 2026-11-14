@@ -65,3 +65,19 @@ img{max-width:100%;height:auto}
 .foot a{display:inline-block;padding-block:.5rem}
 .doc{overflow-wrap:anywhere}.doc td,.doc th{overflow-wrap:normal;min-width:8rem}
 .tabs{display:none}.js .tabs{display:flex}
+/* Üst bölüm ikon şeridi */
+.hero .wrap{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.hero-text{flex:1 1 26rem;min-width:0}
+.hero-icons{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,72px);gap:14px}
+.hero-icons li:nth-child(4){grid-column:1/2;transform:translateX(43px)}
+.hero-icons li:nth-child(5){transform:translateX(43px)}
+.hero-icons a{display:block;border-radius:22%;box-shadow:var(--shadow-2,var(--shadow-1));transition:transform .2s}
+.hero-icons a:hover{transform:translateY(-3px) rotate(-3deg)}
+.hero-icons img{display:block;width:72px;height:72px;border-radius:22%}
+@media (max-width:520px){.hero-icons{grid-template-columns:repeat(5,52px);gap:10px}.hero-icons li:nth-child(n){transform:none;grid-column:auto}.hero-icons img{width:52px;height:52px}}
+/* Kart ekran görüntüleri */
+.app{flex-wrap:wrap}
+.app-body{flex:1 1 14rem}
+.shots{flex:1 1 100%;display:flex;gap:.6rem;overflow-x:auto;padding-top:.25rem}
+.shots img{height:260px;width:auto;border-radius:12px;border:1px solid var(--border);background:var(--surface-2);flex:none}
+@media (max-width:520px){.app-body{flex:none;width:100%}.shots{flex:none;width:100%}.shots img{height:220px}}

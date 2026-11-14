@@ -103,6 +103,18 @@ def app_card(lang, cfg):
         play = (f'<a class="btn" href="https://play.google.com/store/apps/details?id={esc(a["package"])}" '
                 f'rel="noopener">{esc(ui(lang, "get_on_google_play"))}</a>')
     privacy = f'<a class="link" href="/privacy/{esc(a["slug"])}/?lang={lang}">{esc(ui(lang, "privacy_policy"))}</a>'
+    shots = ""
+    sdir = SRC / "shots" / a["slug"]
+    files = [f for f in (f"{lang}-1.webp", f"{lang}-2.webp") if (sdir / f).is_file()]
+    if files:
+        from PIL import Image
+        def dims(f):
+            with Image.open(sdir / f) as im:
+                return im.size
+        imgs = "".join(
+            f'<img src="/assets/shots/{esc(a["slug"])}/{f}" alt="{esc(t["name"])} – {i}" width="{dims(f)[0]}" height="{dims(f)[1]}" loading="lazy" decoding="async">'
+            for i, f in enumerate(files, 1))
+        shots = f'<div class="shots">{imgs}</div>'
     return f"""<article class="app" id="{esc(a['slug'])}">
   {icon_html}
   <div class="app-body">
@@ -111,16 +123,24 @@ def app_card(lang, cfg):
     <p>{esc(t['description'])}</p>
     <p class="actions">{play}{privacy}</p>
   </div>
+  {shots}
 </article>"""
 
 
 def build_home(lang):
     st = content["studio"][lang]
     cards = "\n".join(app_card(lang, c) for c in apps_cfg["apps"])
+    strip = "".join(
+        f'<li><a href="#{esc(c["slug"])}"><img src="/assets/icons/{Path(apps_by_slug[c["slug"]]["icon_192"]).name}" '
+        f'alt="{esc(apps_by_slug[c["slug"]][lang]["name"])}" width="72" height="72"></a></li>'
+        for c in apps_cfg["apps"])
     body = f"""<section class="hero">
   <div class="wrap">
-    <h1>Demir Games Studio</h1>
-    <p class="lead">{esc(st['intro'])}</p>
+    <div class="hero-text">
+      <h1>Demir Games Studio</h1>
+      <p class="lead">{esc(st['intro'])}</p>
+    </div>
+    <ul class="hero-icons" aria-label="{esc(ui(lang, 'nav_apps'))}">{strip}</ul>
   </div>
 </section>
 <section class="wrap" id="apps" aria-labelledby="apps-h">
@@ -248,7 +268,7 @@ location.replace("/"+p+"/");}})();
 
 
 def copy_assets():
-    for sub in ("icons", "fonts"):
+    for sub in ("icons", "fonts", "shots"):
         s = SRC / sub
         if s.is_dir():
             dst = ROOT / "assets" / sub
