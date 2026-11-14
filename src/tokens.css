@@ -1,0 +1,64 @@
+/* Demir Games Studio - "Erik ve Tas" (Plum & Stone) identity tokens.
+   Fonts live in /assets/fonts/. All text pairs meet WCAG AA (see identity.md). */
+
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:500 700;font-display:swap;
+  src:url('/assets/fonts/Fraunces-Soft-500-700.woff') format('woff');
+  unicode-range:U+0020-007E,U+00A0-017F,U+018F,U+0259,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+20BA,U+2122,U+2190,U+2192,U+2212}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/assets/fonts/InstrumentSans-400-700.woff') format('woff');
+  unicode-range:U+0020-007E,U+00A0-017F,U+018F,U+0259,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2122,U+2190,U+2192,U+2212}
+@font-face{font-family:"Noto Sans Arabic";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/assets/fonts/NotoSansArabic-400-700.woff') format('woff');
+  unicode-range:U+0600-06FF,U+0750-077F,U+200C-200F,U+FB50-FDFF,U+FE70-FEFF}
+
+:root{
+  color-scheme:light dark;
+  /* fonts */
+  --font-display:"Fraunces","Noto Sans Arabic",Georgia,"Times New Roman",serif;
+  --font-body:"Instrument Sans","Noto Sans Arabic","Fraunces",sans-serif; /* Fraunces supplies the lira sign */
+  /* light theme */
+  --bg:#F6F4F7;
+  --surface:#FFFFFF;
+  --surface-2:#ECE8F0;
+  --text:#1F1A24;
+  --text-muted:#5A5262;
+  --primary:#4A2C5E;
+  --primary-contrast:#FFFFFF;
+  --primary-hover:#3B2149;
+  --accent:#7A4FA3;
+  --accent-text:#6A3F94;
+  --link:#5B3480;
+  --border:#D6CFDD;
+  --border-strong:#857B90;
+  --focus:#B0306E;
+  --danger:#A3252B;
+  --success:#1F6B45;
+  --shadow-color:31 26 36;
+  /* shape */
+  --radius-sm:8px; --radius:14px; --radius-lg:22px; --radius-pill:999px;
+  --shadow-1:0 1px 2px rgb(var(--shadow-color)/.06),0 2px 8px rgb(var(--shadow-color)/.06);
+  --shadow-2:0 2px 4px rgb(var(--shadow-color)/.06),0 12px 32px rgb(var(--shadow-color)/.10);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16121A;
+    --surface:#201A27;
+    --surface-2:#2B2334;
+    --text:#F1EDF4;
+    --text-muted:#B8AEC2;
+    --primary:#D2B8EA;
+    --primary-contrast:#1F1226;
+    --primary-hover:#E2CEF3;
+    --accent:#C9A0E8;
+    --accent-text:#D6B4F0;
+    --link:#DCC2F2;
+    --border:#3A3044;
+    --border-strong:#8B8197;
+    --focus:#FF8FC0;
+    --danger:#FF9A9F;
+    --success:#7FD6A4;
+    --shadow-color:0 0 0;
+    --shadow-1:0 1px 2px rgb(var(--shadow-color)/.4);
+    --shadow-2:0 12px 32px rgb(var(--shadow-color)/.45);
+  }
+}

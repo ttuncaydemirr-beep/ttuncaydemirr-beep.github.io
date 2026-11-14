@@ -1,0 +1,12 @@
+{
+  "slug": "lid-kocu",
+  "name": "LiD Koçu",
+  "package": "com.lidkocu.app",
+  "titles": {
+    "tr": "LiD Koçu – Gizlilik Politikası",
+    "en": "LiD Koçu – Privacy Policy",
+    "de": "LiD Koçu – Datenschutzerklärung",
+    "ar": "LiD Koçu – سياسة الخصوصية"
+  },
+  "data_safety_notes": "LiD Koçu (com.lidkocu.app). Free version shows ads (contains ads = Yes); Premium (one-time in-app product 'premium', not a subscription) is ad-free. Data collected and shared: Device or other IDs (Advertising ID via AdMob; Firebase app instance ID via Analytics and Remote Config) - Advertising, Analytics, App functionality (remote config); App activity (events: mock test started/finished with score and pass flag, premium screen, purchase, rewarded watched, banner/interstitial events; user property ad group) - Analytics; Approximate location (from IP) - Advertising, Analytics; Purchase history handled by Google Play (entitlement only). No Crashlytics in code, so do NOT declare crash logs unless Crashlytics is added (AdMob/Firebase SDKs may still report diagnostics). Shared with Google as service provider. Encrypted in transit. No account. AD_ID permission declared. Target audience 18+; not for children. Study progress, answers, language and state are stored only on the device (not collected)."
+}

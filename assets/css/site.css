@@ -1,0 +1,131 @@
+/* Demir Games Studio - "Erik ve Tas" (Plum & Stone) identity tokens.
+   Fonts live in /assets/fonts/. All text pairs meet WCAG AA (see identity.md). */
+
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:500 700;font-display:swap;
+  src:url('/assets/fonts/Fraunces-Soft-500-700.woff') format('woff');
+  unicode-range:U+0020-007E,U+00A0-017F,U+018F,U+0259,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+20BA,U+2122,U+2190,U+2192,U+2212}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/assets/fonts/InstrumentSans-400-700.woff') format('woff');
+  unicode-range:U+0020-007E,U+00A0-017F,U+018F,U+0259,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2122,U+2190,U+2192,U+2212}
+@font-face{font-family:"Noto Sans Arabic";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/assets/fonts/NotoSansArabic-400-700.woff') format('woff');
+  unicode-range:U+0600-06FF,U+0750-077F,U+200C-200F,U+FB50-FDFF,U+FE70-FEFF}
+
+:root{
+  color-scheme:light dark;
+  /* fonts */
+  --font-display:"Fraunces","Noto Sans Arabic",Georgia,"Times New Roman",serif;
+  --font-body:"Instrument Sans","Noto Sans Arabic","Fraunces",sans-serif; /* Fraunces supplies the lira sign */
+  /* light theme */
+  --bg:#F6F4F7;
+  --surface:#FFFFFF;
+  --surface-2:#ECE8F0;
+  --text:#1F1A24;
+  --text-muted:#5A5262;
+  --primary:#4A2C5E;
+  --primary-contrast:#FFFFFF;
+  --primary-hover:#3B2149;
+  --accent:#7A4FA3;
+  --accent-text:#6A3F94;
+  --link:#5B3480;
+  --border:#D6CFDD;
+  --border-strong:#857B90;
+  --focus:#B0306E;
+  --danger:#A3252B;
+  --success:#1F6B45;
+  --shadow-color:31 26 36;
+  /* shape */
+  --radius-sm:8px; --radius:14px; --radius-lg:22px; --radius-pill:999px;
+  --shadow-1:0 1px 2px rgb(var(--shadow-color)/.06),0 2px 8px rgb(var(--shadow-color)/.06);
+  --shadow-2:0 2px 4px rgb(var(--shadow-color)/.06),0 12px 32px rgb(var(--shadow-color)/.10);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#16121A;
+    --surface:#201A27;
+    --surface-2:#2B2334;
+    --text:#F1EDF4;
+    --text-muted:#B8AEC2;
+    --primary:#D2B8EA;
+    --primary-contrast:#1F1226;
+    --primary-hover:#E2CEF3;
+    --accent:#C9A0E8;
+    --accent-text:#D6B4F0;
+    --link:#DCC2F2;
+    --border:#3A3044;
+    --border-strong:#8B8197;
+    --focus:#FF8FC0;
+    --danger:#FF9A9F;
+    --success:#7FD6A4;
+    --shadow-color:0 0 0;
+    --shadow-1:0 1px 2px rgb(var(--shadow-color)/.4);
+    --shadow-2:0 12px 32px rgb(var(--shadow-color)/.45);
+  }
+}
+
+/* Yerleşim. Renkler ve yazı tipleri tokens.css'ten gelir. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:1.0625rem;line-height:1.6}
+h1,h2,h3{font-family:var(--font-display);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,6vw,3.25rem);letter-spacing:-.01em}
+h2{font-size:1.6rem;margin-top:2.5rem}
+h3{font-size:1.2rem}
+p{margin:0 0 1em}
+a{color:var(--link,var(--primary));text-underline-offset:.18em}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+img{max-width:100%;height:auto}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+.skip{position:absolute;inset-inline-start:-999px;top:0;background:var(--primary);color:var(--primary-contrast);padding:.6rem 1rem;z-index:10}
+.skip:focus{inset-inline-start:1rem}
+
+.top{border-bottom:1px solid var(--border);background:var(--surface)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:.8rem}
+.brand{display:flex;align-items:center;gap:.6rem;color:var(--text);text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:1.1rem}
+.langs{display:flex;gap:.25rem;flex-wrap:wrap}
+.langs a{padding:.35rem .6rem;border-radius:var(--radius-sm,6px);text-decoration:none;color:var(--text-muted);font-size:.95rem}
+.langs a[aria-current="true"]{color:var(--text);background:var(--surface-2);font-weight:600}
+
+.hero{padding-block:clamp(2.5rem,8vw,5rem) 1rem}
+.lead{font-size:1.2rem;color:var(--text-muted);max-width:44rem}
+
+.apps{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,30rem),1fr))}
+.app{display:flex;gap:1rem;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius,14px);padding:1.1rem;box-shadow:var(--shadow-1,none)}
+.app-icon{width:80px;height:80px;flex:none;border-radius:22%;background:var(--surface-2)}
+.app-icon--empty{display:block}
+.app-body{min-width:0}
+.app h3{margin:0 0 .25rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.tagline{color:var(--text-muted);margin:0 0 .5rem;font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:center;margin:0}
+.badge{font-family:var(--font-body);font-size:.75rem;font-weight:600;padding:.15rem .55rem;border-radius:999px;border:1px solid var(--border);background:var(--surface-2);color:var(--text)}
+
+.btn{display:inline-block;background:var(--primary);color:var(--primary-contrast);padding:.6rem 1.1rem;border-radius:var(--radius-sm);text-decoration:none;font-weight:600}
+.btn--ghost{background:transparent;color:var(--text);border:1.5px solid var(--border-strong,var(--border))}
+.link{font-weight:600}
+
+.foot{margin-top:4rem;border-top:1px solid var(--border);padding-block:1.5rem;color:var(--text-muted);font-size:.95rem}
+.foot p{margin:0}
+
+/* Belge sayfaları (gizlilik vb.) */
+.doc{max-width:46rem;padding-block:2rem}
+.doc h1{font-size:clamp(1.7rem,5vw,2.4rem)}
+.doc h2{font-size:1.3rem;margin-top:2rem}
+.doc .updated{color:var(--text-muted)}
+.doc table{border-collapse:collapse;width:100%;margin:0 0 1em;font-size:.95rem}
+.doc th,.doc td{border:1px solid var(--border);padding:.5rem;text-align:start;vertical-align:top}
+.doc ul,.doc ol{padding-inline-start:1.4rem}
+.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tabs button{font:inherit;font-size:.95rem;padding:.4rem .8rem;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--primary);color:var(--primary-contrast);border-color:var(--primary)}
+[data-panel]+[data-panel]{margin-top:3rem;border-top:1px solid var(--border);padding-top:2rem}
+[data-panel][hidden]{display:none}
+.back{font-size:.95rem}
+.plist{line-height:2}
+[dir="rtl"] .doc,[dir="rtl"].doc{text-align:right}
+@media (prefers-reduced-motion:no-preference){a,.btn{transition:background-color .15s,color .15s}}
+@media (max-width:520px){.app{flex-direction:column;gap:.75rem}.app-icon{width:64px;height:64px}}
+.doc table{display:block;overflow-x:auto;max-width:100%}
+.langs a{padding:.55rem .7rem}
+.actions .link,.actions .btn{padding-block:.6rem;display:inline-block}
+.foot a{display:inline-block;padding-block:.5rem}
+.doc{overflow-wrap:anywhere}.doc td,.doc th{overflow-wrap:normal;min-width:8rem}

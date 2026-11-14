@@ -1,0 +1,12 @@
+{
+  "slug": "miyo",
+  "name": "Miyo: Cat Simulator 3D",
+  "package": "com.nilkaren.miyo",
+  "titles": {
+    "tr": "Miyo: Kedi Simülatörü 3D - Gizlilik Politikası",
+    "en": "Miyo: Cat Simulator 3D - Privacy Policy",
+    "de": "Miyo: Katzensimulator 3D - Datenschutzerklärung",
+    "ar": "Miyo: محاكي القطة ثلاثي الأبعاد - سياسة الخصوصية"
+  },
+  "data_safety_notes": "Child-directed app (Families Policy, ages 6-12). No accounts, chat, purchases, location, contacts or user-provided personal data; game progress is stored only on device (WebView localStorage). Only the Google Mobile Ads SDK (AdMob) collects/shares data, automatically, for advertising/marketing, analytics and fraud prevention/security: approximate location (derived from IP), app interactions, diagnostics (crash logs, performance), device or other IDs (app set ID; AD_ID permission removed, so no Android advertising ID on Android 13+). Ads are child-directed (TFCD+TFUA), non-personalized, max rating G. Data encrypted in transit (TLS, cleartext disabled). Users cannot request deletion via us (no data held by developer); policy explains. Firebase Analytics/Remote Config NOT present yet: when added, update Data safety and this policy first. Verify against AdMob's current Play data disclosure page for the SDK version in the build."
+}

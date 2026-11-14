@@ -1,0 +1,12 @@
+{
+  "slug": "arrowtile",
+  "name": "Arrowtile",
+  "package": "com.arrowtile.puzzle",
+  "titles": {
+    "tr": "Arrowtile – Gizlilik Politikası",
+    "en": "Arrowtile – Privacy Policy",
+    "de": "Arrowtile – Datenschutzerklärung",
+    "ar": "Arrowtile – سياسة الخصوصية"
+  },
+  "data_safety_notes": "Arrowtile (com.arrowtile.puzzle). Data collected and shared: Device or other IDs (Advertising ID via AdMob; Firebase app instance ID / installation ID via Analytics, Crashlytics, Remote Config) - purposes: Advertising or marketing, Analytics, App functionality/diagnostics; App activity (in-app events: level start/complete/fail, hints, ad and purchase events, settings changes) - Analytics; App info and performance (crash logs, diagnostics, device model/OS/app version) - Analytics, diagnostics; Approximate location (derived from IP, not GPS) - Advertising, Analytics; Purchase history (Remove ads, handled by Google Play; app only receives entitlement) - app functionality. Shared with Google (AdMob, Firebase) as service providers for ads/analytics. Data is encrypted in transit. No account; users cannot request deletion in-app (no account data) - answer 'No' to account creation, but mention email for deletion requests of analytics data. Ads: contains ads = Yes. Advertising ID permission declared (AD_ID). Not designed for children (target 13+). Optional/upcoming: Google Play Games leaderboards - when released, declare 'Personal info: Name/User IDs' (player name/ID) for app functionality and update the form; WhatsApp invite only opens share sheet (no data collected)."
+}

@@ -1,0 +1,310 @@
+{
+  "apps": [
+    {
+      "slug": "arrowtile",
+      "package": "com.arrowtile.puzzle",
+      "icon": "icons/arrowtile.png",
+      "icon_192": "icons/arrowtile-192.webp",
+      "status": "in_testing",
+      "status_note": "Repo docs (README, docs/20-28) show closed-testing feedback and releases up to v1.2.2 (versionCode 13); README checklist still lists 'closed test: 12 testers, 14 days, then production' as remaining. No production release is recorded.",
+      "category": "Game - Puzzle",
+      "audience": "For players of all ages",
+      "tr": {
+        "name": "Arrowtile",
+        "tagline": "Süre yok, internetsiz: sakin ama zorlu ok bulmacası",
+        "description": "Bir oka dokun, baktığı yöne kayar; yolu açıksa tahtadan çıkar. 5.000 seviye, ardından sonsuz bölümler ve her gün yeni bir günlük bulmaca seni bekler.",
+        "category": "Oyun - Bulmaca",
+        "audience": "Her yaştan oyuncular için"
+      },
+      "en": {
+        "name": "Arrowtile",
+        "tagline": "No timers, no internet: a calm but tough arrow puzzle",
+        "description": "Tap an arrow and it slides the way it points; if the path is clear it leaves the board. 5,000 levels, then endless chapters and a fresh daily puzzle every day.",
+        "category": "Game - Puzzle",
+        "audience": "For players of all ages"
+      },
+      "de": {
+        "name": "Arrowtile",
+        "tagline": "Kein Zeitlimit, ohne Internet: knifflige Pfeil-Rätsel",
+        "description": "Tippen Sie auf einen Pfeil, und er gleitet in seine Richtung; ist der Weg frei, verlässt er das Brett. 5.000 Level, danach endlose Kapitel und jeden Tag ein neues Tagesrätsel.",
+        "category": "Spiel - Rätsel",
+        "audience": "Für Spielerinnen und Spieler jeden Alters"
+      },
+      "ar": {
+        "name": "Arrowtile",
+        "tagline": "بلا وقت محدد وبلا إنترنت: لغز أسهم هادئ وصعب",
+        "description": "المس سهمًا فينزلق في الاتجاه الذي يشير إليه، وإذا كان الطريق مفتوحًا يخرج من اللوحة. 5000 مستوى ثم فصول لا تنتهي، ولغز يومي جديد كل يوم.",
+        "category": "لعبة - ألغاز",
+        "audience": "للاعبين من جميع الأعمار"
+      }
+    },
+    {
+      "slug": "lid-kocu",
+      "package": "com.lidkocu.app",
+      "icon": "icons/lid-kocu.png",
+      "icon_192": "icons/lid-kocu-192.webp",
+      "status": "in_testing",
+      "status_note": "README: Play build tested in closed testing; a purchase (via promo code) was tried on a real phone on 12 Nov 2026 and Premium unlocked; store listing ready in 4 languages (app 1.1.0). Still open: native-speaker proofreading of Turkish and Arabic texts. No production release is recorded.",
+      "category": "Education",
+      "audience": "Adults 18+; unofficial study aid",
+      "tr": {
+        "name": "LiD Koçu",
+        "tagline": "Almanya vatandaşlık testine anadilinde hazırlan",
+        "description": "Leben in Deutschland sorularını Almanca çalışırken Türkçe, İngilizce veya Arapça çevirisiyle görürsün. Deneme sınavı ve sade açıklamalar var; resmî bir uygulama değildir, BAMF ile bağlantılı değildir.",
+        "category": "Eğitim",
+        "audience": "18 yaş ve üzeri; resmî olmayan hazırlık aracı"
+      },
+      "en": {
+        "name": "LiD Koçu",
+        "tagline": "Prepare for the German citizenship test in your language",
+        "description": "Practice the Leben in Deutschland questions in German and see them in Turkish, English or Arabic. Includes mock tests and plain explanations; not an official app and not connected to the BAMF.",
+        "category": "Education",
+        "audience": "Adults 18+; unofficial study aid"
+      },
+      "de": {
+        "name": "LiD Koçu",
+        "tagline": "Einbürgerungstest üben, mit Erklärungen in Ihrer Sprache",
+        "description": "Üben Sie die Fragen des Tests „Leben in Deutschland“ auf Deutsch und sehen Sie sie auf Türkisch, Englisch oder Arabisch. Mit Probetests und Erklärungen; keine amtliche App, keine Verbindung zum BAMF.",
+        "category": "Bildung",
+        "audience": "Ab 18 Jahren; inoffizielle Lernhilfe"
+      },
+      "ar": {
+        "name": "LiD Koçu",
+        "tagline": "استعد لاختبار الجنسية الألمانية بلغتك",
+        "description": "تدرّب على أسئلة اختبار «Leben in Deutschland» بالألمانية وشاهدها بالعربية أو التركية أو الإنجليزية. يتضمن اختبارات تجريبية وشروحًا مبسّطة، وهو تطبيق غير رسمي لا يرتبط بـ BAMF.",
+        "category": "تعليم",
+        "audience": "للبالغين 18 عامًا فأكثر؛ أداة تحضير غير رسمية"
+      }
+    },
+    {
+      "slug": "miyo",
+      "package": "com.nilkaren.miyo",
+      "icon": "icons/miyo.png",
+      "icon_192": "icons/miyo-192.webp",
+      "status": "coming_soon",
+      "status_note": "README_TR is a pre-release guide: it says to upload the AAB to internal testing, then closed testing (12 testers x 14 days for new personal accounts). Store listings (v2) and Play forms are prepared; the repo does not say the app is on Play yet.",
+      "category": "Game - Simulation",
+      "audience": "For children aged 6-12 and families",
+      "tr": {
+        "name": "Miyo",
+        "tagline": "Sevimli bir ev kedisi ol: yaramazlık, rüya ve yeni arkadaşlar",
+        "description": "Miyo, çocuklara ve ailelere uygun, rahatlatıcı bir 3D ev kedisi oyunudur. Evi bir kedinin gözünden keşfet, minik yaramazlıklar yap ve rüyanda ay ışığındaki bir sokağa çık.",
+        "category": "Oyun - Simülasyon",
+        "audience": "Çocuklar (6-12 yaş) ve aileler için"
+      },
+      "en": {
+        "name": "Miyo",
+        "tagline": "Be a cute house cat: mischief, dreams and new friends",
+        "description": "Miyo is a relaxing 3D house cat game that is suitable for kids and families. Explore the house through a cat's eyes, get up to a little mischief and dream of a moonlit street.",
+        "category": "Game - Simulation",
+        "audience": "For children aged 6-12 and families"
+      },
+      "de": {
+        "name": "Miyo",
+        "tagline": "Eine süße Hauskatze sein: Unfug, Träume, neue Freunde",
+        "description": "Miyo ist ein entspannendes 3D-Spiel über eine Hauskatze, geeignet für Kinder und Familien. Das Haus aus Katzensicht erkunden, kleine Streiche anstellen und von einer mondbeschienenen Straße träumen.",
+        "category": "Spiel - Simulation",
+        "audience": "Für Kinder von 6 bis 12 Jahren und Familien"
+      },
+      "ar": {
+        "name": "Miyo",
+        "tagline": "كن قطة منزلية لطيفة: مقالب وأحلام وأصدقاء جدد",
+        "description": "«ميو» لعبة ثلاثية الأبعاد مريحة عن قطة منزلية، مناسبة للأطفال والعائلات. استكشف البيت بعيني قطة، وافعل بعض المقالب الصغيرة، واحلم بشارع تحت ضوء القمر.",
+        "category": "لعبة - محاكاة",
+        "audience": "للأطفال من 6 إلى 12 عامًا وللعائلات"
+      }
+    },
+    {
+      "slug": "tidy-nook",
+      "package": "com.tidynook.game",
+      "icon": "icons/tidy-nook.png",
+      "icon_192": "icons/tidy-nook-192.webp",
+      "status": "live",
+      "status_note": "Repo docs (docs/FLUTTER_PORT.md, MONETIZATION.md) say the package is 'already on Google Play' and that AdMob can review it right away; store listing for v1.1.0 (versionCode 4) is prepared. The repo does not say which track (production vs testing) it is on.",
+      "category": "Game - Puzzle",
+      "audience": "Ages 13+",
+      "tr": {
+        "name": "Tidy Nook",
+        "tagline": "Kutuları düzenle, evini döşe, rahatla",
+        "description": "Dağınık kutuları tek tek düzenlediğin rahatlatıcı bir bulmaca oyunu: süre yok, kaybetmek yok. 30 el yapımı bölüm, sonsuz bonus kutular ve her gün yeni bir kutu seni bekliyor.",
+        "category": "Oyun - Bulmaca",
+        "audience": "13 yaş ve üzeri"
+      },
+      "en": {
+        "name": "Tidy Nook",
+        "tagline": "Unpack cozy boxes, fill your home and relax",
+        "description": "A cozy organizing puzzle where you put messy boxes in order, one item at a time: no timers, no way to lose. 30 handmade levels, endless bonus boxes and a new box every day.",
+        "category": "Game - Puzzle",
+        "audience": "Ages 13+"
+      },
+      "de": {
+        "name": "Tidy Nook",
+        "tagline": "Kartons aufräumen, Zuhause einrichten, entspannen",
+        "description": "Ein gemütliches Aufräum-Puzzlespiel, in dem Sie chaotische Kartons Stück für Stück ordnen: kein Zeitlimit, kein Verlieren. 30 handgemachte Level, endlose Bonusboxen und jeden Tag eine neue Box.",
+        "category": "Spiel - Rätsel",
+        "audience": "Ab 13 Jahren"
+      },
+      "ar": {
+        "name": "Tidy Nook",
+        "tagline": "رتّب الصناديق وأثّث بيتك واسترخِ",
+        "description": "لعبة ألغاز مريحة ترتّب فيها الصناديق الفوضوية قطعةً بعد قطعة، بلا وقت محدد وبلا خسارة. 30 مرحلة مصممة يدويًا وصناديق إضافية بلا نهاية وصندوق جديد كل يوم.",
+        "category": "لعبة - ألغاز",
+        "audience": "من 13 عامًا فأكثر"
+      }
+    },
+    {
+      "slug": "bereket-ciftligi",
+      "package": "com.bereketciftligi.game",
+      "icon": "icons/bereket-ciftligi.png",
+      "icon_192": "icons/bereket-ciftligi-192.webp",
+      "status": "coming_soon",
+      "status_note": "README: Flutter port (v13) written without a Flutter SDK; nothing compiled, no tests run, no screenshots taken. Play Console side (remove_ads product, AdMob IDs, data safety) is listed as outside the repo. No store listing text and no Play release in the repo.",
+      "category": "Game - Simulation (farm management)",
+      "audience": "Ages 13+",
+      "tr": {
+        "name": "Bereket Çiftliği",
+        "tagline": "Çiftliğini yönet: tarlalar, hayvanlar, işçiler",
+        "description": "Kuşbakışı bir çiftlik oyunu: araç sür, işçilerini, tarlalarını ve hayvanlarını yönet. Hesap defterini tut; pazar, sipariş ve kredi işleriyle ilgilen.",
+        "category": "Oyun - Simülasyon (çiftlik yönetimi)",
+        "audience": "13 yaş ve üzeri"
+      },
+      "en": {
+        "name": "Bereket Farm",
+        "tagline": "Run your farm: fields, animals and workers",
+        "description": "A top-down farm game: drive vehicles and manage your workers, fields and animals. Keep the ledger and deal with the market, orders and credit.",
+        "category": "Game - Simulation (farm management)",
+        "audience": "Ages 13+"
+      },
+      "de": {
+        "name": "Bereket-Hof",
+        "tagline": "Führen Sie Ihren Hof: Felder, Tiere und Arbeiter",
+        "description": "Ein Hofspiel aus der Vogelperspektive: Fahren Sie Fahrzeuge und verwalten Sie Arbeiter, Felder und Tiere. Führen Sie das Kassenbuch und kümmern Sie sich um Markt, Aufträge und Kredit.",
+        "category": "Spiel - Simulation (Hofverwaltung)",
+        "audience": "Ab 13 Jahren"
+      },
+      "ar": {
+        "name": "مزرعة البركة",
+        "tagline": "أدر مزرعتك: حقول وحيوانات وعمال",
+        "description": "لعبة مزرعة بمنظور علوي: قد المركبات وأدر العمال والحقول والحيوانات. دوّن حساباتك في دفتر الحسابات وتعامل مع السوق والطلبات والقروض.",
+        "category": "لعبة - محاكاة (إدارة مزرعة)",
+        "audience": "من 13 عامًا فأكثر"
+      }
+    }
+  ],
+  "studio": {
+    "tr": {
+      "intro": "Demir Games Studio, Türkiye'den küçük, bağımsız bir aile stüdyosudur; mobil oyunlar ve uygulamalar yapıyoruz. Tüm uygulamalarımız Türkçe, İngilizce, Almanca ve Arapça olarak sunulur.",
+      "support": "Yardım, hata bildirimi veya veri silme talebi için nilkaren.tuncay.demir@gmail.com adresine e-posta gönderebilirsiniz. En kısa sürede yanıt vermeye çalışırız."
+    },
+    "en": {
+      "intro": "Demir Games Studio is a small, independent family studio from Turkey making mobile games and apps. All of our apps are available in Turkish, English, German and Arabic.",
+      "support": "For help, bug reports or data-deletion requests, email nilkaren.tuncay.demir@gmail.com. We will reply as soon as possible."
+    },
+    "de": {
+      "intro": "Demir Games Studio ist ein kleines, unabhängiges Familienstudio aus der Türkei, das mobile Spiele und Apps entwickelt. Alle unsere Apps gibt es auf Türkisch, Englisch, Deutsch und Arabisch.",
+      "support": "Bei Fragen, Fehlermeldungen oder Anträgen auf Datenlöschung schreiben Sie bitte an nilkaren.tuncay.demir@gmail.com. Wir antworten so schnell wie möglich."
+    },
+    "ar": {
+      "intro": "«Demir Games Studio» استوديو عائلي صغير ومستقل من تركيا، يصنع ألعابًا وتطبيقات للهاتف المحمول. جميع تطبيقاتنا متوفرة بالتركية والإنجليزية والألمانية والعربية.",
+      "support": "للحصول على المساعدة أو للإبلاغ عن الأخطاء أو لطلب حذف البيانات، راسلونا على nilkaren.tuncay.demir@gmail.com. سنرد في أقرب وقت ممكن."
+    }
+  },
+  "ui": {
+    "tr": {
+      "nav_apps": "Uygulamalar",
+      "nav_privacy": "Gizlilik",
+      "nav_support": "Destek",
+      "get_on_google_play": "Google Play'den indir",
+      "privacy_policy": "Gizlilik politikası",
+      "coming_soon": "Çok yakında",
+      "in_testing": "Test aşamasında",
+      "available": "Yayında",
+      "language": "Dil",
+      "footer": "© 2026 Demir Games Studio",
+      "skip_to_content": "İçeriğe geç",
+      "back_to_studio": "Stüdyoya dön",
+      "about_title": "Hakkımızda",
+      "support_title": "Destek",
+      "open_app_page": "Uygulama sayfasını aç",
+      "category": "Kategori",
+      "audience": "Hedef kitle",
+      "status": "Durum",
+      "invitation_not_found": "Bu davetiye bulunamadı",
+      "invitation_check_link": "Aldığınız bağlantıyı kontrol edin",
+      "not_found_title": "Sayfa bulunamadı",
+      "not_found_text": "Aradığınız sayfa yok ya da taşınmış olabilir. Stüdyo ana sayfasına dönebilirsiniz."
+    },
+    "en": {
+      "nav_apps": "Apps",
+      "nav_privacy": "Privacy",
+      "nav_support": "Support",
+      "get_on_google_play": "Get it on Google Play",
+      "privacy_policy": "Privacy policy",
+      "coming_soon": "Coming soon",
+      "in_testing": "In testing",
+      "available": "Available",
+      "language": "Language",
+      "footer": "© 2026 Demir Games Studio",
+      "skip_to_content": "Skip to content",
+      "back_to_studio": "Back to studio",
+      "about_title": "About us",
+      "support_title": "Support",
+      "open_app_page": "Open app page",
+      "category": "Category",
+      "audience": "Audience",
+      "status": "Status",
+      "invitation_not_found": "This invitation could not be found",
+      "invitation_check_link": "Check the link you received",
+      "not_found_title": "Page not found",
+      "not_found_text": "The page you are looking for does not exist or may have moved. You can go back to the studio home page."
+    },
+    "de": {
+      "nav_apps": "Apps",
+      "nav_privacy": "Datenschutz",
+      "nav_support": "Support",
+      "get_on_google_play": "Jetzt bei Google Play",
+      "privacy_policy": "Datenschutzerklärung",
+      "coming_soon": "Demnächst",
+      "in_testing": "In der Testphase",
+      "available": "Verfügbar",
+      "language": "Sprache",
+      "footer": "© 2026 Demir Games Studio",
+      "skip_to_content": "Zum Inhalt springen",
+      "back_to_studio": "Zurück zum Studio",
+      "about_title": "Über uns",
+      "support_title": "Support",
+      "open_app_page": "App-Seite öffnen",
+      "category": "Kategorie",
+      "audience": "Zielgruppe",
+      "status": "Status",
+      "invitation_not_found": "Diese Einladung wurde nicht gefunden",
+      "invitation_check_link": "Prüfen Sie den Link, den Sie erhalten haben",
+      "not_found_title": "Seite nicht gefunden",
+      "not_found_text": "Die gesuchte Seite existiert nicht oder wurde verschoben. Sie können zur Startseite des Studios zurückkehren."
+    },
+    "ar": {
+      "nav_apps": "التطبيقات",
+      "nav_privacy": "الخصوصية",
+      "nav_support": "الدعم",
+      "get_on_google_play": "احصل عليه من Google Play",
+      "privacy_policy": "سياسة الخصوصية",
+      "coming_soon": "قريبًا",
+      "in_testing": "قيد الاختبار",
+      "available": "متوفر",
+      "language": "اللغة",
+      "footer": "© 2026 Demir Games Studio",
+      "skip_to_content": "انتقل إلى المحتوى",
+      "back_to_studio": "العودة إلى الاستوديو",
+      "about_title": "من نحن",
+      "support_title": "الدعم",
+      "open_app_page": "افتح صفحة التطبيق",
+      "category": "الفئة",
+      "audience": "الجمهور المستهدف",
+      "status": "الحالة",
+      "invitation_not_found": "تعذّر العثور على هذه الدعوة",
+      "invitation_check_link": "تحقق من الرابط الذي وصلك",
+      "not_found_title": "الصفحة غير موجودة",
+      "not_found_text": "الصفحة التي تبحث عنها غير موجودة أو ربما نُقلت. يمكنك العودة إلى الصفحة الرئيسية للاستوديو."
+    }
+  }
+}

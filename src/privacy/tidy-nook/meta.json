@@ -1,0 +1,12 @@
+{
+  "slug": "tidy-nook",
+  "name": "Tidy Nook",
+  "package": "com.tidynook.game",
+  "titles": {
+    "tr": "Tidy Nook – Gizlilik Politikası",
+    "en": "Tidy Nook – Privacy Policy",
+    "de": "Tidy Nook – Datenschutzerklärung",
+    "ar": "Tidy Nook – سياسة الخصوصية"
+  },
+  "data_safety_notes": "Tidy Nook (com.tidynook.game), version 1.1. Contains ads = Yes (interstitial + rewarded; no banner). In-app products: remove_ads and supporter_pack (both one-time). Data collected and shared: Device or other IDs (Advertising ID via AdMob; Firebase app instance ID / installation ID via Analytics and Crashlytics) - Advertising, Analytics, diagnostics; App activity (level start/complete, bonus/daily complete, interstitial and rewarded events) - Analytics; App info and performance (crash logs, diagnostics, device model/OS) - Analytics, diagnostics; Approximate location (from IP) - Advertising, Analytics; Purchase history via Google Play (entitlement only) - app functionality. Notifications permission (POST_NOTIFICATIONS) and RECEIVE_BOOT_COMPLETED are for a local daily reminder (no data collected). Google Play In-App Review API used (no data to developer). Shared with Google as service providers. Encrypted in transit. No account. AD_ID declared. Ads max content rating Teen; not child-directed; target audience general (13+)."
+}

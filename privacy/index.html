@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Demir Games Studio</title>
+<meta name="description" content="Privacy · Demir Games Studio">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>
+(function(){
+  var L=["tr","en","de","ar"], q=new URLSearchParams(location.search).get("lang");
+  var pick=L.indexOf(q)>=0?q:null;
+  if(!pick){var n=(navigator.languages||[navigator.language||"en"]);
+    for(var i=0;i<n.length&&!pick;i++){var c=(n[i]||"").slice(0,2).toLowerCase();if(L.indexOf(c)>=0)pick=c;}}
+  pick=pick||"en";
+  document.documentElement.setAttribute("data-lang",pick);
+  document.addEventListener("DOMContentLoaded",function(){
+    function show(l){
+      document.querySelectorAll("[data-panel]").forEach(function(p){p.hidden=p.getAttribute("data-panel")!==l;});
+      document.querySelectorAll("[data-tab]").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-tab")===l?"true":"false");});
+      document.documentElement.lang=l; document.documentElement.dir=(l==="ar")?"rtl":"ltr";
+      var t=document.querySelector('[data-panel="'+l+'"]'); if(t&&t.dataset.title) document.title=t.dataset.title;
+    }
+    document.querySelectorAll("[data-tab]").forEach(function(b){b.addEventListener("click",function(){
+      var l=b.getAttribute("data-tab"); show(l);
+      try{history.replaceState(null,"","?lang="+l);}catch(e){}
+    });});
+    show(pick);
+  });
+})();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32"><span>Demir Games Studio</span></a>
+    
+  </div>
+</header>
+<main id="main">
+<div class="wrap doc">
+  <div class="tabs" role="group" aria-label="Language / Dil / Sprache / اللغة"><button type="button" data-tab="tr" lang="tr" aria-pressed="false">Türkçe</button><button type="button" data-tab="en" lang="en" aria-pressed="false">English</button><button type="button" data-tab="de" lang="de" aria-pressed="false">Deutsch</button><button type="button" data-tab="ar" lang="ar" aria-pressed="false">العربية</button></div>
+<section data-panel="tr" lang="tr" dir="ltr" data-title="Gizlilik · Demir Games Studio"><p class="back"><a href="/tr/">Stüdyoya dön</a></p>
+<h1>Gizlilik</h1>
+<ul class="plist"><li><a href="/privacy/arrowtile/?lang=tr">Arrowtile – Gizlilik Politikası</a></li><li><a href="/privacy/lid-kocu/?lang=tr">LiD Koçu – Gizlilik Politikası</a></li><li><a href="/privacy/miyo/?lang=tr">Miyo: Kedi Simülatörü 3D - Gizlilik Politikası</a></li><li><a href="/privacy/tidy-nook/?lang=tr">Tidy Nook – Gizlilik Politikası</a></li><li><a href="/privacy/bereket-ciftligi/?lang=tr">Bereket Çiftliği - Gizlilik Politikası</a></li></ul>
+</section>
+<section data-panel="en" lang="en" dir="ltr" data-title="Privacy · Demir Games Studio"><p class="back"><a href="/en/">Back to studio</a></p>
+<h1>Privacy</h1>
+<ul class="plist"><li><a href="/privacy/arrowtile/?lang=en">Arrowtile – Privacy Policy</a></li><li><a href="/privacy/lid-kocu/?lang=en">LiD Koçu – Privacy Policy</a></li><li><a href="/privacy/miyo/?lang=en">Miyo: Cat Simulator 3D - Privacy Policy</a></li><li><a href="/privacy/tidy-nook/?lang=en">Tidy Nook – Privacy Policy</a></li><li><a href="/privacy/bereket-ciftligi/?lang=en">Bereket Farm - Privacy Policy</a></li></ul>
+</section>
+<section data-panel="de" lang="de" dir="ltr" data-title="Datenschutz · Demir Games Studio"><p class="back"><a href="/de/">Zurück zum Studio</a></p>
+<h1>Datenschutz</h1>
+<ul class="plist"><li><a href="/privacy/arrowtile/?lang=de">Arrowtile – Datenschutzerklärung</a></li><li><a href="/privacy/lid-kocu/?lang=de">LiD Koçu – Datenschutzerklärung</a></li><li><a href="/privacy/miyo/?lang=de">Miyo: Katzensimulator 3D - Datenschutzerklärung</a></li><li><a href="/privacy/tidy-nook/?lang=de">Tidy Nook – Datenschutzerklärung</a></li><li><a href="/privacy/bereket-ciftligi/?lang=de">Bereket Çiftliği (Bereket Farm) - Datenschutzerklärung</a></li></ul>
+</section>
+<section data-panel="ar" lang="ar" dir="rtl" data-title="الخصوصية · Demir Games Studio"><p class="back"><a href="/ar/">العودة إلى الاستوديو</a></p>
+<h1>الخصوصية</h1>
+<ul class="plist"><li><a href="/privacy/arrowtile/?lang=ar">Arrowtile – سياسة الخصوصية</a></li><li><a href="/privacy/lid-kocu/?lang=ar">LiD Koçu – سياسة الخصوصية</a></li><li><a href="/privacy/miyo/?lang=ar">Miyo: محاكي القطة ثلاثي الأبعاد - سياسة الخصوصية</a></li><li><a href="/privacy/tidy-nook/?lang=ar">Tidy Nook – سياسة الخصوصية</a></li><li><a href="/privacy/bereket-ciftligi/?lang=ar">بيريكت تشيفتليغي (مزرعة البركة) - سياسة الخصوصية</a></li></ul>
+</section>
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p><bdi>© 2026 Demir Games Studio</bdi> · <a href="mailto:nilkaren.tuncay.demir@gmail.com">nilkaren.tuncay.demir@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

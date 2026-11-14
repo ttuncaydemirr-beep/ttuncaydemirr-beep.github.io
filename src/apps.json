@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {"slug": "arrowtile", "status": "testing"},
+    {"slug": "lid-kocu", "status": "testing"},
+    {"slug": "miyo", "status": "testing"},
+    {"slug": "tidy-nook", "status": "testing"},
+    {"slug": "bereket-ciftligi", "status": "soon"}
+  ]
+}

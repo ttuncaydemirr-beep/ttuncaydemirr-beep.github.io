@@ -1,0 +1,12 @@
+{
+  "slug": "bereket-ciftligi",
+  "name": "Bereket Çiftliği",
+  "package": "com.bereketciftligi.game",
+  "titles": {
+    "tr": "Bereket Çiftliği - Gizlilik Politikası",
+    "en": "Bereket Farm - Privacy Policy",
+    "de": "Bereket Çiftliği (Bereket Farm) - Datenschutzerklärung",
+    "ar": "بيريكت تشيفتليغي (مزرعة البركة) - سياسة الخصوصية"
+  },
+  "data_safety_notes": "Target audience 13+, not child-directed. No accounts, chat or developer servers; save game, settings, ad cooldown timestamp and ads-removed flag stored only on device (shared_preferences). Google Mobile Ads SDK (AdMob, rewarded ads only, max content rating T) collects/shares for advertising/marketing, analytics and fraud prevention/security: approximate location (from IP), app interactions, diagnostics, device or other IDs (Android advertising ID; AD_ID permission is declared). Personalization subject to Google UMP consent in EEA/UK/CH (Ad preferences entry in Settings). Purchases: one-time in-app product remove_ads via Google Play Billing; developer receives no payment details (Play handles; declare Purchase history only if Play console requires it). Data encrypted in transit. No deletion request mechanism needed beyond uninstall/clear data; contact email provided. Declare Advertising ID usage in the Play Console 'Advertising ID' form (used for advertising)."
+}
