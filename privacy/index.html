@@ -14,7 +14,7 @@
   if(!pick){var n=(navigator.languages||[navigator.language||"en"]);
     for(var i=0;i<n.length&&!pick;i++){var c=(n[i]||"").slice(0,2).toLowerCase();if(L.indexOf(c)>=0)pick=c;}}
   pick=pick||"en";
-  document.documentElement.setAttribute("data-lang",pick);
+  document.documentElement.setAttribute("data-lang",pick); document.documentElement.classList.add("js");
   document.addEventListener("DOMContentLoaded",function(){
     function show(l){
       document.querySelectorAll("[data-panel]").forEach(function(p){p.hidden=p.getAttribute("data-panel")!==l;});

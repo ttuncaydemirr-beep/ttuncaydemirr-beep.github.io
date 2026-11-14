@@ -129,3 +129,4 @@ img{max-width:100%;height:auto}
 .actions .link,.actions .btn{padding-block:.6rem;display:inline-block}
 .foot a{display:inline-block;padding-block:.5rem}
 .doc{overflow-wrap:anywhere}.doc td,.doc th{overflow-wrap:normal;min-width:8rem}
+.tabs{display:none}.js .tabs{display:flex}
