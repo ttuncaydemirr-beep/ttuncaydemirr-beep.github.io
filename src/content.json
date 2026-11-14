@@ -189,6 +189,44 @@
         "category": "لعبة - محاكاة (إدارة مزرعة)",
         "audience": "من 13 عامًا فأكثر"
       }
+    },
+    {
+      "slug": "zarfla",
+      "package": "com.demirgamesstudio.zarfla",
+      "icon": "icons/zarfla.png",
+      "icon_192": "icons/zarfla-192.webp",
+      "status": "coming_soon",
+      "status_note": "Zarfla (Flutter, Android): davetiyeler bu sitede /davetiye/ adresinde acilir. Play yayini henuz yok; paket adi staging/google-services.json'dan alindi.",
+      "category": "Application - Lifestyle (digital invitations)",
+      "audience": "Ages 13+",
+      "tr": {
+        "name": "Zarfla",
+        "tagline": "Dijital davetiyeni dakikalar içinde hazırla",
+        "description": "Düğün, nişan, doğum günü ve daha fazlası için şık bir davetiye hazırla; tek bir bağlantıyla WhatsApp'tan paylaş. Davetlilerin yanıtı doğrudan sana ulaşır.",
+        "category": "Uygulama - Yaşam tarzı (dijital davetiye)",
+        "audience": "13 yaş ve üzeri"
+      },
+      "en": {
+        "name": "Zarfla",
+        "tagline": "Create your digital invitation in minutes",
+        "description": "Design an elegant invitation for a wedding, engagement, birthday and more, and share it on WhatsApp with a single link. Guests' replies reach you directly.",
+        "category": "App - Lifestyle (digital invitations)",
+        "audience": "Ages 13+"
+      },
+      "de": {
+        "name": "Zarfla",
+        "tagline": "Gestalten Sie Ihre digitale Einladung in Minuten",
+        "description": "Gestalten Sie eine stilvolle Einladung für Hochzeit, Verlobung, Geburtstag und mehr und teilen Sie sie per WhatsApp mit einem einzigen Link. Die Antworten der Gäste erreichen Sie direkt.",
+        "category": "App - Lifestyle (digitale Einladungen)",
+        "audience": "Ab 13 Jahren"
+      },
+      "ar": {
+        "name": "Zarfla",
+        "tagline": "حضّر دعوتك الرقمية في دقائق",
+        "description": "صمّم دعوة أنيقة لحفل زفاف أو خطوبة أو عيد ميلاد وغيرها، وشاركها عبر واتساب برابط واحد. تصلك ردود الضيوف مباشرة.",
+        "category": "تطبيق - أسلوب حياة (دعوات رقمية)",
+        "audience": "من عمر 13 سنة فما فوق"
+      }
     }
   ],
   "studio": {

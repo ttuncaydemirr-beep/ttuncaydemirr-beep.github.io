@@ -133,7 +133,7 @@ def build_home(lang):
     strip = "".join(
         f'<li><a href="#{esc(c["slug"])}"><img src="/assets/icons/{Path(apps_by_slug[c["slug"]]["icon_192"]).name}" '
         f'alt="{esc(apps_by_slug[c["slug"]][lang]["name"])}" width="72" height="72"></a></li>'
-        for c in apps_cfg["apps"])
+        for c in apps_cfg["apps"] if apps_by_slug[c["slug"]].get("icon_192"))
     body = f"""<section class="hero">
   <div class="wrap">
     <div class="hero-text">
@@ -230,13 +230,55 @@ def build_privacy():
     out.write_text(multilang_page(titles, panels), encoding="utf-8")
 
 
-def build_invitation_placeholder():
-    panels = {l: (f'<h1>{esc(ui(l, "invitation_not_found"))}</h1>\n<p>{esc(ui(l, "invitation_check_link"))}</p>')
-              for l in LANGS}
-    titles = {l: ui(l, "invitation_not_found") for l in LANGS}
-    out = ROOT / "davetiye" / "index.html"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(multilang_page(titles, panels, noindex=True), encoding="utf-8")
+INVITE_CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; "
+              "img-src 'self' data: https://firebasestorage.googleapis.com; font-src 'self'; "
+              "connect-src https://firestore.googleapis.com; base-uri 'none'; form-action 'none'")
+INVITE_TITLE = "Davetiye \u00b7 Zarfla"
+INVITE_DESC = "Size \u00f6zel bir davetiye var."
+
+
+def build_invite():
+    """/davetiye/: davetli sayfas\u0131. Motor (src/invite/engine.html) Zarfla uygulama deposundaki
+    assets/invite/invite.html'in birebir kopyas\u0131d\u0131r; g\u00f6rsel/animasyon koduna dokunulmaz. Burada yaln\u0131zca
+    <head> (CSP, noindex, OG, yaz\u0131 tipi) eklenir ve motorun boot blo\u011fu site y\u00fckleyicisiyle (loader.js) de\u011fi\u015ftirilir."""
+    inv = SRC / "invite"
+    h = (inv / "engine.html").read_text(encoding="utf-8")
+
+    def sub(old, new):
+        nonlocal h
+        assert h.count(old) == 1, f"engine.html'de beklenen par\u00e7a bulunamad\u0131: {old[:50]}"
+        h = h.replace(old, new)
+
+    sub('<meta name="robots" content="noindex">', '<meta name="robots" content="noindex,nofollow">')
+    sub("<title>Zarfla</title>", f"<title>{INVITE_TITLE}</title>")
+    og = f"{SITE_URL}/davetiye/og.png"
+    head = f"""<meta http-equiv="Content-Security-Policy" content="{INVITE_CSP}">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#F7F1E8">
+<meta name="description" content="{INVITE_DESC}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zarfla">
+<meta property="og:title" content="{INVITE_TITLE}">
+<meta property="og:description" content="{INVITE_DESC}">
+<meta property="og:image" content="{og}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icons/zarfla-192.png" type="image/png">
+"""
+    sub('<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="noindex,nofollow">\n' + head.rstrip("\n"))
+    # Motorun kendi yaz\u0131 tipi bildirimi var olmayan ../fonts/ yoluna bak\u0131yordu; sitenin Noto Sans Arabic dosyas\u0131na y\u00f6nlendirilir.
+    sub('url("../fonts/NotoNaskhArabic.ttf") format("truetype")', 'url("../assets/fonts/NotoSansArabic-400-700.woff") format("woff")')
+    sub("</style>\n</head>", "</style>\n<style>\n" + (inv / "states.css").read_text(encoding="utf-8") + "</style>\n</head>")
+    i = h.index("(function boot(){")
+    j = h.index("</script>", i)
+    h = h[:i] + (inv / "loader.js").read_text(encoding="utf-8") + h[j:]
+    sub("<body>\n", "<body>\n<noscript><div class=\"zs-nojs\">JavaScript gerekli \u00b7 JavaScript required</div></noscript>\n")
+    out = ROOT / "davetiye"
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "index.html").write_text(h, encoding="utf-8")
+    shutil.copyfile(inv / "og.png", out / "og.png")
 
 
 def build_root_and_404():
@@ -295,7 +337,7 @@ if __name__ == "__main__":
     for l in LANGS:
         build_home(l)
     build_privacy()
-    build_invitation_placeholder()
+    build_invite()
     build_root_and_404()
     build_sitemap()
     print("Site üretildi.")

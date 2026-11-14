@@ -1,0 +1,12 @@
+{
+  "slug": "zarfla",
+  "name": "Zarfla",
+  "package": "com.demirgamesstudio.zarfla",
+  "titles": {
+    "tr": "Zarfla - Gizlilik Politikası",
+    "en": "Zarfla - Privacy Policy",
+    "de": "Zarfla - Datenschutzerklärung",
+    "ar": "Zarfla - سياسة الخصوصية"
+  },
+  "data_safety_notes": "Digital invitation app. User-entered invitation content (names, date, venue, message, program, photos) in Firebase Firestore/Storage (EU region) with anonymous Firebase Authentication ID; invitations are viewable by anyone with the link; free 24 h, paid 1 year, deleted at most 30 days after expiry; user can delete anytime in-app. RSVP goes via WhatsApp to the owner, not stored by Zarfla. Guest page: no ads, analytics or cookies. App: AdMob banner for non-paying users (advertising ID), Firebase Analytics (in-app only), Google Play Billing. Not directed at under-13s. Verify the consent (UMP) flow, Analytics retention setting and Firebase region against the final build before publishing."
+}
