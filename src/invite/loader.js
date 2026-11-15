@@ -62,6 +62,8 @@
     // Plan: belge alanı (fields.plan) esastır; yoksa verideki plan. "paid"/"premium" -> alt yazı yok, diğerleri -> var.
     let p=f.plan&&typeof f.plan.stringValue==="string"?f.plan.stringValue:d.plan;
     d.plan=(p==="paid"||p==="premium")?"premium":"free";
+    // Kişiye özel bağlantı (?g=Ad): ad YALNIZ adres çubuğundan okunur (motor temizler); sunucu verisindeki alan yok sayılır.
+    d.guest=(typeof guestFromUrl==="function")?guestFromUrl(location.search,location.hash):"";
     if(window.renderInvite(d)){
       const l=document.documentElement.lang;document.documentElement.dir=(l==="ar")?"rtl":"ltr";
     }
