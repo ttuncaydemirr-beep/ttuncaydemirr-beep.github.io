@@ -1,0 +1,68 @@
+# Zarfla davetiye müzikleri: manifestteki (telif kaydı onaylı) parçaları indirir, ≤90 sn MP3'e çevirir,
+# sha256'yı kaydeder, siteyi yeniden üretir ve depoya geri yazar. Yalnız elle çalıştırılır.
+name: Müzik dosyalarını getir
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Yalnız bu parça kimliği (boş = hepsi)"
+        required: false
+        default: ""
+      force:
+        description: "Güncel olsa da yeniden üret"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-music
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: ffmpeg kur
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -version | head -1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python bağımlılıkları (build.py ekran görüntüsü boyutları için Pillow)
+        run: pip install --quiet pillow
+
+      - name: Parçaları indir ve dönüştür
+        env:
+          ONLY: ${{ inputs.only }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          args=""
+          if [ -n "$ONLY" ]; then args="$args --only $ONLY"; fi
+          if [ "$FORCE" = "true" ]; then args="$args --force"; fi
+          python3 tools/fetch_music.py $args
+
+      - name: Siteyi üret
+        run: python3 tools/build.py
+
+      - name: Depoya yaz
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A src/music music
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok."
+            exit 0
+          fi
+          git commit -m "Müzik: davetiye parçaları güncellendi (fetch-music)"
+          git push

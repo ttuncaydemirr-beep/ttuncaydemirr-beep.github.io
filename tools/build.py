@@ -6,6 +6,7 @@ Girdiler (src/):
   apps.json               uygulamaların yayın durumu ve sırası
   tokens.css              görsel kimlik (renkler, yazı tipleri)
   privacy/<slug>/<lang>.html   gizlilik politikası parçaları
+  music/                  Zarfla davetiye müzikleri (manifest.json + <id>.mp3; .github/workflows/fetch-music.yml üretir)
 Çıktılar depo köküne yazılır. Çalıştırma:  python3 tools/build.py
 """
 import html
@@ -231,7 +232,7 @@ def build_privacy():
 
 
 INVITE_CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; "
-              "img-src 'self' data: https://firebasestorage.googleapis.com; font-src 'self'; "
+              "img-src 'self' data: https://firebasestorage.googleapis.com; font-src 'self'; media-src 'self'; "
               "connect-src https://firestore.googleapis.com; base-uri 'none'; form-action 'none'")
 INVITE_TITLE = "Davetiye \u00b7 Zarfla"
 INVITE_DESC = "Size \u00f6zel bir davetiye var."
@@ -323,6 +324,32 @@ def copy_assets():
     out.write_text(css, encoding="utf-8")
 
 
+def build_music():
+    """/music/: Zarfla davetiye müzikleri. YALNIZ manifest.json'da listelenen (telif kaydı onaylı) mp3'ler
+    kopyalanır; listede olmayan dosya yayımlanmaz. Davetli sayfası https://…/music/<id>.mp3 adresini kullanır."""
+    src = SRC / "music"
+    dst = ROOT / "music"
+    mf = src / "manifest.json"
+    if not mf.is_file():
+        return
+    manifest = json.loads(mf.read_text(encoding="utf-8"))
+    if dst.exists():
+        shutil.rmtree(dst)
+    dst.mkdir(parents=True)
+    n = 0
+    for t in manifest["tracks"]:
+        f = src / t["file"]
+        if f.is_file():
+            shutil.copyfile(f, dst / t["file"])
+            n += 1
+    # Kamuya açık künye (uygulama ve davetli sayfası atıf metinlerini buradan da doğrulayabilir)
+    credits = [{k: t[k] for k in ("id", "title", "composer", "performer", "credit", "license", "license_url", "source_page")}
+               for t in manifest["tracks"]]
+    (dst / "credits.json").write_text(json.dumps(credits, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    if n < len(manifest["tracks"]):
+        print(f"UYARI: müzik {n}/{len(manifest['tracks'])} dosya hazır (fetch-music iş akışını çalıştırın)")
+
+
 def build_sitemap():
     urls = [f"{SITE_URL}/{l}/" for l in LANGS] + [f"{SITE_URL}/privacy/"]
     urls += [f"{SITE_URL}/privacy/{c['slug']}/" for c in apps_cfg["apps"] if (SRC / "privacy" / c["slug"]).is_dir()]
@@ -338,6 +365,7 @@ if __name__ == "__main__":
         build_home(l)
     build_privacy()
     build_invite()
+    build_music()
     build_root_and_404()
     build_sitemap()
     print("Site üretildi.")
