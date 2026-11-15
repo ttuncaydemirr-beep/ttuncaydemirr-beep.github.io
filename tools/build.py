@@ -269,8 +269,11 @@ def build_invite():
 <link rel="icon" href="../assets/icons/zarfla-192.png" type="image/png">
 """
     sub('<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="noindex,nofollow">\n' + head.rstrip("\n"))
-    # Motorun kendi yaz\u0131 tipi bildirimi var olmayan ../fonts/ yoluna bak\u0131yordu; sitenin Noto Sans Arabic dosyas\u0131na y\u00f6nlendirilir.
-    sub('url("../fonts/NotoNaskhArabic.ttf") format("truetype")', 'url("../assets/fonts/NotoSansArabic-400-700.woff") format("woff")')
+    # Motorun yaz\u0131 tipi bildirimleri ../fonts/ (uygulama WebView'\u0131 yolu) kullan\u0131r; sitede dosyalar /assets/fonts/ alt\u0131nda
+    # (src/fonts \u2192 copy_assets; .github/workflows/fetch-fonts.yml Fraunces, Manrope, Noto Naskh Arabic TTF'lerini src/fonts'a koyar).
+    # Dosyalar hen\u00fcz getirilmediyse yedek zincir (site Noto Sans Arabic'i + sistem yaz\u0131 tipleri) devrede kal\u0131r.
+    assert 'url("../fonts/' in h, "engine.html'de ../fonts/ yaz\u0131 tipi yolu bulunamad\u0131"
+    h = h.replace('url("../fonts/', 'url("../assets/fonts/')
     sub("</style>\n</head>", "</style>\n<style>\n" + (inv / "states.css").read_text(encoding="utf-8") + "</style>\n</head>")
     i = h.index("(function boot(){")
     j = h.index("</script>", i)

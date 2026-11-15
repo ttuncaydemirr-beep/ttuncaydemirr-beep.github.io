@@ -1,0 +1,83 @@
+# Zarfla davetli sayfası yazı tipleri: uygulamayla aynı OFL dosyalarını (Fraunces, Fraunces İtalik, Manrope, Noto Naskh Arabic)
+# github.com/google/fonts deposundan indirir (kaynaklar Zarfla uygulama deposundaki scripts/fetch_fonts.sh ile AYNI),
+# OFL lisans metinleriyle birlikte src/fonts/ altına koyar, siteyi yeniden üretir (assets/fonts/) ve depoya geri yazar.
+# Google Fonts CDN'i kullanılmaz (izleme yok). Yalnız elle çalıştırılır; dosyalar bir kez getirilince depoda kalır.
+name: Yazı tiplerini getir
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Dosyalar varsa da yeniden indir"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-fonts
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python bağımlılıkları (build.py ekran görüntüsü boyutları için Pillow)
+        run: pip install --quiet pillow
+
+      - name: Yazı tiplerini ve lisansları indir
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          set -euo pipefail
+          BASE="https://raw.githubusercontent.com/google/fonts/main/ofl"
+          OUT="src/fonts"
+          mkdir -p "$OUT"
+          fetch() { # $1 = depo yolu (URL kodlu), $2 = hedef dosya
+            local url="$BASE/$1" dest="$OUT/$2"
+            if [ -s "$dest" ] && [ "$FORCE" != "true" ]; then echo "var: $dest"; return 0; fi
+            echo "indiriliyor: $url"
+            curl -fsSL --retry 4 --retry-delay 3 -o "$dest.tmp" "$url"
+            mv "$dest.tmp" "$dest"
+          }
+          # Değişken yazı tipleri (köşeli parantez ve virgüller URL'de kodlanır) — scripts/fetch_fonts.sh ile aynı adresler.
+          fetch "fraunces/Fraunces%5BSOFT%2CWONK%2Copsz%2Cwght%5D.ttf"        "Fraunces.ttf"
+          fetch "fraunces/Fraunces-Italic%5BSOFT%2CWONK%2Copsz%2Cwght%5D.ttf" "Fraunces-Italic.ttf"
+          fetch "manrope/Manrope%5Bwght%5D.ttf"                               "Manrope.ttf"
+          fetch "notonaskharabic/NotoNaskhArabic%5Bwght%5D.ttf"               "NotoNaskhArabic.ttf"
+          # OFL lisans metinleri (üst kaynaktan; depodaki kopyaların üzerine yazılır)
+          fetch "fraunces/OFL.txt"        "OFL-Fraunces.txt"
+          fetch "manrope/OFL.txt"         "OFL-Manrope.txt"
+          fetch "notonaskharabic/OFL.txt" "OFL-NotoNaskhArabic.txt"
+          # Doğrulama: TrueType imzası (00 01 00 00) ya da 'true'
+          for f in "$OUT"/Fraunces.ttf "$OUT"/Fraunces-Italic.ttf "$OUT"/Manrope.ttf "$OUT"/NotoNaskhArabic.ttf; do
+            sig=$(head -c 4 "$f" | od -An -tx1 | tr -d ' \n')
+            if [ "$sig" != "00010000" ] && [ "$sig" != "74727565" ]; then
+              echo "HATA: $f geçerli bir TTF değil (imza $sig)" >&2; exit 1
+            fi
+          done
+          ls -l "$OUT"
+
+      - name: Siteyi üret
+        run: python3 tools/build.py
+
+      - name: Depoya yaz
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A src/fonts assets/fonts davetiye
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok."
+            exit 0
+          fi
+          git commit -m "Yazı tipleri: davetli sayfası için Fraunces, Manrope, Noto Naskh Arabic (fetch-fonts)"
+          git push
