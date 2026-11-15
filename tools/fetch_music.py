@@ -28,7 +28,7 @@ MANIFEST = MUSIC / "manifest.json"
 MAX_SEC = 90.0
 FADE_IN = 2.0
 FADE_OUT = 4.0
-UA = "DemirGamesStudio-MusicFetch/1.0 (GitHub Actions; static site build)"
+UA = "DemirGamesStudio-MusicFetch/1.1 (https://ttuncaydemirr-beep.github.io/; static site build) python-urllib"
 
 
 def sh(*args):
@@ -49,13 +49,26 @@ def digest(p, algo):
 
 
 def download(url, dst):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=120) as r, open(dst, "wb") as f:
-        while True:
-            b = r.read(1 << 16)
-            if not b:
-                break
-            f.write(b)
+    """Wikimedia hız sınırına (429) saygılı indirme: her dosyadan önce bekler, 429/5xx'te artan beklemeyle tekrar dener."""
+    import time, urllib.error
+    time.sleep(6)
+    for attempt in range(8):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=120) as r, open(dst, "wb") as f:
+                while True:
+                    b = r.read(1 << 16)
+                    if not b:
+                        break
+                    f.write(b)
+            return
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 502, 503, 504) or attempt == 7:
+                raise
+            ra = e.headers.get("Retry-After") if e.headers else None
+            wait = int(ra) if ra and ra.isdigit() else 30 * (attempt + 1)
+            print(f"  {e.code}; {wait} sn bekleniyor (deneme {attempt + 1}/8)", flush=True)
+            time.sleep(min(wait, 300))
 
 
 def process(t, force=False):
