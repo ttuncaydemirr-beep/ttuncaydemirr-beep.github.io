@@ -20,7 +20,7 @@
 <li><strong>Anonymous identity:</strong> the app uses Firebase Authentication's anonymous sign-in. We do not ask for your name or email; a random ID is created and used to verify that an invitation belongs to you. You do not create an account.</li>
 <li><strong>Advertising ID and device information:</strong> when an ad is shown, Google's AdMob software may process the advertising ID and technical device information (section 6).</li>
 <li><strong>Usage measurement:</strong> anonymous in-app usage events through Firebase Analytics (section 6).</li>
-<li><strong>Payment:</strong> a paid invitation is bought through Google Play Billing. Your card and payment details are held by Google, not by us; we only learn that a purchase was completed.</li>
+<li><strong>Payment:</strong> a paid invitation is bought through Google Play Billing. Your card and payment details are held by Google, not by us; we only learn that a purchase was completed. To verify purchases, prevent the same payment from being used twice and handle refunds, our server keeps a purchase record: Google Play order number, purchase time, product, country/region code and your anonymous user ID. The payment token is not stored in plain form (only a hash). This record is kept for as long as legal retention obligations require and is not used for any other purpose.</li>
 </ul>
 <p>We do not request location, contacts, microphone or camera data. When you pick photos, only the images you choose are uploaded.</p>
 

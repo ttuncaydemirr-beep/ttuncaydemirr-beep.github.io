@@ -66,7 +66,7 @@
 <li><strong>Anonim kimlik:</strong> Uygulama, Firebase Authentication'ın anonim oturumunu kullanır. Adınız ya da e-postanız istenmez; rastgele bir kimlik oluşturulur ve davetiyenin size ait olduğunu doğrulamak için kullanılır. Hesap açmazsınız.</li>
 <li><strong>Reklam kimliği ve cihaz bilgileri:</strong> Reklam gösterildiğinde Google AdMob yazılımı reklam kimliği ve teknik cihaz bilgilerini işleyebilir (bölüm 6).</li>
 <li><strong>Kullanım ölçümü:</strong> Firebase Analytics ile uygulama içi anonim kullanım olayları (bölüm 6).</li>
-<li><strong>Ödeme:</strong> Ücretli yayın Google Play Faturalandırma ile yapılır. Kart ve ödeme bilgileriniz Google'dadır, bizde değildir; biz yalnızca satın alma işleminin gerçekleştiği bilgisini alırız.</li>
+<li><strong>Ödeme:</strong> Ücretli yayın Google Play Faturalandırma ile yapılır. Kart ve ödeme bilgileriniz Google'dadır, bizde değildir; biz yalnızca satın alma işleminin gerçekleştiği bilgisini alırız. Satın almayı doğrulamak, aynı ödemenin iki kez kullanılmasını ve iadeleri yönetmek için sunucumuzda bir satın alma kaydı tutarız: Google Play sipariş numarası, satın alma zamanı, ürün, ülke/bölge kodu ve anonim kullanıcı kimliğiniz. Ödeme jetonu açık hâliyle saklanmaz (yalnızca özeti tutulur). Bu kayıt yasal saklama yükümlülükleri süresince tutulur ve başka bir amaçla kullanılmaz.</li>
 </ul>
 <p>Konum, rehber, mikrofon ya da kamera verisi istemeyiz. Fotoğraf seçtiğinizde yalnızca seçtiğiniz görseller yüklenir.</p>
 
@@ -138,7 +138,7 @@
 <li><strong>Anonymous identity:</strong> the app uses Firebase Authentication's anonymous sign-in. We do not ask for your name or email; a random ID is created and used to verify that an invitation belongs to you. You do not create an account.</li>
 <li><strong>Advertising ID and device information:</strong> when an ad is shown, Google's AdMob software may process the advertising ID and technical device information (section 6).</li>
 <li><strong>Usage measurement:</strong> anonymous in-app usage events through Firebase Analytics (section 6).</li>
-<li><strong>Payment:</strong> a paid invitation is bought through Google Play Billing. Your card and payment details are held by Google, not by us; we only learn that a purchase was completed.</li>
+<li><strong>Payment:</strong> a paid invitation is bought through Google Play Billing. Your card and payment details are held by Google, not by us; we only learn that a purchase was completed. To verify purchases, prevent the same payment from being used twice and handle refunds, our server keeps a purchase record: Google Play order number, purchase time, product, country/region code and your anonymous user ID. The payment token is not stored in plain form (only a hash). This record is kept for as long as legal retention obligations require and is not used for any other purpose.</li>
 </ul>
 <p>We do not request location, contacts, microphone or camera data. When you pick photos, only the images you choose are uploaded.</p>
 
@@ -210,7 +210,7 @@
 <li><strong>Anonyme Kennung:</strong> Die App nutzt die anonyme Anmeldung von Firebase Authentication. Wir fragen weder nach Ihrem Namen noch nach Ihrer E-Mail-Adresse; es wird eine zufällige Kennung erzeugt, mit der geprüft wird, dass eine Einladung Ihnen gehört. Sie legen kein Konto an.</li>
 <li><strong>Werbe-ID und Geräteinformationen:</strong> Wenn Werbung angezeigt wird, kann die AdMob-Software von Google die Werbe-ID und technische Geräteinformationen verarbeiten (Abschnitt 6).</li>
 <li><strong>Nutzungsmessung:</strong> anonyme Nutzungsereignisse in der App über Firebase Analytics (Abschnitt 6).</li>
-<li><strong>Zahlung:</strong> Eine kostenpflichtige Einladung wird über Google Play Billing gekauft. Ihre Karten- und Zahlungsdaten liegen bei Google, nicht bei uns; wir erfahren nur, dass ein Kauf abgeschlossen wurde.</li>
+<li><strong>Zahlung:</strong> Eine kostenpflichtige Einladung wird über Google Play Billing gekauft. Ihre Karten- und Zahlungsdaten liegen bei Google, nicht bei uns; wir erfahren nur, dass ein Kauf abgeschlossen wurde. Um Käufe zu prüfen, eine doppelte Verwendung derselben Zahlung zu verhindern und Erstattungen zu bearbeiten, speichert unser Server einen Kaufdatensatz: Google-Play-Bestellnummer, Kaufzeitpunkt, Produkt, Länder-/Regionscode und Ihre anonyme Nutzer-ID. Das Zahlungstoken wird nicht im Klartext gespeichert (nur ein Hashwert). Der Datensatz wird nur so lange aufbewahrt, wie gesetzliche Aufbewahrungspflichten es verlangen, und für keinen anderen Zweck verwendet.</li>
 </ul>
 <p>Wir verlangen keine Standort-, Kontakt-, Mikrofon- oder Kameradaten. Wenn Sie Fotos auswählen, werden nur die gewählten Bilder hochgeladen.</p>
 
@@ -282,7 +282,7 @@
 <li><strong>معرّف مجهول:</strong> يستخدم التطبيق تسجيل الدخول المجهول في Firebase Authentication. لا نطلب اسمك ولا بريدك الإلكتروني؛ يُنشأ معرّف عشوائي يُستخدم للتحقق من أن الدعوة تخصّك. ولا تنشئ حسابًا.</li>
 <li><strong>معرّف الإعلانات ومعلومات الجهاز:</strong> عند عرض إعلان قد تعالج برمجيات Google AdMob معرّف الإعلانات ومعلومات تقنية عن الجهاز (القسم 6).</li>
 <li><strong>قياس الاستخدام:</strong> أحداث استخدام مجهولة داخل التطبيق عبر Firebase Analytics (القسم 6).</li>
-<li><strong>الدفع:</strong> تُشترى الدعوة المدفوعة عبر الفوترة في Google Play. بيانات بطاقتك والدفع لدى Google وليست لدينا؛ نعلم فقط أن عملية الشراء تمّت.</li>
+<li><strong>الدفع:</strong> تُشترى الدعوة المدفوعة عبر الفوترة في Google Play. بيانات بطاقتك والدفع لدى Google وليست لدينا؛ نعلم فقط أن عملية الشراء تمّت. وللتحقق من عمليات الشراء ومنع استخدام الدفعة نفسها مرتين ومعالجة المبالغ المستردة، يحتفظ خادمنا بسجل شراء: رقم طلب Google Play، ووقت الشراء، والمنتج، ورمز البلد/المنطقة، ومعرّف المستخدم المجهول. لا يُخزَّن رمز الدفع بصيغته الأصلية (نحتفظ ببصمته فقط). يُحفظ هذا السجل طوال مدة الالتزامات القانونية للحفظ ولا يُستخدم لأي غرض آخر.</li>
 </ul>
 <p>لا نطلب بيانات الموقع أو جهات الاتصال أو الميكروفون أو الكاميرا. وعند اختيار الصور تُرفع الصور التي تختارها فقط.</p>
 
