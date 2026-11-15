@@ -18,8 +18,8 @@
       "source_sha1": "0730a9c2da57a5ddbef66e670334764f49ee96b1",
       "start": 0,
       "file": "dugun-wagner.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "c1879f98fb2b1fe31e27a43b7f0c183c1d8ef6f6eb2674d526055e025d2771c8",
+      "duration": 90.04
     },
     {
       "id": "dugun-handel",
@@ -36,8 +36,8 @@
       "source_sha1": "2d485a41b7b13daee4b31451b9987f2f12cda30c",
       "start": 0,
       "file": "dugun-handel.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "181fe3cf163ebe2dd07a2ea17f96d9092579524156cbce826761f54ce7f98c94",
+      "duration": 90.04
     },
     {
       "id": "dugun-mozart",
@@ -54,8 +54,8 @@
       "source_sha1": "4c98a9f0e3e7e370d44bb8db5fb4e565d6943b34",
       "start": 0,
       "file": "dugun-mozart.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "976802f170c317d26012721ec7ef7d542c1ad9766fc67c2f31b57ca738233a23",
+      "duration": 90.04
     },
     {
       "id": "kina-desert-city",
@@ -72,8 +72,8 @@
       "source_sha1": "",
       "start": 0,
       "file": "kina-desert-city.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "ab2a6d53ffaced81f9a41f8028d2ee38d5ec35512f564d39e4c98eee91a45300",
+      "duration": 89.39
     },
     {
       "id": "nisan-heartwarming",
@@ -90,8 +90,8 @@
       "source_sha1": "6214ff95935a63ae41665c83acec3b70adba3334",
       "start": 0,
       "file": "nisan-heartwarming.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "21c72f9187a31ec589152cc5ab0dc4fb15aee2c3c7095b937831fb99cfa5a77c",
+      "duration": 72.07
     },
     {
       "id": "cocuk-monkeys",
@@ -108,8 +108,8 @@
       "source_sha1": "6937f8d7b10b2a6c695f525d6a6fabe8aad1634d",
       "start": 0,
       "file": "cocuk-monkeys.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "1aa623b8f5ca953628a5ccd035dbb30526c059dc298bb141656e29b8326ac68d",
+      "duration": 90.04
     },
     {
       "id": "cocuk-balloon",
@@ -126,8 +126,8 @@
       "source_sha1": "bedc0c461c5b7a37cf17c6a818263dc4922cb622",
       "start": 0,
       "file": "cocuk-balloon.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "38c90b482e5d41324a2689148ac08ff9dd051aadf0bba7fc69f7b3cb20a65d78",
+      "duration": 90.04
     },
     {
       "id": "cocuk-pookatori",
@@ -144,8 +144,8 @@
       "source_sha1": "edcbdd689ffc726da714505a1cee2d6583b65e3b",
       "start": 0,
       "file": "cocuk-pookatori.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "57c8b5d54cb49e829a24a43bb3526819836d1be2d95fae21c6808c0e6c69a5e8",
+      "duration": 90.04
     },
     {
       "id": "klasik-grieg",
@@ -162,8 +162,8 @@
       "source_sha1": "fc873f0bb14db2aa6fcf96ee4981f5270d23b161",
       "start": 0,
       "file": "klasik-grieg.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "cc8fba9d449ec16abd0c04ceb1bfc53110271c98c9ebf018bd3e76f5a5d5adfe",
+      "duration": 90.04
     },
     {
       "id": "klasik-bach",
@@ -180,8 +180,8 @@
       "source_sha1": "f256a2365ad44a4692d52c3f6e8d939ad10eb686",
       "start": 0,
       "file": "klasik-bach.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "77b2bbe98d01a932e861d38ece04f7f0d5e751308764f0d6ee309d0756a78f80",
+      "duration": 90.04
     },
     {
       "id": "klasik-satie",
@@ -198,8 +198,8 @@
       "source_sha1": "2ad7ff5a728cc7a935dd90c3177b12c5eae4784e",
       "start": 0,
       "file": "klasik-satie.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "1d2f0d51b8922e93581134b97588843e24e06adee8f634692f67ef251a95ec0f",
+      "duration": 90.04
     },
     {
       "id": "ramazan-calmant",
@@ -216,8 +216,8 @@
       "source_sha1": "f01c240011042a3a8b173901678589977705242d",
       "start": 0,
       "file": "ramazan-calmant.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "5a1074895a45d4381a65a4bf605adb95aba7bc332acdb1e560eec234cbc8c3a4",
+      "duration": 90.04
     },
     {
       "id": "ramazan-clear-waters",
@@ -234,8 +234,8 @@
       "source_sha1": "62a4187b6f7924f94bf05f894003ae764e68b043",
       "start": 0,
       "file": "ramazan-clear-waters.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "246c6b7ac4ba78787e89c9563ff52a91796651543988799b1f7107e7dcadf668",
+      "duration": 90.04
     },
     {
       "id": "kutlama-beachfront",
@@ -252,8 +252,8 @@
       "source_sha1": "63691de89ff27515913dbab10444546c5c48c636",
       "start": 0,
       "file": "kutlama-beachfront.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "fdec93e537e2813456a857e1230aa49cc0e991f8a3e23da7ed52c886fa1f73e7",
+      "duration": 90.04
     },
     {
       "id": "kutlama-funky",
@@ -270,8 +270,8 @@
       "source_sha1": "46bdd310ec9b6537b9555398f9394c4aa0428464",
       "start": 0,
       "file": "kutlama-funky.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "407880ff4c262f6007393d24950bf88f5839ec14ce61e0afa483013c5ed816d5",
+      "duration": 90.04
     },
     {
       "id": "kutlama-joplin",
@@ -288,8 +288,8 @@
       "source_sha1": "45111a083a1d5ea88142e4813a6727320cca5d4f",
       "start": 0,
       "file": "kutlama-joplin.mp3",
-      "sha256": "",
-      "duration": null
+      "sha256": "a36b11113d7b1ca9fd4ca9a25c084b8222f78d0141897fa1048c939b0455102a",
+      "duration": 90.04
     }
   ]
 }
