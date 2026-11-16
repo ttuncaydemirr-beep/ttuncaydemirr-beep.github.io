@@ -8,7 +8,8 @@
 <li>Davetiye bağlantısını bilen herkes davetiyeyi görebilir. Bağlantıyı kimlerle paylaşacağınıza siz karar verirsiniz.</li>
 <li>Ücretsiz davetiye 24 saat, ücretli davetiye 1 yıl yayında kalır. Süre bittikten en geç 30 gün sonra silinir. İsterseniz uygulamadan istediğiniz an silebilirsiniz.</li>
 <li>Davetli sayfasında reklam, izleme aracı ve çerez yoktur.</li>
-<li>Uygulamada (davetli sayfasında değil) ödeme yapmayan kullanıcılara banner reklam gösterilir ve anonim kullanım ölçümü yapılır.</li>
+<li>Uygulamada (davetli sayfasında değil) ödeme yapmayan kullanıcılara banner reklam gösterilir. Hizmeti iyileştirmek için kişisel veri içermeyen, toplu günlük sayımlar tutulur.</li>
+<li>Hatırlatma bildirimleri yalnızca cihazınızda oluşturulur; bunun için hiçbir veri toplanmaz ya da gönderilmez.</li>
 </ul>
 
 <h2>2. Biz kimiz</h2>
@@ -16,11 +17,11 @@
 
 <h2>3. Hangi veriler işlenir</h2>
 <ul>
-<li><strong>Davetiye içeriği:</strong> davetiyeyi hazırlarken kendi girdiğiniz bilgiler: isimler, tarih ve saat, mekan ve adres, davet mesajı, program akışı, WhatsApp numaranız (katılım yanıtlarının gelmesi için girerseniz) ve yüklediğiniz fotoğraflar. Davetiyede başkalarının adı ya da fotoğrafı varsa, bunları paylaşmak için onların uygun iznine sahip olmak sizin sorumluluğunuzdadır.</li>
+<li><strong>Davetiye içeriği:</strong> davetiyeyi hazırlarken kendi girdiğiniz bilgiler: isimler, tarih ve saat, mekan ve adres, davet mesajı, program akışı, WhatsApp numaranız (katılım yanıtlarının gelmesi için girerseniz), canlı yayın bağlantısı ve notu, hediye/IBAN bilgisi (hesap sahibi adı, IBAN, banka; ücretli davetiyede, isterseniz) ve yüklediğiniz fotoğraflar. Canlı yayın ve hediye/IBAN bilgileri davetiyede davetlilere görünür; yani bağlantıyı bilen herkes bunları görebilir. Davetiyede başkalarının adı ya da fotoğrafı varsa, bunları paylaşmak için onların uygun iznine sahip olmak sizin sorumluluğunuzdadır.</li>
 <li><strong>Anonim kimlik:</strong> Uygulama, Firebase Authentication'ın anonim oturumunu kullanır. Adınız ya da e-postanız istenmez; rastgele bir kimlik oluşturulur ve davetiyenin size ait olduğunu doğrulamak için kullanılır. Hesap açmazsınız.</li>
 <li><strong>Reklam kimliği ve cihaz bilgileri:</strong> Reklam gösterildiğinde Google AdMob yazılımı reklam kimliği ve teknik cihaz bilgilerini işleyebilir (bölüm 6).</li>
-<li><strong>Kullanım ölçümü:</strong> Firebase Analytics ile uygulama içi anonim kullanım olayları (bölüm 6).</li>
-<li><strong>Ödeme:</strong> Ücretli yayın Google Play Faturalandırma ile yapılır. Kart ve ödeme bilgileriniz Google'dadır, bizde değildir; biz yalnızca satın alma işleminin gerçekleştiği bilgisini alırız. Satın almayı doğrulamak, aynı ödemenin iki kez kullanılmasını ve iadeleri yönetmek için sunucumuzda bir satın alma kaydı tutarız: Google Play sipariş numarası, satın alma zamanı, ürün, ülke/bölge kodu ve anonim kullanıcı kimliğiniz. Ödeme jetonu açık hâliyle saklanmaz (yalnızca özeti tutulur). Bu kayıt yasal saklama yükümlülükleri süresince tutulur ve başka bir amaçla kullanılmaz.</li>
+<li><strong>Toplu günlük istatistikler:</strong> Sunucuda, davetiye ve satın alma kayıtlarından yalnızca sayımlar (ör. günde kaç davetiye yayınlandığı, hangi tasarım, düzen ve dil seçildiği) çıkarılır. Bu sayımlarda kimlik, isim, telefon, davetiye bağlantısı ya da sipariş bilgisi yoktur; kişilerle ilişkilendirilemez (bölüm 6).</li>
+<li><strong>Ödeme:</strong> Ücretli yayın Google Play Faturalandırma ile yapılır. Kart ve ödeme bilgileriniz Google'dadır, bizde değildir; biz yalnızca satın alma işleminin gerçekleştiği bilgisini alırız. Satın almayı doğrulamak, aynı ödemenin iki kez kullanılmasını ve iadeleri yönetmek için sunucumuzda bir satın alma kaydı tutarız: Google Play sipariş numarası, satın alma zamanı, ürün, ülke/bölge kodu ve anonim kullanıcı kimliğiniz. Ödeme jetonu açık hâliyle saklanmaz (yalnızca özeti tutulur). Bu kayıt yasal saklama yükümlülükleri süresince tutulur ve başka bir amaçla kullanılmaz. "Düğün Zinciri" (3 davetiye hakkı) paketinde, satın alınan hakları sunabilmek için aynı satın alma kaydı kategorisinde bir hak kaydı da tutulur: kalan hak sayısı ve hangi davetiyelerde hak kullanıldığı (yalnızca anonim kullanıcı kimliğinizle ilişkili). Bu kayıt da aynı saklama ilkesine tabidir. Satın alma Google tarafından iade edilirse, ilgili haklar silinir ve o paketle ödenmiş davetiyeler kapatılır.</li>
 </ul>
 <p>Konum, rehber, mikrofon ya da kamera verisi istemeyiz. Fotoğraf seçtiğinizde yalnızca seçtiğiniz görseller yüklenir.</p>
 
@@ -40,10 +41,12 @@
 <li>Arama motorlarının davetiyeleri listelemesini engellemek için davetli sayfası dizine eklenmeyecek şekilde işaretlenmiştir.</li>
 </ul>
 
-<h2>6. Uygulamadaki reklam, ölçüm ve ödeme hizmetleri</h2>
+<h2>6. Uygulamadaki reklam, ölçüm, hatırlatma ve ödeme hizmetleri</h2>
 <ul>
 <li><strong>Google AdMob:</strong> Ödeme yapmayan kullanıcılarda uygulamada banner reklam gösterilir. Reklam sunmak, ölçmek ve kötüye kullanımı önlemek için Google'ın yazılımı reklam kimliğini, IP adresini ve cihaz/uygulama etkileşimi bilgilerini işleyebilir. Reklam kimliğini Android ayarlarından (Google &gt; Reklamlar) sıfırlayabilir ya da silebilirsiniz.</li>
-<li><strong>Firebase Analytics:</strong> Yalnızca uygulama içinde, anonim kullanım ölçümü için kullanılır (ör. hangi ekranların açıldığı). Ad, e-posta ya da davetiye içeriğiyle ilişkilendirilmez. Davetli sayfasında kullanılmaz.</li>
+<li><strong>Toplu günlük istatistikler:</strong> Uygulamaya analitik yazılımı (ör. Firebase Analytics) eklenmemiştir. Bunun yerine sunucumuz günde bir kez, davetiye ve satın alma kayıtlarından yalnızca toplam sayımları (tür, tasarım, düzen, dil, plan, ürün başına adetler) ayrı bir istatistik kaydına yazar. Kişisel veri ve kullanıcı kimliği içermez; kimseyle ilişkilendirilemez ve bu kayda uygulamadan erişilemez.</li>
+<li><strong>Hatırlatma bildirimleri:</strong> Uygulama, davetiyenizle ilgili hatırlatmaları (ör. etkinliğe kalan süre) cihazınızda yerel olarak zamanlar ve gösterir. Bu bildirimler cihaz dışına veri göndermez, sunucu ya da bildirim hizmeti kullanmaz. Android 13 ve üzerinde bildirim izni, ilk ücretsiz yayınınızdan sonra istenir; reddedebilir ya da uygulamada ⋯ &gt; Hatırlatmalar bölümünden istediğiniz an kapatabilirsiniz.</li>
+<li><strong>Uygulama içi değerlendirme:</strong> Zaman zaman Google Play'in değerlendirme penceresi açılabilir. Pencereyi Google Play yönetir ve puanınız Google ile aranızdadır; Zarfla bu pencereden herhangi bir veri almaz.</li>
 <li><strong>Google Play Faturalandırma:</strong> Ücretli yayın satın alımı için. Ödeme bilgileri Google tarafından işlenir.</li>
 </ul>
 
@@ -52,8 +55,8 @@
 
 <h2>8. Üçüncü taraflar ve yurt dışına aktarım</h2>
 <ul>
-<li>Google Firebase (Firestore, Storage, Authentication, Analytics, Hosting), Google AdMob ve Google Play: Google Ireland Limited ve Google LLC. <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>.</li>
-<li>Davetiye içeriği AB bölgesinde saklanır. Analitik ve reklam verileri Google tarafından AB dışında (ör. ABD) işlenebilir; bu aktarımlar Google'ın kullandığı güvenceye (ör. standart sözleşme maddeleri, AB-ABD Veri Gizliliği Çerçevesi) dayanır. Biz kendimiz veri satmaz, reklam dışındaki amaçlarla üçüncü taraflara aktarmayız.</li>
+<li>Google Firebase (Firestore, Storage, Authentication, Cloud Functions, Hosting), Google AdMob ve Google Play: Google Ireland Limited ve Google LLC. <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>.</li>
+<li>Davetiye içeriği AB bölgesinde saklanır. Reklam verileri Google tarafından AB dışında (ör. ABD) işlenebilir; bu aktarımlar Google'ın kullandığı güvenceye (ör. standart sözleşme maddeleri, AB-ABD Veri Gizliliği Çerçevesi) dayanır. Biz kendimiz veri satmaz, reklam dışındaki amaçlarla üçüncü taraflara aktarmayız.</li>
 </ul>
 
 <h2>9. Çocuklar</h2>
