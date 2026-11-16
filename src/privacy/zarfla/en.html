@@ -1,5 +1,5 @@
 <h1>Zarfla - Privacy Policy</h1>
-<p class="updated">Effective date: 15 November 2026</p>
+<p class="updated">Effective date: 17 November 2026</p>
 
 <h2>1. In short</h2>
 <p>Zarfla is an Android app for creating a digital invitation and sharing it with a link. In short:</p>
@@ -8,19 +8,20 @@
 <li>Anyone who knows the invitation link can view the invitation. You decide who you share the link with.</li>
 <li>A free invitation stays online for 24 hours and a paid invitation for 1 year. It is deleted at the latest 30 days after that period ends. You can also delete it from the app at any time.</li>
 <li>The guest page has no ads, no tracking tools and no cookies.</li>
-<li>Inside the app (not the guest page), users who have not paid see banner ads and anonymous usage measurement is performed.</li>
+<li>Inside the app (not the guest page), users who have not paid see banner ads. To improve the service we keep aggregate daily counts that contain no personal data.</li>
+<li>Reminder notifications are created on your device only; no data is collected or sent for them.</li>
 </ul>
 
 <h2>2. Who we are</h2>
-<p>The developer of the app and the party responsible for processing personal data is <strong>Demir Games Studio</strong>, an individual developer based in Turkey. Contact: <a href="mailto:nilkaren.tuncay.demir@gmail.com">nilkaren.tuncay.demir@gmail.com</a>. This policy applies to the Zarfla app (package name: com.demirgamesstudio.zarfla) and to the <a href="https://ttuncaydemirr-beep.github.io/davetiye/">guest page</a> where invitations are opened.</p>
+<p>The developer of the app and the party responsible for processing personal data is <strong>Demir Games Studio</strong>, an individual developer based in Turkey. Contact: <a href="mailto:nilkaren.tuncay.demir@gmail.com">nilkaren.tuncay.demir@gmail.com</a>. This policy applies to the Zarfla app (package name: com.demirgamesstudio.zarfla) and to the <a href="https://zarfla-37da9.web.app/davetiye/">guest page</a> where invitations are opened.</p>
 
 <h2>3. What data is processed</h2>
 <ul>
-<li><strong>Invitation content:</strong> the information you enter yourself when preparing an invitation: names, date and time, venue and address, invitation message, program, your WhatsApp number (if you enter it so that replies can reach you) and the photos you upload. If your invitation shows other people's names or photos, you are responsible for having their permission to share them.</li>
+<li><strong>Invitation content:</strong> the information you enter yourself when preparing an invitation: names, date and time, venue and address, invitation message, program, your WhatsApp number (if you enter it so that replies can reach you), a live-stream link and note, gift/IBAN details (account holder name, IBAN, bank; optional, paid invitations) and the photos you upload. The live-stream and gift/IBAN details are shown to guests in the invitation, so anyone with the link can see them. If your invitation shows other people's names or photos, you are responsible for having their permission to share them.</li>
 <li><strong>Anonymous identity:</strong> the app uses Firebase Authentication's anonymous sign-in. We do not ask for your name or email; a random ID is created and used to verify that an invitation belongs to you. You do not create an account.</li>
 <li><strong>Advertising ID and device information:</strong> when an ad is shown, Google's AdMob software may process the advertising ID and technical device information (section 6).</li>
-<li><strong>Usage measurement:</strong> anonymous in-app usage events through Firebase Analytics (section 6).</li>
-<li><strong>Payment:</strong> a paid invitation is bought through Google Play Billing. Your card and payment details are held by Google, not by us; we only learn that a purchase was completed. To verify purchases, prevent the same payment from being used twice and handle refunds, our server keeps a purchase record: Google Play order number, purchase time, product, country/region code and your anonymous user ID. The payment token is not stored in plain form (only a hash). This record is kept for as long as legal retention obligations require and is not used for any other purpose.</li>
+<li><strong>Aggregate daily statistics:</strong> on our server only counts are derived from invitation and purchase records (for example how many invitations were published per day and which design, layout and language were chosen). These counts contain no ID, name, phone number, invitation link or order information and cannot be linked to any person (section 6).</li>
+<li><strong>Payment:</strong> a paid invitation is bought through Google Play Billing. Your card and payment details are held by Google, not by us; we only learn that a purchase was completed. To verify purchases, prevent the same payment from being used twice and handle refunds, our server keeps a purchase record: Google Play order number, purchase time, product, country/region code and your anonymous user ID. The payment token is not stored in plain form (only a hash). This record is kept for as long as legal retention obligations require and is not used for any other purpose. For the "Wedding Chain" (3 invitation credits) pack, a credit record is kept in the same purchase-record category so that we can deliver the rights you bought: the number of credits left and which invitations used credits (linked only to your anonymous user ID). It follows the same retention principle. If Google refunds the purchase, the related credits are removed and invitations paid for with that pack are closed.</li>
 </ul>
 <p>We do not request location, contacts, microphone or camera data. When you pick photos, only the images you choose are uploaded.</p>
 
@@ -33,17 +34,19 @@
 
 <h2>5. Guest page and replies</h2>
 <ul>
-<li>When an invitation link is opened, the page loads the invitation from Google's servers (Firestore) and photos from Firebase Storage. As with any internet request, Google can see the guest's IP address in the process. The page has no ads, analytics, tracking tools or cookies.</li>
-<li>If the host added background music to a paid invitation, the music file is loaded only from our own site (ttuncaydemirr-beep.github.io) and only after the guest taps the opening animation. No third-party service is used for music; the guest can pause it with the button on the page. Tracks come from our own list, each checked for copyright; users cannot upload audio files.</li>
+<li>The guest page is served by Google Firebase Hosting (zarfla-37da9.web.app). When an invitation link is opened, the page loads the invitation from Google's servers (Firestore) and photos from Firebase Storage. As with any internet request, Google can see the guest's IP address in the process. The page has no ads, analytics, tracking tools or cookies.</li>
+<li>If the host added background music to a paid invitation, the music file is loaded only from the same address as the guest page (zarfla-37da9.web.app, Firebase Hosting) and only after the guest taps the opening animation. No third-party service is used for music; the guest can pause it with the button on the page. Tracks come from our own list, each checked for copyright; users cannot upload audio files.</li>
 <li>If a guest taps "Directions", "Add to calendar" or "WhatsApp", they are sent to that service (Google Maps, Google Calendar, WhatsApp), whose own privacy policy applies.</li>
 <li>A reply goes to the invitation owner through the guest's own WhatsApp app. Zarfla does not store these replies or the guest's name or phone number.</li>
 <li>The guest page is marked so that search engines do not index invitations.</li>
 </ul>
 
-<h2>6. Ads, measurement and payment services inside the app</h2>
+<h2>6. Ads, measurement, reminder and payment services inside the app</h2>
 <ul>
 <li><strong>Google AdMob:</strong> users who have not paid see banner ads in the app. To serve and measure ads and to prevent abuse, Google's software may process the advertising ID, IP address and device and app interaction information. You can reset or delete the advertising ID in Android settings (Google &gt; Ads).</li>
-<li><strong>Firebase Analytics:</strong> used only inside the app for anonymous usage measurement (for example which screens are opened). It is not linked to your name, email or invitation content. It is not used on the guest page.</li>
+<li><strong>Aggregate daily statistics:</strong> the app contains no analytics software (such as Firebase Analytics). Instead, once a day our server writes only totals (counts per type, design, layout, language, plan, product) from invitation and purchase records into a separate statistics record. It contains no personal data or user IDs, cannot be linked to anyone and cannot be accessed from the app.</li>
+<li><strong>Reminder notifications:</strong> the app schedules and shows reminders about your invitation (for example time left until the event) locally on your device. These notifications send no data off the device and use no server or push service. On Android 13 and later the notification permission is requested after your first free publication; you can decline it or turn reminders off at any time in the app under ⋯ &gt; Reminders.</li>
+<li><strong>In-app review:</strong> from time to time Google Play's review dialog may appear. Google Play handles the dialog and your rating is between you and Google; Zarfla receives no data from it.</li>
 <li><strong>Google Play Billing:</strong> for buying a paid invitation. Payment details are processed by Google.</li>
 </ul>
 
@@ -52,8 +55,8 @@
 
 <h2>8. Third parties and international transfers</h2>
 <ul>
-<li>Google Firebase (Firestore, Storage, Authentication, Analytics), Google AdMob and Google Play: Google Ireland Limited and Google LLC. <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
-<li>Invitation content is stored in the EU region. Analytics and advertising data may be processed by Google outside the EU (for example in the USA); these transfers rely on the safeguards Google uses (for example standard contractual clauses, the EU-US Data Privacy Framework). We do not sell data or pass it to third parties for purposes other than advertising.</li>
+<li>Google Firebase (Firestore, Storage, Authentication, Cloud Functions, Hosting), Google AdMob and Google Play: Google Ireland Limited and Google LLC. <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+<li>Invitation content is stored in the EU region. Advertising data may be processed by Google outside the EU (for example in the USA); these transfers rely on the safeguards Google uses (for example standard contractual clauses, the EU-US Data Privacy Framework). We do not sell data or pass it to third parties for purposes other than advertising.</li>
 </ul>
 
 <h2>9. Children</h2>
