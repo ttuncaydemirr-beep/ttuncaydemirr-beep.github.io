@@ -231,31 +231,29 @@ def build_privacy():
     out.write_text(multilang_page(titles, panels), encoding="utf-8")
 
 
-INVITE_CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; "
-              "img-src 'self' data: https://firebasestorage.googleapis.com; font-src 'self'; media-src 'self'; "
-              "connect-src https://firestore.googleapis.com; base-uri 'none'; form-action 'none'")
+INVITE_HOST = "https://zarfla-37da9.web.app"
 INVITE_TITLE = "Davetiye \u00b7 Zarfla"
 INVITE_DESC = "Size \u00f6zel bir davetiye var."
+REDIRECT_CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self'; "
+                "base-uri 'none'; form-action 'none'")
 
 
 def build_invite():
-    """/davetiye/: davetli sayfas\u0131. Motor (src/invite/engine.html) Zarfla uygulama deposundaki
-    assets/invite/invite.html'in birebir kopyas\u0131d\u0131r; g\u00f6rsel/animasyon koduna dokunulmaz. Burada yaln\u0131zca
-    <head> (CSP, noindex, OG, yaz\u0131 tipi) eklenir ve motorun boot blo\u011fu site y\u00fckleyicisiyle (loader.js) de\u011fi\u015ftirilir."""
-    inv = SRC / "invite"
-    h = (inv / "engine.html").read_text(encoding="utf-8")
-
-    def sub(old, new):
-        nonlocal h
-        assert h.count(old) == 1, f"engine.html'de beklenen par\u00e7a bulunamad\u0131: {old[:50]}"
-        h = h.replace(old, new)
-
-    sub('<meta name="robots" content="noindex">', '<meta name="robots" content="noindex,nofollow">')
-    sub("<title>Zarfla</title>", f"<title>{INVITE_TITLE}</title>")
+    """/davetiye/: YALNIZ YÖNLENDİRME. Davetli sayfası Firebase Hosting'e taşındı (https://zarfla-37da9.web.app/davetiye/;
+    kaynak: Zarfla uygulama deposu, tools/build_hosting.py). Eski bağlantılar (…github.io/davetiye/?id=…&g=…) SONSUZA DEK
+    çalışmalı: sorgu dizesi ve # parçası olduğu gibi yeni adrese taşınır. Paylaşım önizlemesi (OG) burada kalır, çünkü
+    WhatsApp vb. önizleyiciler betik çalıştırmaz. Bu sayfayı kaldırmayın."""
+    target = f"{INVITE_HOST}/davetiye/"
     og = f"{SITE_URL}/davetiye/og.png"
-    head = f"""<meta http-equiv="Content-Security-Policy" content="{INVITE_CSP}">
+    page_html = f"""<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="{REDIRECT_CSP}">
+<meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="no-referrer">
-<meta name="theme-color" content="#F7F1E8">
+<title>{INVITE_TITLE}</title>
 <meta name="description" content="{INVITE_DESC}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Zarfla">
@@ -267,22 +265,37 @@ def build_invite():
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/icons/zarfla-192.png" type="image/png">
+<script>
+(function(){{
+  var u="{target}"+location.search+location.hash;
+  try{{location.replace(u)}}catch(e){{location.href=u}}
+  document.addEventListener("DOMContentLoaded",function(){{var a=document.getElementById("go");if(a)a.href=u}});
+}})();
+</script>
+<noscript><meta http-equiv="refresh" content="0;url={target}"></noscript>
+<style>
+html,body{{margin:0;background:#F7F1E8;color:#1F3D36;font:16px/1.6 system-ui,-apple-system,"Segoe UI","Noto Sans Arabic",sans-serif}}
+main{{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:24px;box-sizing:border-box;text-align:center}}
+a{{color:#1F3D36;text-underline-offset:3px;font-weight:600}}
+a:focus-visible{{outline:3px solid #AD7F2E;outline-offset:3px}}
+p{{margin:2px 0}}
+</style>
+</head>
+<body>
+<main>
+<p lang="tr">Davetiyeniz açılıyor…</p>
+<p lang="en">Opening your invitation…</p>
+<p lang="de">Ihre Einladung wird geöffnet …</p>
+<p lang="ar" dir="rtl">جارٍ فتح دعوتك…</p>
+<p style="margin-top:18px"><a id="go" href="{target}">Davetiyeyi aç · Open invitation · Einladung öffnen · افتح الدعوة</a></p>
+</main>
+</body>
+</html>
 """
-    sub('<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="noindex,nofollow">\n' + head.rstrip("\n"))
-    # Motorun yaz\u0131 tipi bildirimleri ../fonts/ (uygulama WebView'\u0131 yolu) kullan\u0131r; sitede dosyalar /assets/fonts/ alt\u0131nda
-    # (src/fonts \u2192 copy_assets; .github/workflows/fetch-fonts.yml Fraunces, Manrope, Noto Naskh Arabic TTF'lerini src/fonts'a koyar).
-    # Dosyalar hen\u00fcz getirilmediyse yedek zincir (site Noto Sans Arabic'i + sistem yaz\u0131 tipleri) devrede kal\u0131r.
-    assert 'url("../fonts/' in h, "engine.html'de ../fonts/ yaz\u0131 tipi yolu bulunamad\u0131"
-    h = h.replace('url("../fonts/', 'url("../assets/fonts/')
-    sub("</style>\n</head>", "</style>\n<style>\n" + (inv / "states.css").read_text(encoding="utf-8") + "</style>\n</head>")
-    i = h.index("(function boot(){")
-    j = h.index("</script>", i)
-    h = h[:i] + (inv / "loader.js").read_text(encoding="utf-8") + h[j:]
-    sub("<body>\n", "<body>\n<noscript><div class=\"zs-nojs\">JavaScript gerekli \u00b7 JavaScript required</div></noscript>\n")
     out = ROOT / "davetiye"
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(h, encoding="utf-8")
-    shutil.copyfile(inv / "og.png", out / "og.png")
+    (out / "index.html").write_text(page_html, encoding="utf-8")
+    shutil.copyfile(SRC / "invite" / "og.png", out / "og.png")
 
 
 def build_root_and_404():
