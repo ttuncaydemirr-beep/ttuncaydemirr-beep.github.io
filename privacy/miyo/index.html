@@ -45,7 +45,7 @@
   <div class="tabs" role="group" aria-label="Language / Dil / Sprache / اللغة"><button type="button" data-tab="tr" lang="tr" aria-pressed="false">Türkçe</button><button type="button" data-tab="en" lang="en" aria-pressed="false">English</button><button type="button" data-tab="de" lang="de" aria-pressed="false">Deutsch</button><button type="button" data-tab="ar" lang="ar" aria-pressed="false">العربية</button></div>
 <section data-panel="tr" lang="tr" dir="ltr" data-title="Miyo: Kedi Simülatörü 3D - Gizlilik Politikası · Demir Games Studio"><p class="back"><a href="/tr/">Stüdyoya dön</a></p>
 <h1>Miyo: Kedi Simülatörü 3D - Gizlilik Politikası</h1>
-<p class="updated">Son güncelleme: 15 Kasım 2026</p>
+<p class="updated">Son güncelleme: 17 Kasım 2026</p>
 
 <h2>1. Ebeveynler için kısa özet</h2>
 <p>Miyo, 6-12 yaş arasındaki çocuklar için hazırlanmış, evde yaşayan bir kedinin hayatını anlatan 3D bir oyundur. Kısaca:</p>
@@ -53,6 +53,7 @@
 <li>Hesap yoktur, sohbet yoktur, çocuktan ad, e-posta, telefon, konum, fotoğraf veya kişi listesi istenmez.</li>
 <li>"Birlikte Oyna" yalnızca yerel ağda çalışan, sınırlı bir ortak oyun özelliğidir: aynı Wi-Fi veya mobil erişim noktasındaki 2-4 cihaz doğrudan birbirine bağlanır. İnternet sunucusu yoktur; hiçbir veri yerel ağın dışına çıkmaz. Serbest metin, sohbet, kişisel bilgi veya hesap yoktur.</li>
 <li>Oyun ilerlemesi (kedinin adı ve renkleri, madeni paralar, rozetler, görevler, seçilen dil) yalnızca cihazda saklanır; bize gönderilmez.</li>
+<li>Oyunu geliştirmek ve çökmeleri düzeltmek için Google Firebase ile <strong>anonim</strong> kullanım istatistikleri ve çökme raporları toplanır (ayrıntı: madde 7). Bunlar kimlik, ad, konum veya reklam kimliği içermez; kişiselleştirme ve reklam amaçlı kullanılmaz.</li>
 <li>Oyun ücretsizdir ve reklam içerir. Reklamlar çocuklara yönelik olarak işaretlenmiştir, kişiselleştirilmemiştir ve en fazla "Genel izleyici" (G) içerik derecesiyle sınırlıdır. Davranışsal (ilgi alanına dayalı) reklam gösterilmez.</li>
 <li>Oyunda gerçek parayla satın alma yoktur.</li>
 <li>Oyun sırasında hiçbir reklam gösterilmez. Afiş (banner) reklamlar yalnızca başlangıç ekranında, duraklatma menüsünde, sonuç panelinde ve kumbara ekranında yer alır. Ödüllü reklam tamamen isteğe bağlıdır ve yalnızca oyuncu düğmeye basarsa açılır. Birlikte Oyna oturumları sırasında ödüllü reklamlar kapalıdır.</li>
@@ -65,7 +66,7 @@
 <ul>
 <li><strong>Yalnızca cihazda:</strong> kedinin adı, tüy, göz, tasma, şapka ve desen seçimleri, madeni paralar, rozetler, görev ilerlemesi ve dil tercihi. Bu bilgiler oyunun uygulama içi tarayıcı bileşeninin yerel depolama alanında tutulur. Bu bilgiler bize veya başka bir tarafa gönderilmez; sunucumuz yoktur.</li>
 <li>Oyun tüm oyun dosyalarını (görüntüler, yazı tipleri, kodlar) uygulamanın içinden yükler ve internet olmadan oynanabilir.</li>
-<li>Uygulamanın özel izinleri şunlardır: <strong>internet</strong> (yalnızca reklam yazılımı tarafından kullanılır) ile <strong>ACCESS_WIFI_STATE</strong> ve <strong>CHANGE_WIFI_MULTICAST_STATE</strong> (yalnızca "Birlikte Oyna"da yerel ağdaki odaları bulmak için). Konum, kamera, mikrofon, kişiler, depolama veya telefon izni istemeyiz. Android'in reklam kimliği (AD_ID) izni uygulamadan bilerek çıkarılmıştır.</li>
+<li>Uygulamanın özel izinleri şunlardır: <strong>internet</strong> (yalnızca reklam yazılımı ve Firebase'in anonim istatistik ile çökme raporları için kullanılır) ile <strong>ACCESS_WIFI_STATE</strong> ve <strong>CHANGE_WIFI_MULTICAST_STATE</strong> (yalnızca "Birlikte Oyna"da yerel ağdaki odaları bulmak için). Konum, kamera, mikrofon, kişiler, depolama veya telefon izni istemeyiz. Android'in reklam kimliği (AD_ID) izni uygulamadan bilerek çıkarılmıştır.</li>
 <li>Oyun içinden yalnızca gizlilik politikası bağlantısı dış tarayıcıda açılabilir; başka dış bağlantılar engellenir. Oda kodunu paylaşmak Android'in paylaşım menüsünü açar; hangi uygulamanın kullanılacağını oyuncu seçer, kod bize ulaşmaz.</li>
 <li><strong>Birlikte Oyna (yalnızca yerel ağ):</strong> 2-4 cihaz, aynı Wi-Fi veya mobil erişim noktası üzerinde yerel ağdaki TCP/UDP bağlantılarıyla doğrudan birbirine bağlanır. İnternet üzerinden çalışan bir sunucu yoktur ve hiçbir veri yerel ağın dışına çıkmaz. Oyun TV'sinde gösterilen 6 haneli oda kodu paylaşılabilir. Cihazlar arasında yalnızca kedinin konumu ve animasyonu, 12 adlık sabit listeden seçilen kedi adı, kedinin rengi ve süsleri ile oyun olayları (ör. hazır ifadeler ve miyavlamalar) iletilir. Serbest metin, sohbet, kişisel bilgi veya hesap yoktur ve bu bilgiler bize gönderilmez.</li>
 </ul>
@@ -83,20 +84,37 @@
 <p>Miyo çocuklara yönelik olduğundan, çocuklardan kişiselleştirilmiş reklam için onay istemeyiz ve davranışsal reklamcılık yapmayız. Uygulama, Google'ın onay yönetimi yazılımını (UMP) "onay yaşı altı" işaretiyle çağırır; bu nedenle kişiselleştirme için onay toplanmaz. Avrupa Ekonomik Alanı, Birleşik Krallık veya İsviçre'de Google'ın standart bir iletişim formu görüntülenirse bu form Google'a aittir ve oyunun reklam ayarlarını (çocuklara yönelik, kişiselleştirilmemiş) değiştirmez. Ebeveynler, cihazlarındaki Android ayarlarından reklam kimliğini silebilir veya sıfırlayabilir ve Google Play'deki aile denetimlerini kullanabilir.</p>
 
 <h2>6. Verileri hangi amaçlarla ve hangi hukuki dayanakla işliyoruz?</h2>
-<p>Biz oyunun içinde kişisel veri toplamayız. Reklam yazılımının sınırlı teknik verileri işlemesi şu amaçlarla yapılır: oyunu ücretsiz sunmak için reklam göstermek, reklam performansını ölçmek, sahtekârlığı önlemek ve güvenliği sağlamak. Hukuki dayanak: GDPR madde 6(1)(f) (meşru menfaat; çocukların çıkarlarını koruyan ayarlarla) ve KVKK madde 5/2-f (ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla meşru menfaat). Çocuklardan rıza (GDPR madde 6(1)(a)) dayanağıyla veri işlemeyiz. Madde 4'te belirtilen verilerin önemli bölümünü Google kendi amaçları ve kendi gizlilik politikası uyarınca işler.</p>
+<p>Biz oyunun içinde kişisel veri toplamayız. Reklam yazılımının sınırlı teknik verileri işlemesi şu amaçlarla yapılır: oyunu ücretsiz sunmak için reklam göstermek, reklam performansını ölçmek, sahtekârlığı önlemek ve güvenliği sağlamak. Firebase'in anonim istatistik ve çökme verilerini işlemesi ise oyunu geliştirmek, hataları bulup düzeltmek ve uygulamanın kararlılığını sağlamak içindir. Hukuki dayanak: GDPR madde 6(1)(f) (meşru menfaat; çocukların çıkarlarını koruyan ayarlarla) ve KVKK madde 5/2-f (ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla meşru menfaat). Çocuklardan rıza (GDPR madde 6(1)(a)) dayanağıyla veri işlemeyiz. Madde 4'te belirtilen verilerin önemli bölümünü Google kendi amaçları ve kendi gizlilik politikası uyarınca işler.</p>
 
 <h2>7. Analitik ve uzaktan ayar</h2>
-<p>Şu anda Miyo'da Firebase Analytics, Firebase Remote Config veya başka bir analitik hizmeti <strong>kullanılmamaktadır</strong>. Lansmandan sonraki ilk güncellemede kullanım istatistiği (Firebase Analytics) ve uzaktan ayar (Firebase Remote Config) eklemeyi planlıyoruz. Bu hizmetlerden biri eklenmeden önce bu politikayı ve Google Play veri güvenliği bildirimini güncelleyeceğiz; çocuklara yönelik uygulama kurallarına uygun olmayan hiçbir hizmet eklemeyeceğiz.</p>
+<p>Miyo, Google'ın <strong>Firebase Analytics</strong> (anonim kullanım istatistikleri) ve <strong>Firebase Crashlytics</strong> (çökme raporları) hizmetlerini kullanır. Bu hizmetler çocuklara yönelik uygulama kurallarına uygun şekilde yapılandırılmıştır.</p>
+<h3>Firebase Analytics (anonim kullanım istatistikleri)</h3>
+<ul>
+<li><strong>Toplanan veriler:</strong> uygulama sürümü, cihaz modeli ve Android sürümü, dil, ülke düzeyinde kaba bölge bilgisi, oturum bilgisi (uygulamanın açılması, oturum süresi) ve oyun içi birkaç olay: oyunun başlatılması, hangi alana (oda, bahçe vb.) geçildiği, "Birlikte Oyna" yarışmalarının türü, ödüllü reklamın izlenmesi (türü), günlük hediye çarkının açılması, "Birlikte Oyna" odasının açılması veya bir odaya katılınması. Olaylarda oda kodu, oyuncu adı, oyuncu sayısı veya başka bir kimlik yoktur.</li>
+<li><strong>Toplanmayanlar:</strong> ad, e-posta, telefon, hesap veya kullanıcı kimliği, kesin konum, kedinin adı, serbest metin. <strong>Reklam kimliği toplanmaz</strong> (AD_ID izni uygulamadan çıkarılmıştır; Android reklam kimliği ve SSAID toplama kapalıdır).</li>
+<li><strong>Kişiselleştirme yok:</strong> reklam kişiselleştirme sinyalleri, reklam amaçlı kullanıcı verisi ve reklam depolama alanı kapalıdır (onay durumu "reddedildi" olarak ayarlıdır); veriler reklam, profil çıkarma veya yeniden pazarlama için kullanılmaz.</li>
+<li><strong>Tanımlayıcı:</strong> Firebase, uygulamanın kurulumuna özgü rastgele bir <em>Firebase kurulum kimliği</em> kullanır. Bu kimlik sizi veya çocuğunuzu tanımlamaz; uygulama kaldırılıp yeniden kurulunca yenilenir.</li>
+<li><strong>Saklama:</strong> Analytics olay verileri Google tarafından varsayılan olarak <strong>2 ay</strong> saklanır; yalnızca toplulaştırılmış raporlar bu süreden sonra kalır.</li>
+</ul>
+<h3>Firebase Crashlytics (çökme raporları)</h3>
+<ul>
+<li><strong>Toplanan veriler:</strong> uygulama çöktüğünde veya ciddi bir hata verdiğinde çökmenin yığın izi (hata konumu), uygulama sürümü, cihaz modeli, Android sürümü, çökme anındaki cihaz durumu (ör. boş bellek, depolama, pil durumu ve cihazın yönü) ve Firebase kurulum kimliği.</li>
+<li><strong>Amaç:</strong> çökmelerin nedenini bulup düzeltmek ve uygulamanın kararlılığını artırmak. Reklam veya kişiselleştirme için kullanılmaz.</li>
+<li><strong>Saklama:</strong> Crashlytics verileri <strong>90 gün</strong> saklanır.</li>
+</ul>
+<p>Veriler aktarım sırasında şifreli bağlantı (TLS) ile Google'a gönderilir. Google bu verileri bizim adımıza işleyen taraf olarak kendi gizlilik koşullarına göre işler; ayrıntılar: <a href="https://firebase.google.com/support/privacy">Firebase'de gizlilik ve güvenlik</a>. Verileri biz yalnızca toplulaştırılmış istatistikler ve çökme listesi olarak görürüz; bir kişiyi tanımlamak için kullanmayız ve hiçbir şekilde üçüncü taraflarla paylaşmayız veya satmayız.</p>
+<p><strong>Firebase Remote Config</strong> veya başka bir analitik/uzaktan ayar hizmeti kullanılmamaktadır. Böyle bir hizmeti eklemeden önce bu politikayı ve Google Play veri güvenliği bildirimini güncelleyeceğiz; çocuklara yönelik uygulama kurallarına uygun olmayan hiçbir hizmet eklemeyeceğiz.</p>
 
 <h2>8. Üçüncü taraflar</h2>
 <ul>
 <li>Google AdMob / Google Mobile Ads SDK (Google Ireland Limited ve Google LLC): <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>; <a href="https://policies.google.com/technologies/partner-sites">Google'ın iş ortağı sitelerinde ve uygulamalarında verileri nasıl kullandığı</a>.</li>
 <li>Google Play (uygulamanın indirilmesi ve güncellenmesi): <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>.</li>
+<li>Google Firebase Analytics ve Firebase Crashlytics (Google LLC / Google Ireland Limited): <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>; <a href="https://firebase.google.com/support/privacy">Firebase'de gizlilik ve güvenlik</a>.</li>
 </ul>
-<p>Verileri reklam dışında başka bir amaçla üçüncü taraflara satmayız veya devretmeyiz.</p>
+<p>Verileri satmayız; reklam ile yukarıda anlatılan anonim istatistik ve çökme raporları dışında başka bir amaçla üçüncü taraflara devretmeyiz.</p>
 
 <h2>9. Saklama süresi ve silme</h2>
-<p>Oyun verileri yalnızca cihazdadır; uygulamayı kaldırarak veya Android Ayarlar &gt; Uygulamalar &gt; Miyo &gt; Depolama &gt; Verileri temizle adımlarıyla silinir. Bizde saklanan ve silinecek bir kayıt yoktur. Google'ın işlediği reklam verilerinin saklama süresini Google belirler (Google Gizlilik Politikası).</p>
+<p>Oyun verileri yalnızca cihazdadır; uygulamayı kaldırarak veya Android Ayarlar &gt; Uygulamalar &gt; Miyo &gt; Depolama &gt; Verileri temizle adımlarıyla silinir. Bizde oyuncuyu tanımlayabilecek bir kayıt yoktur. Firebase verileri Google'da şu sürelerle saklanır: Analytics olay verileri 2 ay, Crashlytics çökme verileri 90 gün. Firebase kurulum kimliği, uygulamayı kaldırıp yeniden kurunca yenilenir. Silme talebi için bize e-posta ile yazabilirsiniz. Google'ın işlediği reklam verilerinin saklama süresini Google belirler (Google Gizlilik Politikası).</p>
 
 <h2>10. Yurt dışına aktarım</h2>
 <p>Google, verileri Türkiye, Avrupa Ekonomik Alanı ve ABD dahil çeşitli ülkelerdeki sunucularda işleyebilir. Bu aktarımlar Google'ın kullandığı güvenceler (ör. AB-ABD Veri Gizliliği Çerçevesi ve standart sözleşme hükümleri) çerçevesinde yapılır. Biz kendimiz yurt dışına veri aktarmayız.</p>
@@ -127,7 +145,7 @@
 </section>
 <section data-panel="en" lang="en" dir="ltr" data-title="Miyo: Cat Simulator 3D - Privacy Policy · Demir Games Studio"><p class="back"><a href="/en/">Back to studio</a></p>
 <h1>Miyo: Cat Simulator 3D - Privacy Policy</h1>
-<p class="updated">Last updated: 15 November 2026</p>
+<p class="updated">Last updated: 17 November 2026</p>
 
 <h2>1. Short summary for parents</h2>
 <p>Miyo is a 3D game about the life of a house cat, made for children aged 6 to 12. In short:</p>
@@ -135,6 +153,7 @@
 <li>There are no accounts and no chat. We do not ask a child for a name, email, phone number, location, photos or contacts.</li>
 <li>"Play together" is a limited co-op feature that works on the local network only: 2-4 devices on the same Wi-Fi or hotspot connect directly to each other. There is no internet server and no data leaves the local network. There is no free text, no chat, no personal information and no account.</li>
 <li>Game progress (the cat's name and colors, coins, badges, missions, chosen language) is stored only on the device and is not sent to us.</li>
+<li>To improve the game and fix crashes, <strong>anonymous</strong> usage statistics and crash reports are collected with Google Firebase (details: section 7). They contain no identity, name, location or advertising ID and are not used for personalization or advertising.</li>
 <li>The game is free and contains ads. The ads are marked as child-directed, are non-personalized and limited to the maximum content rating "General audiences" (G). No behavioral (interest-based) advertising is shown.</li>
 <li>There are no real-money purchases in the game.</li>
 <li>No ads are shown while the game is being played. Banner ads appear only on the start screen, the pause menu, the result panel and the piggy bank screen. The rewarded ad is entirely optional and opens only if the player taps the button. Rewarded ads are disabled during Play together sessions.</li>
@@ -147,7 +166,7 @@
 <ul>
 <li><strong>On the device only:</strong> the cat's name, fur, eye, collar, hat and pattern choices, coins, badges, mission progress and language preference. This information is kept in the local storage of the game's in-app browser component. It is not sent to us or to anyone else; we operate no server.</li>
 <li>The game loads all its files (images, fonts, code) from inside the app and can be played without internet.</li>
-<li>The app's special permissions are: <strong>internet</strong> (used only by the ad software) and <strong>ACCESS_WIFI_STATE</strong> and <strong>CHANGE_WIFI_MULTICAST_STATE</strong> (used only in "Play together" to find rooms on the local network). We do not request location, camera, microphone, contacts, storage or phone permissions. Android's advertising ID (AD_ID) permission has deliberately been removed from the app.</li>
+<li>The app's special permissions are: <strong>internet</strong> (used only by the ad software and by Firebase for anonymous statistics and crash reports) and <strong>ACCESS_WIFI_STATE</strong> and <strong>CHANGE_WIFI_MULTICAST_STATE</strong> (used only in "Play together" to find rooms on the local network). We do not request location, camera, microphone, contacts, storage or phone permissions. Android's advertising ID (AD_ID) permission has deliberately been removed from the app.</li>
 <li>From within the game only the privacy policy link can be opened in an external browser; other external links are blocked. Sharing the room code opens Android's share sheet; the player chooses which app to use and the code does not reach us.</li>
 <li><strong>Play together (local network only):</strong> 2-4 devices on the same Wi-Fi or hotspot connect directly to each other using TCP/UDP connections on the local network. There is no server on the internet and no data leaves the local network. The 6-digit room code shown on the in-game TV can be shared. Only the following is exchanged between devices: the cat's position and animation, the cat name chosen from a fixed list of 12 names, the cat's colour and cosmetics, and game events (for example preset emotes and meows). There is no free text, no chat, no personal information and no account, and none of this is sent to us.</li>
 </ul>
@@ -165,20 +184,37 @@
 <p>Because Miyo is directed at children, we do not ask children for consent to personalized advertising and we do not carry out behavioral advertising. The app calls Google's consent management software (UMP) with the "under age of consent" flag, so no consent for personalization is collected. If a standard Google notice form is displayed in the European Economic Area, the United Kingdom or Switzerland, that form belongs to Google and does not change the game's ad settings (child-directed, non-personalized). Parents can delete or reset the advertising ID in the Android settings of their device and can use the family controls in Google Play.</p>
 
 <h2>6. Purposes and legal bases</h2>
-<p>We do not collect personal data inside the game. The ad software's limited processing of technical data serves these purposes: showing ads so that the game can be offered free of charge, measuring ad performance, preventing fraud and ensuring security. Legal basis: Article 6(1)(f) GDPR (legitimate interests, with settings that protect children's interests) and Article 5/2-f of the Turkish KVKK (legitimate interests, provided fundamental rights and freedoms are not harmed). We do not process data from children on the basis of consent (Article 6(1)(a) GDPR). A significant part of the data described in section 4 is processed by Google for its own purposes under its own privacy policy.</p>
+<p>We do not collect personal data inside the game. The ad software's limited processing of technical data serves these purposes: showing ads so that the game can be offered free of charge, measuring ad performance, preventing fraud and ensuring security. Firebase's processing of anonymous statistics and crash data serves to improve the game, find and fix errors and keep the app stable. Legal basis: Article 6(1)(f) GDPR (legitimate interests, with settings that protect children's interests) and Article 5/2-f of the Turkish KVKK (legitimate interests, provided fundamental rights and freedoms are not harmed). We do not process data from children on the basis of consent (Article 6(1)(a) GDPR). A significant part of the data described in section 4 is processed by Google for its own purposes under its own privacy policy.</p>
 
 <h2>7. Analytics and remote configuration</h2>
-<p>Miyo does <strong>not currently use</strong> Firebase Analytics, Firebase Remote Config or any other analytics service. We plan to add usage statistics (Firebase Analytics) and remote configuration (Firebase Remote Config) in the first update after launch. Before any of these services is added, we will update this policy and the Google Play Data safety declaration, and we will not add any service that does not comply with the rules for apps directed at children.</p>
+<p>Miyo uses Google's <strong>Firebase Analytics</strong> (anonymous usage statistics) and <strong>Firebase Crashlytics</strong> (crash reports). These services are configured in line with the rules for apps directed at children.</p>
+<h3>Firebase Analytics (anonymous usage statistics)</h3>
+<ul>
+<li><strong>Data collected:</strong> app version, device model and Android version, language, a coarse country-level region, session information (app opens, session length) and a few in-game events: the game being started, which area (room, garden, etc.) the cat goes to, the type of "Play together" contests, a rewarded ad being watched (its type), the daily gift wheel being opened, and a "Play together" room being opened or joined. Events contain no room code, player name, number of players or any other identifier.</li>
+<li><strong>Not collected:</strong> name, email, phone, account or user ID, precise location, the cat's name, free text. <strong>The advertising ID is not collected</strong> (the AD_ID permission has been removed from the app; collection of the Android advertising ID and SSAID is switched off).</li>
+<li><strong>No personalization:</strong> ad personalization signals, ad user data and ad storage are switched off (consent state is set to "denied"); the data is not used for advertising, profiling or remarketing.</li>
+<li><strong>Identifier:</strong> Firebase uses a random <em>Firebase installation ID</em> that is specific to the installation of the app. It does not identify you or your child and is renewed when the app is uninstalled and reinstalled.</li>
+<li><strong>Retention:</strong> Google keeps Analytics event data for <strong>2 months</strong> by default; only aggregated reports remain after that.</li>
+</ul>
+<h3>Firebase Crashlytics (crash reports)</h3>
+<ul>
+<li><strong>Data collected:</strong> when the app crashes or hits a serious error: the stack trace of the crash (where the error occurred), app version, device model, Android version, the device state at the time of the crash (for example free memory, storage, battery state and device orientation) and the Firebase installation ID.</li>
+<li><strong>Purpose:</strong> finding and fixing the causes of crashes and making the app more stable. It is not used for advertising or personalization.</li>
+<li><strong>Retention:</strong> Crashlytics data is kept for <strong>90 days</strong>.</li>
+</ul>
+<p>Data is sent to Google over an encrypted connection (TLS). Google processes it on our behalf under its own terms; details: <a href="https://firebase.google.com/support/privacy">Privacy and security in Firebase</a>. We see the data only as aggregated statistics and a list of crashes; we do not use it to identify a person and we never share or sell it to third parties.</p>
+<p><strong>Firebase Remote Config</strong> and any other analytics or remote configuration service are not used. Before adding such a service, we will update this policy and the Google Play Data safety declaration, and we will not add any service that does not comply with the rules for apps directed at children.</p>
 
 <h2>8. Third parties</h2>
 <ul>
 <li>Google AdMob / Google Mobile Ads SDK (Google Ireland Limited and Google LLC): <a href="https://policies.google.com/privacy">Google Privacy Policy</a>; <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a>.</li>
 <li>Google Play (downloading and updating the app): <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+<li>Google Firebase Analytics and Firebase Crashlytics (Google LLC / Google Ireland Limited): <a href="https://policies.google.com/privacy">Google Privacy Policy</a>; <a href="https://firebase.google.com/support/privacy">Privacy and security in Firebase</a>.</li>
 </ul>
-<p>We do not sell or pass data to third parties for any purpose other than advertising.</p>
+<p>We do not sell data, and we do not pass it to third parties for any purpose other than advertising and the anonymous statistics and crash reports described above.</p>
 
 <h2>9. Retention and deletion</h2>
-<p>Game data exists only on the device; it is deleted by uninstalling the app or via Android Settings &gt; Apps &gt; Miyo &gt; Storage &gt; Clear data. We hold no records on our side to delete. The retention period of ad data processed by Google is determined by Google (Google Privacy Policy).</p>
+<p>Game data exists only on the device; it is deleted by uninstalling the app or via Android Settings &gt; Apps &gt; Miyo &gt; Storage &gt; Clear data. We hold no records on our side that could identify a player. Firebase data is kept by Google for these periods: Analytics event data 2 months, Crashlytics crash data 90 days. The Firebase installation ID is renewed when the app is uninstalled and reinstalled. For a deletion request you can write to us by email. The retention period of ad data processed by Google is determined by Google (Google Privacy Policy).</p>
 
 <h2>10. International transfers</h2>
 <p>Google may process data on servers in various countries, including Turkey, the European Economic Area and the USA. These transfers rely on the safeguards used by Google (for example the EU-US Data Privacy Framework and standard contractual clauses). We ourselves do not transfer data abroad.</p>
@@ -209,7 +245,7 @@
 </section>
 <section data-panel="de" lang="de" dir="ltr" data-title="Miyo: Katzensimulator 3D - Datenschutzerklärung · Demir Games Studio"><p class="back"><a href="/de/">Zurück zum Studio</a></p>
 <h1>Miyo: Katzensimulator 3D - Datenschutzerklärung</h1>
-<p class="updated">Zuletzt aktualisiert: 15. November 2026</p>
+<p class="updated">Zuletzt aktualisiert: 17. November 2026</p>
 
 <h2>1. Kurzfassung für Eltern</h2>
 <p>Miyo ist ein 3D-Spiel über das Leben einer Hauskatze, gemacht für Kinder von 6 bis 12 Jahren. Kurz gesagt:</p>
@@ -217,6 +253,7 @@
 <li>Es gibt keine Konten und keinen Chat. Wir fragen Kinder nicht nach Name, E-Mail-Adresse, Telefonnummer, Standort, Fotos oder Kontakten.</li>
 <li>"Gemeinsam spielen" ist eine begrenzte Koop-Funktion, die nur im lokalen Netzwerk funktioniert: 2 bis 4 Geräte im selben WLAN oder Hotspot verbinden sich direkt miteinander. Es gibt keinen Internetserver, und keine Daten verlassen das lokale Netzwerk. Es gibt keinen Freitext, keinen Chat, keine persönlichen Angaben und kein Konto.</li>
 <li>Der Spielfortschritt (Name und Farben der Katze, Münzen, Abzeichen, Missionen, gewählte Sprache) wird ausschließlich auf dem Gerät gespeichert und nicht an uns gesendet.</li>
+<li>Um das Spiel zu verbessern und Abstürze zu beheben, werden mit Google Firebase <strong>anonyme</strong> Nutzungsstatistiken und Absturzberichte erhoben (Details: Abschnitt 7). Sie enthalten keine Identität, keinen Namen, keinen Standort und keine Werbe-ID und werden weder für Personalisierung noch für Werbung verwendet.</li>
 <li>Das Spiel ist kostenlos und enthält Werbung. Die Werbung ist als kindgerichtet gekennzeichnet, nicht personalisiert und auf die höchste Inhaltsfreigabe "Allgemeines Publikum" (G) begrenzt. Es wird keine verhaltensbasierte (interessenbezogene) Werbung angezeigt.</li>
 <li>Im Spiel gibt es keine Käufe mit echtem Geld.</li>
 <li>Während des Spielens wird keine Werbung angezeigt. Banner erscheinen nur auf dem Startbildschirm, im Pausenmenü, im Ergebnisfeld und im Sparschwein-Bildschirm. Die Belohnungsanzeige ist vollkommen freiwillig und öffnet sich nur, wenn die spielende Person die Schaltfläche antippt. In Sitzungen von "Gemeinsam spielen" sind Belohnungsanzeigen deaktiviert.</li>
@@ -229,7 +266,7 @@
 <ul>
 <li><strong>Nur auf dem Gerät:</strong> Name der Katze, Auswahl von Fell, Augen, Halsband, Hut und Muster, Münzen, Abzeichen, Missionsfortschritt und Spracheinstellung. Diese Angaben liegen im lokalen Speicher der im Spiel eingebetteten Browserkomponente. Sie werden weder an uns noch an Dritte gesendet; wir betreiben keinen Server.</li>
 <li>Das Spiel lädt alle Dateien (Bilder, Schriftarten, Code) aus der App selbst und kann ohne Internet gespielt werden.</li>
-<li>Die besonderen Berechtigungen der App sind: <strong>Internet</strong> (wird nur von der Werbesoftware genutzt) sowie <strong>ACCESS_WIFI_STATE</strong> und <strong>CHANGE_WIFI_MULTICAST_STATE</strong> (werden nur bei "Gemeinsam spielen" genutzt, um Räume im lokalen Netzwerk zu finden). Wir fordern keine Berechtigungen für Standort, Kamera, Mikrofon, Kontakte, Speicher oder Telefon an. Die Android-Berechtigung für die Werbe-ID (AD_ID) wurde bewusst aus der App entfernt.</li>
+<li>Die besonderen Berechtigungen der App sind: <strong>Internet</strong> (wird nur von der Werbesoftware und von Firebase für anonyme Statistiken und Absturzberichte genutzt) sowie <strong>ACCESS_WIFI_STATE</strong> und <strong>CHANGE_WIFI_MULTICAST_STATE</strong> (werden nur bei "Gemeinsam spielen" genutzt, um Räume im lokalen Netzwerk zu finden). Wir fordern keine Berechtigungen für Standort, Kamera, Mikrofon, Kontakte, Speicher oder Telefon an. Die Android-Berechtigung für die Werbe-ID (AD_ID) wurde bewusst aus der App entfernt.</li>
 <li>Aus dem Spiel heraus kann nur der Link zur Datenschutzerklärung in einem externen Browser geöffnet werden; andere externe Links sind gesperrt. Das Teilen des Raumcodes öffnet das Android-Teilen-Menü; die spielende Person wählt die App selbst aus, und der Code erreicht uns nicht.</li>
 <li><strong>Gemeinsam spielen (nur lokales Netzwerk):</strong> 2 bis 4 Geräte im selben WLAN oder Hotspot verbinden sich über TCP/UDP-Verbindungen im lokalen Netzwerk direkt miteinander. Es gibt keinen Server im Internet, und keine Daten verlassen das lokale Netzwerk. Der im Spiel auf dem TV angezeigte 6-stellige Raumcode kann geteilt werden. Zwischen den Geräten werden nur ausgetauscht: Position und Animation der Katze, der aus einer festen Liste von 12 Namen gewählte Katzenname, Farbe und Kosmetik der Katze sowie Spielereignisse (z. B. vorgegebene Emotes und Miauen). Es gibt keinen Freitext, keinen Chat, keine persönlichen Angaben und kein Konto, und nichts davon wird an uns gesendet.</li>
 </ul>
@@ -247,20 +284,37 @@
 <p>Da Miyo sich an Kinder richtet, bitten wir Kinder nicht um eine Einwilligung in personalisierte Werbung und betreiben keine verhaltensbasierte Werbung. Die App ruft die Einwilligungsverwaltung von Google (UMP) mit dem Kennzeichen "unter dem Einwilligungsalter" auf; daher wird keine Einwilligung zur Personalisierung eingeholt. Wird im Europäischen Wirtschaftsraum, im Vereinigten Königreich oder in der Schweiz ein Standardhinweisformular von Google angezeigt, gehört dieses Formular Google und ändert die Werbeeinstellungen des Spiels (kindgerichtet, nicht personalisiert) nicht. Eltern können die Werbe-ID in den Android-Einstellungen des Geräts löschen oder zurücksetzen und die Familienfunktionen von Google Play nutzen.</p>
 
 <h2>6. Zwecke und Rechtsgrundlagen</h2>
-<p>Wir erheben im Spiel keine personenbezogenen Daten. Die begrenzte Verarbeitung technischer Daten durch die Werbesoftware dient folgenden Zwecken: Werbung anzeigen, damit das Spiel kostenlos angeboten werden kann, die Werbeleistung messen, Betrug verhindern und die Sicherheit gewährleisten. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigte Interessen, mit Einstellungen, die die Interessen von Kindern schützen) sowie Art. 5/2-f des türkischen KVKK (berechtigte Interessen, sofern Grundrechte und Grundfreiheiten nicht beeinträchtigt werden). Daten von Kindern verarbeiten wir nicht auf Grundlage einer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Ein erheblicher Teil der in Abschnitt 4 beschriebenen Daten wird von Google für eigene Zwecke nach der eigenen Datenschutzerklärung verarbeitet.</p>
+<p>Wir erheben im Spiel keine personenbezogenen Daten. Die begrenzte Verarbeitung technischer Daten durch die Werbesoftware dient folgenden Zwecken: Werbung anzeigen, damit das Spiel kostenlos angeboten werden kann, die Werbeleistung messen, Betrug verhindern und die Sicherheit gewährleisten. Die Verarbeitung anonymer Statistik- und Absturzdaten durch Firebase dient dazu, das Spiel zu verbessern, Fehler zu finden und zu beheben und die App stabil zu halten. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigte Interessen, mit Einstellungen, die die Interessen von Kindern schützen) sowie Art. 5/2-f des türkischen KVKK (berechtigte Interessen, sofern Grundrechte und Grundfreiheiten nicht beeinträchtigt werden). Daten von Kindern verarbeiten wir nicht auf Grundlage einer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Ein erheblicher Teil der in Abschnitt 4 beschriebenen Daten wird von Google für eigene Zwecke nach der eigenen Datenschutzerklärung verarbeitet.</p>
 
 <h2>7. Analyse und Fernkonfiguration</h2>
-<p>Miyo verwendet derzeit <strong>weder</strong> Firebase Analytics, Firebase Remote Config <strong>noch</strong> einen anderen Analysedienst. Wir planen, im ersten Update nach dem Start Nutzungsstatistiken (Firebase Analytics) und Fernkonfiguration (Firebase Remote Config) hinzuzufügen. Bevor einer dieser Dienste hinzugefügt wird, aktualisieren wir diese Erklärung und die Datensicherheitsangaben in Google Play; wir werden keinen Dienst hinzufügen, der nicht den Regeln für an Kinder gerichtete Apps entspricht.</p>
+<p>Miyo verwendet <strong>Firebase Analytics</strong> (anonyme Nutzungsstatistiken) und <strong>Firebase Crashlytics</strong> (Absturzberichte) von Google. Diese Dienste sind entsprechend den Regeln für an Kinder gerichtete Apps konfiguriert.</p>
+<h3>Firebase Analytics (anonyme Nutzungsstatistiken)</h3>
+<ul>
+<li><strong>Erhobene Daten:</strong> App-Version, Gerätemodell und Android-Version, Sprache, eine grobe Region auf Länderebene, Sitzungsinformationen (App-Starts, Sitzungsdauer) und einige Ereignisse im Spiel: der Spielstart, in welchen Bereich (Zimmer, Garten usw.) die Katze wechselt, die Art der Wettbewerbe bei "Gemeinsam spielen", das Ansehen einer Belohnungsanzeige (Art), das Öffnen des täglichen Glücksrads sowie das Öffnen oder Betreten eines Raums bei "Gemeinsam spielen". Die Ereignisse enthalten keinen Raumcode, keinen Spielernamen, keine Spielerzahl und keine sonstige Kennung.</li>
+<li><strong>Nicht erhoben werden:</strong> Name, E-Mail-Adresse, Telefonnummer, Konto- oder Nutzerkennung, genauer Standort, der Name der Katze, Freitext. <strong>Die Werbe-ID wird nicht erhoben</strong> (die AD_ID-Berechtigung wurde aus der App entfernt; die Erfassung der Android-Werbe-ID und der SSAID ist abgeschaltet).</li>
+<li><strong>Keine Personalisierung:</strong> Signale zur Anzeigenpersonalisierung, Nutzerdaten für Werbung und Werbespeicher sind abgeschaltet (Einwilligungsstatus "abgelehnt"); die Daten werden nicht für Werbung, Profilbildung oder Remarketing verwendet.</li>
+<li><strong>Kennung:</strong> Firebase verwendet eine zufällige <em>Firebase-Installations-ID</em>, die für die Installation der App spezifisch ist. Sie identifiziert weder Sie noch Ihr Kind und wird beim Deinstallieren und Neuinstallieren der App erneuert.</li>
+<li><strong>Speicherdauer:</strong> Google speichert Analytics-Ereignisdaten standardmäßig <strong>2 Monate</strong>; danach bleiben nur aggregierte Berichte.</li>
+</ul>
+<h3>Firebase Crashlytics (Absturzberichte)</h3>
+<ul>
+<li><strong>Erhobene Daten:</strong> wenn die App abstürzt oder einen schweren Fehler hat: der Stacktrace des Absturzes (wo der Fehler auftrat), App-Version, Gerätemodell, Android-Version, der Gerätezustand zum Zeitpunkt des Absturzes (zum Beispiel freier Arbeitsspeicher, Speicherplatz, Akkustatus und Geräteausrichtung) und die Firebase-Installations-ID.</li>
+<li><strong>Zweck:</strong> die Ursachen von Abstürzen finden und beheben und die App stabiler machen. Keine Verwendung für Werbung oder Personalisierung.</li>
+<li><strong>Speicherdauer:</strong> Crashlytics-Daten werden <strong>90 Tage</strong> gespeichert.</li>
+</ul>
+<p>Die Daten werden über eine verschlüsselte Verbindung (TLS) an Google übertragen. Google verarbeitet sie in unserem Auftrag nach den eigenen Bedingungen; Einzelheiten: <a href="https://firebase.google.com/support/privacy">Datenschutz und Sicherheit in Firebase</a>. Wir sehen die Daten nur als aggregierte Statistiken und als Liste von Abstürzen; wir verwenden sie nicht, um eine Person zu identifizieren, und geben sie niemals an Dritte weiter oder verkaufen sie.</p>
+<p><strong>Firebase Remote Config</strong> und andere Analyse- oder Fernkonfigurationsdienste werden nicht verwendet. Bevor wir einen solchen Dienst hinzufügen, aktualisieren wir diese Erklärung und die Datensicherheitsangaben in Google Play; wir werden keinen Dienst hinzufügen, der nicht den Regeln für an Kinder gerichtete Apps entspricht.</p>
 
 <h2>8. Dritte</h2>
 <ul>
 <li>Google AdMob / Google Mobile Ads SDK (Google Ireland Limited und Google LLC): <a href="https://policies.google.com/privacy">Datenschutzerklärung von Google</a>; <a href="https://policies.google.com/technologies/partner-sites">Wie Google Informationen von Websites oder Apps nutzt, die seine Dienste verwenden</a>.</li>
 <li>Google Play (Herunterladen und Aktualisieren der App): <a href="https://policies.google.com/privacy">Datenschutzerklärung von Google</a>.</li>
+<li>Google Firebase Analytics und Firebase Crashlytics (Google LLC / Google Ireland Limited): <a href="https://policies.google.com/privacy">Datenschutzerklärung von Google</a>; <a href="https://firebase.google.com/support/privacy">Datenschutz und Sicherheit in Firebase</a>.</li>
 </ul>
-<p>Wir verkaufen keine Daten und geben sie nicht zu anderen Zwecken als Werbung an Dritte weiter.</p>
+<p>Wir verkaufen keine Daten und geben sie nicht zu anderen Zwecken als Werbung und den oben beschriebenen anonymen Statistiken und Absturzberichten an Dritte weiter.</p>
 
 <h2>9. Speicherdauer und Löschung</h2>
-<p>Spieldaten liegen ausschließlich auf dem Gerät; sie werden durch Deinstallation der App oder über Android-Einstellungen &gt; Apps &gt; Miyo &gt; Speicher &gt; Daten löschen entfernt. Auf unserer Seite gibt es keine Aufzeichnungen, die gelöscht werden könnten. Die Speicherdauer der von Google verarbeiteten Werbedaten bestimmt Google (Datenschutzerklärung von Google).</p>
+<p>Spieldaten liegen ausschließlich auf dem Gerät; sie werden durch Deinstallation der App oder über Android-Einstellungen &gt; Apps &gt; Miyo &gt; Speicher &gt; Daten löschen entfernt. Auf unserer Seite gibt es keine Aufzeichnungen, die eine spielende Person identifizieren könnten. Firebase-Daten werden von Google für diese Zeiträume gespeichert: Analytics-Ereignisdaten 2 Monate, Crashlytics-Absturzdaten 90 Tage. Die Firebase-Installations-ID wird beim Deinstallieren und Neuinstallieren der App erneuert. Für eine Löschanfrage können Sie uns per E-Mail schreiben. Die Speicherdauer der von Google verarbeiteten Werbedaten bestimmt Google (Datenschutzerklärung von Google).</p>
 
 <h2>10. Internationale Übermittlung</h2>
 <p>Google kann Daten auf Servern in verschiedenen Ländern verarbeiten, darunter die Türkei, der Europäische Wirtschaftsraum und die USA. Diese Übermittlungen stützen sich auf die von Google eingesetzten Garantien (z. B. das EU-US Data Privacy Framework und Standardvertragsklauseln). Wir selbst übermitteln keine Daten ins Ausland.</p>
@@ -291,7 +345,7 @@
 </section>
 <section data-panel="ar" lang="ar" dir="rtl" data-title="Miyo: محاكي القطة ثلاثي الأبعاد - سياسة الخصوصية · Demir Games Studio"><p class="back"><a href="/ar/">العودة إلى الاستوديو</a></p>
 <h1>Miyo: محاكي القطة ثلاثي الأبعاد - سياسة الخصوصية</h1>
-<p class="updated">آخر تحديث: 15 نوفمبر 2026</p>
+<p class="updated">آخر تحديث: 17 نوفمبر 2026</p>
 
 <h2>1. ملخص موجز للآباء</h2>
 <p>Miyo لعبة ثلاثية الأبعاد عن حياة قطة منزلية، مصممة للأطفال من عمر 6 إلى 12 سنة. باختصار:</p>
@@ -299,6 +353,7 @@
 <li>لا توجد حسابات ولا دردشة. لا نطلب من الطفل اسمًا ولا بريدًا إلكترونيًا ولا رقم هاتف ولا موقعًا ولا صورًا ولا جهات اتصال.</li>
 <li>"العب معًا" ميزة لعب تعاوني محدودة تعمل على الشبكة المحلية فقط: يتصل من 2 إلى 4 أجهزة على نفس شبكة Wi-Fi أو نقطة الاتصال ببعضها مباشرةً. لا يوجد خادم على الإنترنت ولا تغادر أي بيانات الشبكة المحلية. لا يوجد نص حر ولا دردشة ولا معلومات شخصية ولا حسابات.</li>
 <li>يُحفظ تقدّم اللعبة (اسم القطة وألوانها، العملات، الشارات، المهام، اللغة المختارة) على الجهاز فقط ولا يُرسل إلينا.</li>
+<li>لتحسين اللعبة وإصلاح الأعطال، تُجمع عبر Google Firebase إحصاءات استخدام وتقارير أعطال <strong>مجهولة الهوية</strong> (التفاصيل: القسم 7). لا تتضمن هوية أو اسمًا أو موقعًا أو معرّف إعلانات، ولا تُستخدم للتخصيص أو للإعلانات.</li>
 <li>اللعبة مجانية وتحتوي على إعلانات. الإعلانات مصنّفة على أنها موجّهة للأطفال، وغير مخصّصة، ومقيّدة بأعلى تصنيف محتوى هو "الجمهور العام" (G). لا تُعرض إعلانات سلوكية (قائمة على الاهتمامات).</li>
 <li>لا توجد مشتريات بأموال حقيقية داخل اللعبة.</li>
 <li>لا تُعرض أي إعلانات أثناء اللعب. تظهر إعلانات البانر فقط في شاشة البداية وقائمة الإيقاف المؤقت ولوحة النتيجة وشاشة الحصّالة. أما الإعلان المكافئ فهو اختياري تمامًا ولا يُفتح إلا إذا ضغط اللاعب على الزر. الإعلانات المكافئة معطّلة أثناء جلسات "العب معًا".</li>
@@ -311,7 +366,7 @@
 <ul>
 <li><strong>على الجهاز فقط:</strong> اسم القطة واختيارات الفرو والعينين والطوق والقبعة والنقش، والعملات، والشارات، وتقدّم المهام، وتفضيل اللغة. تُحفظ هذه المعلومات في التخزين المحلي لمكوّن المتصفح المدمج في اللعبة. لا تُرسل إلينا ولا إلى أي جهة أخرى؛ فنحن لا نشغّل أي خادم.</li>
 <li>تحمّل اللعبة جميع ملفاتها (الصور والخطوط والشيفرة) من داخل التطبيق ويمكن لعبها دون اتصال بالإنترنت.</li>
-<li>الأذونات الخاصة بالتطبيق هي: <strong>الإنترنت</strong> (لا يستخدمه إلا برنامج الإعلانات) و<strong>ACCESS_WIFI_STATE</strong> و<strong>CHANGE_WIFI_MULTICAST_STATE</strong> (لا يُستخدمان إلا في "العب معًا" للعثور على الغرف في الشبكة المحلية). لا نطلب أذونات الموقع أو الكاميرا أو الميكروفون أو جهات الاتصال أو التخزين أو الهاتف. وقد أُزيل إذن معرّف الإعلانات في أندرويد (AD_ID) من التطبيق عمدًا.</li>
+<li>الأذونات الخاصة بالتطبيق هي: <strong>الإنترنت</strong> (لا يستخدمه إلا برنامج الإعلانات وFirebase لإحصاءات مجهولة الهوية وتقارير الأعطال) و<strong>ACCESS_WIFI_STATE</strong> و<strong>CHANGE_WIFI_MULTICAST_STATE</strong> (لا يُستخدمان إلا في "العب معًا" للعثور على الغرف في الشبكة المحلية). لا نطلب أذونات الموقع أو الكاميرا أو الميكروفون أو جهات الاتصال أو التخزين أو الهاتف. وقد أُزيل إذن معرّف الإعلانات في أندرويد (AD_ID) من التطبيق عمدًا.</li>
 <li>لا يمكن من داخل اللعبة فتح سوى رابط سياسة الخصوصية في متصفح خارجي؛ أما الروابط الخارجية الأخرى فمحظورة. تؤدي مشاركة رمز الغرفة إلى فتح قائمة المشاركة في أندرويد؛ يختار اللاعب التطبيق بنفسه ولا يصلنا الرمز.</li>
 <li><strong>العب معًا (الشبكة المحلية فقط):</strong> يتصل من 2 إلى 4 أجهزة على نفس شبكة Wi-Fi أو نقطة الاتصال ببعضها مباشرةً عبر اتصالات TCP/UDP في الشبكة المحلية. لا يوجد خادم على الإنترنت ولا تغادر أي بيانات الشبكة المحلية. يمكن مشاركة رمز الغرفة المكوّن من 6 أرقام الظاهر على التلفاز داخل اللعبة. لا يُتبادل بين الأجهزة سوى: موضع القطة وحركتها، واسم القطة المختار من قائمة ثابتة تضم 12 اسمًا، ولون القطة وزينتها، وأحداث اللعبة (مثل التعابير والمواءات الجاهزة). لا يوجد نص حر ولا دردشة ولا معلومات شخصية ولا حسابات، ولا يُرسل شيء من ذلك إلينا.</li>
 </ul>
@@ -329,20 +384,37 @@
 <p>بما أن Miyo موجّهة للأطفال، فلا نطلب من الأطفال الموافقة على الإعلانات المخصّصة ولا نمارس الإعلان السلوكي. يستدعي التطبيق برنامج إدارة الموافقة من Google (UMP) مع علامة "دون سن الموافقة"، ولذلك لا تُجمع موافقة على التخصيص. وإذا ظهر نموذج إشعار قياسي من Google في المنطقة الاقتصادية الأوروبية أو المملكة المتحدة أو سويسرا، فهذا النموذج يخص Google ولا يغيّر إعدادات الإعلانات في اللعبة (موجّهة للأطفال وغير مخصّصة). يمكن لأولياء الأمور حذف معرّف الإعلانات أو إعادة تعيينه من إعدادات أندرويد في الجهاز، ويمكنهم استخدام أدوات الرقابة الأسرية في Google Play.</p>
 
 <h2>6. الأغراض والأسس القانونية</h2>
-<p>لا نجمع بيانات شخصية داخل اللعبة. وتهدف المعالجة المحدودة للبيانات التقنية من قبل برنامج الإعلانات إلى: عرض الإعلانات لكي تُقدَّم اللعبة مجانًا، وقياس أداء الإعلانات، ومنع الاحتيال، وضمان الأمان. الأساس القانوني: المادة 6(1)(و) من اللائحة العامة لحماية البيانات (GDPR) (المصالح المشروعة، بإعدادات تحمي مصالح الأطفال) والمادة 5/2-و من القانون التركي لحماية البيانات الشخصية (KVKK) (المصالح المشروعة بشرط عدم الإضرار بالحقوق والحريات الأساسية). ولا نعالج بيانات الأطفال استنادًا إلى الموافقة (المادة 6(1)(أ) من GDPR). وجزء كبير من البيانات الموصوفة في القسم 4 تعالجه Google لأغراضها الخاصة وفق سياسة الخصوصية الخاصة بها.</p>
+<p>لا نجمع بيانات شخصية داخل اللعبة. وتهدف المعالجة المحدودة للبيانات التقنية من قبل برنامج الإعلانات إلى: عرض الإعلانات لكي تُقدَّم اللعبة مجانًا، وقياس أداء الإعلانات، ومنع الاحتيال، وضمان الأمان. أما معالجة Firebase للإحصاءات المجهولة وبيانات الأعطال فتهدف إلى تحسين اللعبة والعثور على الأخطاء وإصلاحها والحفاظ على استقرار التطبيق. الأساس القانوني: المادة 6(1)(و) من اللائحة العامة لحماية البيانات (GDPR) (المصالح المشروعة، بإعدادات تحمي مصالح الأطفال) والمادة 5/2-و من القانون التركي لحماية البيانات الشخصية (KVKK) (المصالح المشروعة بشرط عدم الإضرار بالحقوق والحريات الأساسية). ولا نعالج بيانات الأطفال استنادًا إلى الموافقة (المادة 6(1)(أ) من GDPR). وجزء كبير من البيانات الموصوفة في القسم 4 تعالجه Google لأغراضها الخاصة وفق سياسة الخصوصية الخاصة بها.</p>
 
 <h2>7. التحليلات والإعداد عن بُعد</h2>
-<p>لا تستخدم Miyo حاليًا <strong>لا</strong> Firebase Analytics <strong>ولا</strong> Firebase Remote Config <strong>ولا</strong> أي خدمة تحليلات أخرى. نخطط لإضافة إحصاءات الاستخدام (Firebase Analytics) والإعداد عن بُعد (Firebase Remote Config) في أول تحديث بعد الإطلاق. وقبل إضافة أي من هذه الخدمات سنحدّث هذه السياسة وإقرار سلامة البيانات في Google Play، ولن نضيف أي خدمة لا تتوافق مع قواعد التطبيقات الموجّهة للأطفال.</p>
+<p>تستخدم Miyo خدمتَي Google: <strong>Firebase Analytics</strong> (إحصاءات استخدام مجهولة الهوية) و<strong>Firebase Crashlytics</strong> (تقارير الأعطال). وقد ضُبطت هاتان الخدمتان وفق قواعد التطبيقات الموجّهة للأطفال.</p>
+<h3>Firebase Analytics (إحصاءات استخدام مجهولة الهوية)</h3>
+<ul>
+<li><strong>البيانات المجموعة:</strong> إصدار التطبيق، وطراز الجهاز وإصدار أندرويد، واللغة، ومنطقة تقريبية على مستوى الدولة، ومعلومات الجلسة (فتح التطبيق ومدة الجلسة)، وبعض الأحداث داخل اللعبة: بدء اللعبة، والمنطقة التي تنتقل إليها القطة (غرفة، حديقة...)، ونوع مسابقات "العب معًا"، ومشاهدة إعلان مكافئ (نوعه)، وفتح عجلة الهدايا اليومية، وفتح غرفة في "العب معًا" أو الانضمام إلى غرفة. لا تحتوي الأحداث على رمز غرفة أو اسم لاعب أو عدد لاعبين أو أي معرّف آخر.</li>
+<li><strong>ما لا يُجمع:</strong> الاسم، والبريد الإلكتروني، والهاتف، ومعرّف الحساب أو المستخدم، والموقع الدقيق، واسم القطة، والنص الحر. <strong>لا يُجمع معرّف الإعلانات</strong> (أُزيل إذن AD_ID من التطبيق، وجمع معرّف الإعلانات في أندرويد وSSAID متوقف).</li>
+<li><strong>لا تخصيص:</strong> إشارات تخصيص الإعلانات وبيانات المستخدم للإعلانات وتخزين الإعلانات كلها متوقفة (حالة الموافقة "مرفوض")؛ ولا تُستخدم البيانات للإعلانات أو لبناء الملفات التعريفية أو لإعادة الاستهداف.</li>
+<li><strong>المعرّف:</strong> يستخدم Firebase <em>معرّف تثبيت Firebase</em> عشوائيًا خاصًا بتثبيت التطبيق. وهو لا يحدد هويتكم ولا هوية طفلكم، ويتجدد عند إلغاء تثبيت التطبيق وإعادة تثبيته.</li>
+<li><strong>مدة الاحتفاظ:</strong> تحتفظ Google ببيانات أحداث Analytics افتراضيًا لمدة <strong>شهرين</strong>؛ وبعدها لا تبقى إلا التقارير المجمَّعة.</li>
+</ul>
+<h3>Firebase Crashlytics (تقارير الأعطال)</h3>
+<ul>
+<li><strong>البيانات المجموعة:</strong> عند تعطل التطبيق أو وقوع خطأ جسيم: تتبّع المكدّس (stack trace) للعطل (موضع الخطأ)، وإصدار التطبيق، وطراز الجهاز، وإصدار أندرويد، وحالة الجهاز وقت العطل (مثل الذاكرة والتخزين المتاحين وحالة البطارية واتجاه الجهاز)، ومعرّف تثبيت Firebase.</li>
+<li><strong>الغرض:</strong> العثور على أسباب الأعطال وإصلاحها وجعل التطبيق أكثر استقرارًا. ولا تُستخدم للإعلانات أو للتخصيص.</li>
+<li><strong>مدة الاحتفاظ:</strong> تُحفظ بيانات Crashlytics لمدة <strong>90 يومًا</strong>.</li>
+</ul>
+<p>تُرسل البيانات إلى Google عبر اتصال مشفّر (TLS). وتعالجها Google نيابةً عنا وفق شروطها الخاصة؛ التفاصيل: <a href="https://firebase.google.com/support/privacy">الخصوصية والأمان في Firebase</a>. لا نرى البيانات إلا في صورة إحصاءات مجمَّعة وقائمة بالأعطال؛ ولا نستخدمها لتحديد هوية شخص، ولا نشاركها مع أطراف ثالثة ولا نبيعها أبدًا.</p>
+<p>لا تُستخدم <strong>Firebase Remote Config</strong> ولا أي خدمة تحليلات أو إعداد عن بُعد أخرى. وقبل إضافة أي خدمة من هذا النوع سنحدّث هذه السياسة وإقرار سلامة البيانات في Google Play، ولن نضيف أي خدمة لا تتوافق مع قواعد التطبيقات الموجّهة للأطفال.</p>
 
 <h2>8. الأطراف الثالثة</h2>
 <ul>
 <li>Google AdMob / Google Mobile Ads SDK (شركة Google Ireland Limited وشركة Google LLC): <a href="https://policies.google.com/privacy">سياسة خصوصية Google</a>؛ <a href="https://policies.google.com/technologies/partner-sites">كيف تستخدم Google المعلومات من المواقع أو التطبيقات التي تستخدم خدماتها</a>.</li>
 <li>Google Play (تنزيل التطبيق وتحديثه): <a href="https://policies.google.com/privacy">سياسة خصوصية Google</a>.</li>
+<li>Google Firebase Analytics وFirebase Crashlytics (شركة Google LLC وشركة Google Ireland Limited): <a href="https://policies.google.com/privacy">سياسة خصوصية Google</a>؛ <a href="https://firebase.google.com/support/privacy">الخصوصية والأمان في Firebase</a>.</li>
 </ul>
-<p>لا نبيع البيانات ولا نمررها إلى أطراف ثالثة لأي غرض غير الإعلان.</p>
+<p>لا نبيع البيانات ولا نمررها إلى أطراف ثالثة لأي غرض غير الإعلان والإحصاءات المجهولة وتقارير الأعطال الموصوفة أعلاه.</p>
 
 <h2>9. مدة الاحتفاظ والحذف</h2>
-<p>توجد بيانات اللعبة على الجهاز فقط؛ وتُحذف بإزالة التطبيق أو من إعدادات أندرويد &gt; التطبيقات &gt; Miyo &gt; التخزين &gt; مسح البيانات. ليس لدينا أي سجلات يمكن حذفها. وتحدّد Google مدة الاحتفاظ ببيانات الإعلانات التي تعالجها (سياسة خصوصية Google).</p>
+<p>توجد بيانات اللعبة على الجهاز فقط؛ وتُحذف بإزالة التطبيق أو من إعدادات أندرويد &gt; التطبيقات &gt; Miyo &gt; التخزين &gt; مسح البيانات. ليس لدينا أي سجلات يمكنها تحديد هوية لاعب. وتحتفظ Google ببيانات Firebase للمدد التالية: بيانات أحداث Analytics شهران، وبيانات أعطال Crashlytics 90 يومًا. ويتجدد معرّف تثبيت Firebase عند إلغاء تثبيت التطبيق وإعادة تثبيته. ولطلب الحذف يمكنكم مراسلتنا عبر البريد الإلكتروني. وتحدّد Google مدة الاحتفاظ ببيانات الإعلانات التي تعالجها (سياسة خصوصية Google).</p>
 
 <h2>10. النقل الدولي</h2>
 <p>قد تعالج Google البيانات على خوادم في دول مختلفة، منها تركيا والمنطقة الاقتصادية الأوروبية والولايات المتحدة. وتستند هذه التحويلات إلى الضمانات التي تستخدمها Google (مثل إطار خصوصية البيانات بين الاتحاد الأوروبي والولايات المتحدة والبنود التعاقدية القياسية). ونحن لا ننقل أي بيانات إلى الخارج.</p>
