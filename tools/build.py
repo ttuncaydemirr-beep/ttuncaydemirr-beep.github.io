@@ -6,6 +6,7 @@ Girdiler (src/):
   apps.json               uygulamaların yayın durumu ve sırası
   tokens.css              görsel kimlik (renkler, yazı tipleri)
   privacy/<slug>/<lang>.html   gizlilik politikası parçaları
+  terms/<slug>/<lang>.html     kullanım koşulları parçaları (+ meta.json başlıkları) → terms/<slug>/index.html
   music/                  Zarfla davetiye müzikleri (manifest.json + <id>.mp3; .github/workflows/fetch-music.yml üretir)
 Çıktılar depo köküne yazılır. Çalıştırma:  python3 tools/build.py
 """
@@ -231,6 +232,20 @@ def build_privacy():
     out.write_text(multilang_page(titles, panels), encoding="utf-8")
 
 
+def build_terms():
+    """Kullanım koşulları: src/terms/<slug>/{tr,en,de,ar}.html + meta.json → terms/<slug>/index.html (gizlilikle aynı düzen)."""
+    tdir = SRC / "terms"
+    if not tdir.is_dir():
+        return
+    for d in sorted(p for p in tdir.iterdir() if p.is_dir()):
+        meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
+        panels = {l: (d / f"{l}.html").read_text(encoding="utf-8") for l in LANGS}
+        titles = {l: f'{meta["titles"][l]} · Demir Games Studio' for l in LANGS}
+        out = ROOT / "terms" / d.name / "index.html"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(multilang_page(titles, panels, canonical=f"/terms/{d.name}/"), encoding="utf-8")
+
+
 INVITE_HOST = "https://zarfla-37da9.web.app"
 INVITE_TITLE = "Davetiye \u00b7 Zarfla"
 INVITE_DESC = "Size \u00f6zel bir davetiye var."
@@ -369,6 +384,8 @@ def build_music():
 def build_sitemap():
     urls = [f"{SITE_URL}/{l}/" for l in LANGS] + [f"{SITE_URL}/privacy/"]
     urls += [f"{SITE_URL}/privacy/{c['slug']}/" for c in apps_cfg["apps"] if (SRC / "privacy" / c["slug"]).is_dir()]
+    if (SRC / "terms").is_dir():
+        urls += [f"{SITE_URL}/terms/{d.name}/" for d in sorted((SRC / "terms").iterdir()) if d.is_dir()]
     body = "".join(f"<url><loc>{u}</loc></url>" for u in urls)
     (ROOT / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>\n',
@@ -380,6 +397,7 @@ if __name__ == "__main__":
     for l in LANGS:
         build_home(l)
     build_privacy()
+    build_terms()
     build_invite()
     build_music()
     build_root_and_404()
