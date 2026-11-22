@@ -227,6 +227,42 @@
         "category": "تطبيق - أسلوب حياة (دعوات رقمية)",
         "audience": "من عمر 13 سنة فما فوق"
       }
+    },
+    {
+      "slug": "mozaik-mantik",
+      "package": "com.demirgamesstudio.mozaikmantik",
+      "status": "coming_soon",
+      "status_note": "Mozaik Mantik: ayri sohbette gelistiriliyor; Play yayini henuz yok. Simge henuz yok (kart bos simge ile cikar).",
+      "category": "Game - Puzzle",
+      "audience": "Ages 13+",
+      "tr": {
+        "name": "Mozaik Mantık",
+        "tagline": "Her satır, sütun ve bölgeye bir taş: sakin bir mantık bulmacası",
+        "description": "İznik çinilerinden esinlenen, internetsiz oynanan bir bölge mantık bulmacası. Her satıra, sütuna ve bölgeye bir taş yerleştir; hesap gerekmez, ilerlemen cihazında kalır.",
+        "category": "Oyun - Bulmaca",
+        "audience": "13 yaş ve üzeri"
+      },
+      "en": {
+        "name": "Mozaik Mantık",
+        "tagline": "One tile in every row, column and region: a calm logic puzzle",
+        "description": "An offline region logic puzzle inspired by İznik tiles. Place one tile in every row, column and region; no account needed, and your progress stays on your device.",
+        "category": "Game - Puzzle",
+        "audience": "Ages 13+"
+      },
+      "de": {
+        "name": "Mozaik Mantık",
+        "tagline": "Ein Stein in jeder Zeile, Spalte und Region: ein ruhiges Logikrätsel",
+        "description": "Ein Offline-Logikrätsel um Regionen, inspiriert von İznik-Fliesen. Setzen Sie in jede Zeile, Spalte und Region einen Stein; kein Konto nötig, Ihr Fortschritt bleibt auf Ihrem Gerät.",
+        "category": "Spiel - Rätsel",
+        "audience": "Ab 13 Jahren"
+      },
+      "ar": {
+        "name": "Mozaik Mantık",
+        "tagline": "حجر واحد في كل صف وعمود ومنطقة: لغز منطقي هادئ",
+        "description": "لغز منطقي للمناطق يُلعب دون إنترنت ومستوحى من بلاط إزنيق. ضع حجرًا واحدًا في كل صف وعمود ومنطقة؛ لا حاجة إلى حساب ويبقى تقدّمك على جهازك.",
+        "category": "لعبة - ألغاز",
+        "audience": "من عمر 13 سنة فما فوق"
+      }
     }
   ],
   "studio": {

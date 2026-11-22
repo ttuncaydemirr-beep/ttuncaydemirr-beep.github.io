@@ -20,13 +20,13 @@ SRC = ROOT / "src"
 SITE_URL = "https://ttuncaydemirr-beep.github.io"
 LANGS = ["tr", "en", "de", "ar"]
 LANG_NAMES = {"tr": "Türkçe", "en": "English", "de": "Deutsch", "ar": "العربية",
-              "es": "Español", "pt": "Português", "id": "Bahasa Indonesia"}
+              "es": "Español", "pt": "Português", "ru": "Русский", "id": "Bahasa Indonesia"}
 # Hukuki metinler (gizlilik / kullanım koşulları) için ek çeviri dilleri: stüdyo sitesinin kendisi 4 dilde kalır (LANGS);
 # bu diller yalnız src/privacy|terms/<slug>/<dil>.html dosyası varsa o sayfada sekme olarak görünür. Çeviri bilgi amaçlıdır,
 # çelişkide Türkçe/İngilizce sürüm geçerlidir (çeviri dosyalarının başında belirtilir).
-DOC_LANGS = LANGS + ["es", "pt", "id"]
+DOC_LANGS = LANGS + ["es", "pt", "ru", "id"]
 # Ek diller için "stüdyoya dön" bağlantısı (stüdyo ana sayfası 4 dilde; bu diller İngilizce ana sayfaya gider).
-BACK_LABELS = {"es": "Volver al estudio", "pt": "Voltar ao estúdio", "id": "Kembali ke studio"}
+BACK_LABELS = {"es": "Volver al estudio", "pt": "Voltar ao estúdio", "ru": "Вернуться в студию", "id": "Kembali ke studio"}
 EMAIL = "nilkaren.tuncay.demir@gmail.com"
 
 content = json.loads((SRC / "content.json").read_text(encoding="utf-8"))
@@ -220,7 +220,7 @@ def multilang_page(title_by_lang, panels_by_lang, *, back_label_key="back_to_stu
         f'<section data-panel="{l}" lang="{l}" dir="{dir_of(l)}" data-title="{esc(title_by_lang[l])}">'
         f'<p class="back"><a href="{back(l)[0]}">{esc(back(l)[1])}</a></p>\n{panels_by_lang[l]}\n</section>'
         for l in langs)
-    tab_label = "Language / Dil / Sprache / اللغة" + (" / Idioma / Bahasa" if len(langs) > len(LANGS) else "")
+    tab_label = "Language / Dil / Sprache / اللغة" + (" / Idioma / Язык / Bahasa" if len(langs) > len(LANGS) else "")
     body = f"""<div class="wrap doc">
   <div class="tabs" role="group" aria-label="{esc(tab_label)}">{tabs}</div>
 {panels}

@@ -1,0 +1,16 @@
+{
+  "slug": "mozaik-mantik",
+  "name": "Mozaik Mantık",
+  "package": "com.demirgamesstudio.mozaikmantik",
+  "titles": {
+    "tr": "Mozaik Mantık – Gizlilik Politikası",
+    "en": "Mozaik Mantık – Privacy Policy",
+    "de": "Mozaik Mantık – Datenschutzerklärung",
+    "ar": "Mozaik Mantık – سياسة الخصوصية",
+    "es": "Mozaik Mantık - Política de privacidad",
+    "pt": "Mozaik Mantık - Política de Privacidade",
+    "ru": "Mozaik Mantık - Политика конфиденциальности",
+    "id": "Mozaik Mantık - Kebijakan Privasi"
+  },
+  "data_safety_notes": "Mozaik Mantık (com.demirgamesstudio.mozaikmantik). Data collected and shared: Device or other IDs (Advertising ID via AdMob; Firebase app instance ID / installation ID via Analytics, Crashlytics, Remote Config) - purposes: Advertising or marketing, Analytics, App functionality/diagnostics; App interactions (in-app events such as puzzle start/finish, hints, ad and purchase events, settings changes) - Analytics; Crash logs and Diagnostics (crash logs, device model/OS/app version) - Analytics, diagnostics; Approximate location (inferred from IP by ad/analytics services, not GPS; no location permission) - Advertising, Analytics; Purchase history (Remove ads, handled by Google Play Billing; app only receives entitlement) - app functionality. Shared with Google (AdMob, Firebase) as service providers for ads/analytics. Data is encrypted in transit. Data is not sold. No account; no in-app deletion - answer 'No' to account creation, but mention email for deletion requests of analytics data; uninstalling removes on-device data. Ads: contains ads = Yes (interstitial + rewarded). Advertising ID permission declared (AD_ID). Consent via Google UMP for EEA/UK and similar regions. Not designed for children (target 13+)."
+}
