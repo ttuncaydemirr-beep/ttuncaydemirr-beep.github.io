@@ -19,7 +19,14 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 SITE_URL = "https://ttuncaydemirr-beep.github.io"
 LANGS = ["tr", "en", "de", "ar"]
-LANG_NAMES = {"tr": "Türkçe", "en": "English", "de": "Deutsch", "ar": "العربية"}
+LANG_NAMES = {"tr": "Türkçe", "en": "English", "de": "Deutsch", "ar": "العربية",
+              "es": "Español", "pt": "Português", "id": "Bahasa Indonesia"}
+# Hukuki metinler (gizlilik / kullanım koşulları) için ek çeviri dilleri: stüdyo sitesinin kendisi 4 dilde kalır (LANGS);
+# bu diller yalnız src/privacy|terms/<slug>/<dil>.html dosyası varsa o sayfada sekme olarak görünür. Çeviri bilgi amaçlıdır,
+# çelişkide Türkçe/İngilizce sürüm geçerlidir (çeviri dosyalarının başında belirtilir).
+DOC_LANGS = LANGS + ["es", "pt", "id"]
+# Ek diller için "stüdyoya dön" bağlantısı (stüdyo ana sayfası 4 dilde; bu diller İngilizce ana sayfaya gider).
+BACK_LABELS = {"es": "Volver al estudio", "pt": "Voltar ao estúdio", "id": "Kembali ke studio"}
 EMAIL = "nilkaren.tuncay.demir@gmail.com"
 
 content = json.loads((SRC / "content.json").read_text(encoding="utf-8"))
@@ -32,7 +39,16 @@ def esc(s):
 
 
 def ui(lang, key):
-    return content["ui"][lang].get(key) or content["ui"]["en"].get(key, key)
+    return content["ui"].get(lang, {}).get(key) or content["ui"]["en"].get(key, key)
+
+
+def doc_langs(d):
+    """Bir belge klasöründe parçası bulunan diller (DOC_LANGS sırasıyla); tr ve en zorunludur."""
+    langs = [l for l in DOC_LANGS if (d / f"{l}.html").is_file()]
+    missing = [l for l in LANGS if l not in langs]
+    if missing:
+        raise SystemExit(f"{d}: eksik zorunlu dil dosyası: {missing}")
+    return langs
 
 
 def dir_of(lang):
@@ -164,7 +180,7 @@ def build_home(lang):
 
 LANG_PICK_JS = """<script>
 (function(){
-  var L=["tr","en","de","ar"], q=new URLSearchParams(location.search).get("lang");
+  var L=__LANGS__, q=new URLSearchParams(location.search).get("lang");
   var pick=L.indexOf(q)>=0?q:null;
   if(!pick){var n=(navigator.languages||[navigator.language||"en"]);
     for(var i=0;i<n.length&&!pick;i++){var c=(n[i]||"").slice(0,2).toLowerCase();if(L.indexOf(c)>=0)pick=c;}}
@@ -189,19 +205,28 @@ LANG_PICK_JS = """<script>
 
 
 def multilang_page(title_by_lang, panels_by_lang, *, back_label_key="back_to_studio", noindex=False, canonical=None):
-    """Tek adreste dört dil; dil tarayıcıdan ya da ?lang= ile seçilir. JS yoksa tüm diller alt alta görünür."""
+    """Tek adreste birden çok dil (en az tr/en/de/ar; hukuki metinlerde es/pt/id de olabilir); dil tarayıcıdan ya da
+    ?lang= ile seçilir. JS yoksa tüm diller alt alta görünür."""
+    langs = [l for l in DOC_LANGS if l in panels_by_lang]
     tabs = "".join(
         f'<button type="button" data-tab="{l}" lang="{l}" aria-pressed="false">{LANG_NAMES[l]}</button>'
-        for l in LANGS)
+        for l in langs)
+
+    def back(l):
+        # Stüdyo ana sayfası yalnız LANGS dillerinde var; ek dillerde İngilizce ana sayfaya dönülür.
+        return (f'/{l}/', ui(l, back_label_key)) if l in LANGS else ('/en/', BACK_LABELS.get(l, ui("en", back_label_key)))
+
     panels = "\n".join(
         f'<section data-panel="{l}" lang="{l}" dir="{dir_of(l)}" data-title="{esc(title_by_lang[l])}">'
-        f'<p class="back"><a href="/{l}/">{esc(ui(l, back_label_key))}</a></p>\n{panels_by_lang[l]}\n</section>'
-        for l in LANGS)
+        f'<p class="back"><a href="{back(l)[0]}">{esc(back(l)[1])}</a></p>\n{panels_by_lang[l]}\n</section>'
+        for l in langs)
+    tab_label = "Language / Dil / Sprache / اللغة" + (" / Idioma / Bahasa" if len(langs) > len(LANGS) else "")
     body = f"""<div class="wrap doc">
-  <div class="tabs" role="group" aria-label="Language / Dil / Sprache / اللغة">{tabs}</div>
+  <div class="tabs" role="group" aria-label="{esc(tab_label)}">{tabs}</div>
 {panels}
 </div>"""
-    extra = (f'<link rel="canonical" href="{SITE_URL}{canonical}">\n' if canonical else "") + LANG_PICK_JS
+    pick_js = LANG_PICK_JS.replace("__LANGS__", json.dumps(langs, separators=(",", ":")))
+    extra = (f'<link rel="canonical" href="{SITE_URL}{canonical}">\n' if canonical else "") + pick_js
     html_out = page("en", title_by_lang["en"], body, path="", noindex=noindex, head_extra=extra,
                     description=title_by_lang["en"])
     # Üst bilgi ve alt bilgi tek dilde olmasın: marka ve e-posta dilden bağımsız.
@@ -218,8 +243,9 @@ def build_privacy():
             print(f"UYARI: {slug} için gizlilik politikası yok, atlandı")
             continue
         meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
-        panels = {l: (d / f"{l}.html").read_text(encoding="utf-8") for l in LANGS}
-        titles = {l: f'{meta["titles"][l]} · Demir Games Studio' for l in LANGS}
+        dl = doc_langs(d)
+        panels = {l: (d / f"{l}.html").read_text(encoding="utf-8") for l in dl}
+        titles = {l: f'{meta["titles"][l]} · Demir Games Studio' for l in dl}
         out = ROOT / "privacy" / slug / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(multilang_page(titles, panels, canonical=f"/privacy/{slug}/"), encoding="utf-8")
@@ -239,8 +265,9 @@ def build_terms():
         return
     for d in sorted(p for p in tdir.iterdir() if p.is_dir()):
         meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
-        panels = {l: (d / f"{l}.html").read_text(encoding="utf-8") for l in LANGS}
-        titles = {l: f'{meta["titles"][l]} · Demir Games Studio' for l in LANGS}
+        dl = doc_langs(d)
+        panels = {l: (d / f"{l}.html").read_text(encoding="utf-8") for l in dl}
+        titles = {l: f'{meta["titles"][l]} · Demir Games Studio' for l in dl}
         out = ROOT / "terms" / d.name / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(multilang_page(titles, panels, canonical=f"/terms/{d.name}/"), encoding="utf-8")
