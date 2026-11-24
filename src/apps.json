@@ -1,6 +1,6 @@
 {
   "apps": [
-    {"slug": "arrowtile", "status": "testing"},
+    {"slug": "arrowtile", "status": "live"},
     {"slug": "lid-kocu", "status": "testing"},
     {"slug": "miyo", "status": "testing"},
     {"slug": "tidy-nook", "status": "testing"},
