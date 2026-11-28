@@ -168,6 +168,38 @@ body[data-st=auth] #btnRef,body[data-st=auth] #updTxt{display:none}
 .center .btn{margin-top:14px}
 .srcrow{padding:10px 0;border-bottom:1px solid rgba(42,52,80,.6);font-size:13px}
 .srcrow:last-child{border-bottom:0}
+/* YouTube kanalı */
+.ytsum{display:block;width:100%;text-align:left;color:inherit;font-family:inherit;cursor:pointer}
+.ytsum .yh{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ytsum .yh .ri{width:34px;height:34px;border-radius:10px;background:var(--surface2);display:grid;place-items:center;color:var(--bad);flex:none}
+.ytsum .yh .ri svg{width:20px;height:20px}
+.ytsum .yh b{font-size:14px}
+.ytsum .yh .ch{margin-left:auto;color:var(--muted);font-size:20px}
+.ytsum .ys{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}
+.ytsum .ys div{font-size:11px;color:var(--muted)}
+.ytsum .ys b{display:block;font-family:var(--num);font-size:17px;color:var(--text);font-weight:600}
+.mini{margin-top:8px}
+.mini .ml{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px}
+.mini .ml b{color:var(--text);font-family:var(--num);font-weight:600}
+.bar.sm{height:6px}
+.vids{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:14px}
+@media(min-width:760px){.vids{grid-template-columns:repeat(2,1fr)}}
+.vid{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px;color:inherit;text-decoration:none}
+.vid .th{width:112px;height:63px;border-radius:8px;background:var(--surface2);flex:none;overflow:hidden;position:relative}
+.vid .th img{width:100%;height:100%;object-fit:cover;display:block}
+.vid .vi{min-width:0;flex:1}
+.vid .vt{font-size:14px;font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vid .vm{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+.vid .vm b{color:var(--text);font-family:var(--num);font-weight:600}
+.pg{margin-bottom:16px}
+.pg:last-child{margin-bottom:0}
+.pg .gh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;gap:10px}
+.pg .gh b{font-size:14px}
+.pg .gp{font-family:var(--num);font-size:17px;font-weight:700}
+.pg .pv{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+.pg .pv b{color:var(--text)}
+.gcur{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.gcur b{font-family:var(--num);font-size:20px;font-weight:600}
 .srcrow .sh{display:flex;justify-content:space-between;gap:10px;align-items:center}
 .srcrow .sn{font-weight:700}
 .srcrow p{color:var(--muted);font-size:12px;line-height:1.45;margin-top:4px}
@@ -217,6 +249,7 @@ body[data-st=auth] #btnRef,body[data-st=auth] #updTxt{display:none}
     <h2>Genel Bakış</h2>
     <p class="sub" id="periodTxt"></p>
     <div class="card emp" id="genelEmpty" hidden>Henüz veri yok — Google istatistik raporları geldiğinde burada görünecek. Aşağıda sürüm bilgileri şimdiden listeleniyor.</div>
+    <button class="card ytsum" id="ytSum" data-a="go" data-v="kanal" hidden></button>
     <div class="kpis" id="kpiGenel"></div>
     <div class="card"><h3 id="hDau">Aktif cihaz</h3><div class="chart" id="w_cDau"><canvas id="cDau"></canvas></div><p class="emp" id="e_cDau" hidden></p></div>
     <div class="card"><h3>Uygulamalar özeti</h3><div class="tbl" id="tApps"></div></div>
@@ -254,6 +287,7 @@ body[data-st=auth] #btnRef,body[data-st=auth] #updTxt{display:none}
     <div class="chips" id="curChips" hidden></div>
     <div class="card emp" id="gelirEmpty" hidden>Henüz veri yok — Google satış ve kazanç raporları geldiğinde burada görünecek.</div>
     <div class="kpis" id="kpiGelir"></div>
+    <div class="card" id="ytGelir"></div>
     <div class="card"><h3 id="hRev">Günlük satış</h3><div class="chart" id="w_cRev"><canvas id="cRev"></canvas></div><p class="emp" id="e_cRev" hidden></p></div>
     <div class="grid2">
       <div class="card"><h3>Uygulamaya göre pay</h3><div class="chart" id="w_cRevApp"><canvas id="cRevApp"></canvas></div><p class="emp" id="e_cRevApp" hidden></p></div>
@@ -278,13 +312,36 @@ body[data-st=auth] #btnRef,body[data-st=auth] #updTxt{display:none}
   <!-- DİĞER -->
   <section class="view" id="v-diger">
     <h2>Diğer</h2>
-    <p class="sub">Mağaza, yorumlar, aylık rapor, hedefler ve veri durumu</p>
+    <p class="sub">Kanal, mağaza, yorumlar, aylık rapor, hedefler ve veri durumu</p>
+    <button class="row" data-a="go" data-v="kanal"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z"/></svg></div><div><b>Kanal</b><span class="d2">YouTube: abone, izlenme, en iyi videolar, gelir eşiği</span></div><span class="ch">›</span></button>
     <button class="row" data-a="go" data-v="magaza"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1.2 12.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8z"/><path d="M8.5 7a3.5 3.5 0 0 1 7 0"/></svg></div><div><b>Mağaza</b><span class="d2">Ziyaretçi, edinme, kaynak, cihaz ve dil</span></div><span class="ch">›</span></button>
     <button class="row" data-a="go" data-v="yorumlar"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><div><b>Yorumlar</b><span class="d2">Puan dağılımı, yorumlar ve cevaplar</span></div><span class="ch">›</span></button>
     <button class="row" data-a="go" data-v="rapor"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg></div><div><b>Aylık Rapor</b><span class="d2">Tek sayfalık özet ve kopyalanabilir metin</span></div><span class="ch">›</span></button>
     <button class="row" data-a="go" data-v="hedefler"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></div><div><b>Hedefler</b><span class="d2">Aylık hedeflerin ve ilerlemen</span></div><span class="ch">›</span></button>
     <button class="row" data-a="go" data-v="veri"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><div><b>Veri durumu</b><span class="d2">Son veri toplama ve kaynakların durumu</span></div><span class="ch">›</span></button>
     <button class="row danger" id="btnLogout" data-a="logout"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></div><div><b id="logoutTxt">Anahtarı sil ve çıkış yap</b><span class="d2" id="logoutSub">Bu cihazdaki erişim anahtarı silinir</span></div><span class="ch">›</span></button>
+  </section>
+
+  <!-- KANAL (YouTube) -->
+  <section class="view" id="v-kanal">
+    <button class="back" data-a="go" data-v="diger">← Diğer</button>
+    <h2>Kanal</h2>
+    <p class="sub" id="kSub"></p>
+    <div class="card emp" id="kEmpty" hidden>YouTube bağlantısı henüz kurulmadı — kurulum bitince veriler burada görünecek.</div>
+    <div id="kBody">
+      <p class="mnote" id="kFilt" hidden style="margin-bottom:12px">Uygulama ve ülke filtreleri YouTube kanalına uygulanmaz; yalnızca tarih aralığı geçerlidir.</p>
+      <div class="kpis" id="kpiK"></div>
+      <div class="chips" id="kPerChips"></div>
+      <div class="card"><h3 id="hKan">Görüntülenme ve izlenme süresi</h3><div class="chart" id="w_cKan"><canvas id="cKan"></canvas></div><p class="emp" id="e_cKan" hidden></p></div>
+      <div class="card"><h3 id="hKanSub">Net abone değişimi</h3><div class="chart" id="w_cKanSub"><canvas id="cKanSub"></canvas></div><p class="emp" id="e_cKanSub" hidden></p></div>
+      <div class="card"><h3 id="hKanT">Dönem tablosu</h3><div class="tbl" id="tKan"></div></div>
+      <h3 class="sec">En çok izlenen 5 video</h3>
+      <div class="chips" id="kTopChips"></div>
+      <div id="kTop"></div>
+      <h3 class="sec">Gelir eşiği</h3>
+      <p class="sub">YouTube iş ortaklığı için gereken en düşük değerler</p>
+      <div class="card" id="kEsik"></div>
+    </div>
   </section>
 
   <!-- VERİ DURUMU -->
@@ -441,9 +498,9 @@ async function getFile(path,tok){
 const safePkg=p=>typeof p==='string'&&/^[A-Za-z0-9._]+$/.test(p);
 async function loadAll(tok){
   const g=p=>getFile('data/'+p,tok);
-  const names=['durum.json','uygulamalar.json','surumler.json','surum_gecmisi.json','yorumlar.json','panel/istatistik.json','panel/gelir.json'];
+  const names=['durum.json','uygulamalar.json','surumler.json','surum_gecmisi.json','yorumlar.json','panel/istatistik.json','panel/gelir.json','youtube/ozet.json','youtube/gunluk.json'];
   const r=await Promise.all(names.map(g));
-  const raw={durum:r[0],apps:r[1],surum:r[2],gecmis:r[3],yorum:r[4],ist:r[5],gelir:r[6],kal:{},hat:{}};
+  const raw={durum:r[0],apps:r[1],surum:r[2],gecmis:r[3],yorum:r[4],ist:r[5],gelir:r[6],ytOzet:r[7],ytGunluk:r[8],kal:{},hat:{}};
   const pk=new Set();
   arr(raw.apps).forEach(a=>{if(a&&safePkg(a.paket))pk.add(a.paket)});
   [raw.surum,raw.gecmis,raw.ist].forEach(o=>Object.keys(obj(o)).forEach(k=>{if(safePkg(k))pk.add(k)}));
@@ -597,11 +654,12 @@ function buildModel(raw){
   m.hasStats=m.apps.some(a=>Object.keys(a.x.all.has).length>0||QKEYS.some(k=>a.q.all[k].n>0)||Object.keys(a.x.c).length>0);
   m.countries=[...cc];
   m.ist=ist;
+  m.yt=buildYT(raw.ytOzet,raw.ytGunluk);
   return m;
 }
 
 /* ---------- durum ---------- */
-const S={range:30,all:false,app:'all',country:'all',view:'genel',detail:null,metric:'installed',cur:null,repK:null,rStar:'all',rLang:'all'};
+const S={kPer:'w',kTop:'son28',range:30,all:false,app:'all',country:'all',view:'genel',detail:null,metric:'installed',cur:null,repK:null,rStar:'all',rLang:'all'};
 const appById=id=>M&&M.byId[id];
 const selApps=()=>{if(!M)return [];if(S.app==='all'||!M.byId[S.app])return M.apps;return [M.byId[S.app]]};
 const R=()=>S.all?M.N:S.range;
@@ -745,6 +803,7 @@ function renderGenel(){
   $('#genelEmpty').hidden=M.hasStats||M.sales.length>0;
   $('#hDau').textContent=BK()===7?'Aktif cihaz (haftalık, son değer)':'Aktif cihaz (yüklü, günlük)';
   kpis('#kpiGenel',cur,prev,KPI_APP);
+  renderYtSummary();
   const act=apps.filter(a=>scope(a,cs).has.act);
   chart('cDau',{type:'line',data:{labels:labels(),datasets:act.map(a=>({label:short(a),data:bucket(series([a],cs,rg,'act'),2),borderColor:a.color,backgroundColor:a.color,borderWidth:2,pointRadius:0,tension:.3}))},
     options:{interaction:{mode:'index',intersect:false},scales:{x:xAxis,y:yAxis(fN)},plugins:{legend:legendBottom,tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${fN(c.raw)}`}}}}},act.length>0);
@@ -813,6 +872,7 @@ function renderGelir(){
   const cur=salesAgg(apps,cs,rg,0),prev=S.all?'all':(M.N-2*rg>=0?salesAgg(apps,cs,rg,rg):{ok:false});
   if(prev&&prev!=='all'&&prev.ok!==false)prev.ok=true;
   kpis('#kpiGelir',cur,prev,[['Net satış','net',fM],['Brüt satış','gross',fM],['İade','refund',fM,true],['Günlük ortalama','daily',fM],['Satış adedi','qty',fN]]);
+  renderYtGelir();
   $('#hRev').textContent=per()+' satış';
   const g1=bucket(salesSeries(apps,cs,rg,'gross')),r1=bucket(salesSeries(apps,cs,rg,'ref')).map(v=>-v);
   chart('cRev',{type:'bar',data:{labels:labels(),datasets:[
@@ -855,6 +915,173 @@ function renderGelir(){
   kpis('#kpiSub',sk(ss,se),S.all?'all':(M.N-2*rg>=0?sk(ps,pe):{ok:false}),[['Aktif abone','active',fN],['Yeni abone','nw',fN],['İptal','cn',fN,true],['Kayıp oranı (churn)','churn',fP,true]]);
   chart('cSub',{type:'line',data:{labels:labels(),datasets:[{label:'Aktif abone',data:bucket(act,2),borderColor:'#B49BFF',backgroundColor:'rgba(180,155,255,.14)',fill:true,borderWidth:2,pointRadius:0,tension:.3}]},
     options:{interaction:{mode:'index',intersect:false},scales:{x:xAxis,y:yAxis(fN)},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` Aktif abone: ${fN(c.raw)}`}}}}},subs.some(x=>x.hasAct));
+}
+
+/* ---------- YouTube kanalı ---------- */
+const YT_NAME="Fındık'ın Masal Ormanı";
+const fUSD=v=>isNum(v)?mfmt('USD',2).format(v):'—';
+const fH=v=>isNum(v)?v.toLocaleString('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1}):'—';
+const fSg=v=>isNum(v)?(v>0?'+':v<0?'−':'')+NF.format(Math.abs(Math.round(v))):'—';
+function fDur(sec){if(!isNum(sec)||sec<0)return '—';const t=Math.round(sec),m=Math.floor(t/60);return m>0?m+' dk '+(t%60)+' sn':t+' sn'}
+const ytUrl=u=>/^https:\/\/(www\.)?youtube\.com\//.test(String(u||''))?String(u):'';
+const ytImg=u=>/^https:\/\/i\.ytimg\.com\//.test(String(u||''))?String(u):'';
+function buildYT(oz,gl){
+  oz=obj(oz);gl=obj(gl);
+  const y={oz,kanal:obj(oz.kanal),esik:obj(oz.esik),ayrim:oz.uzun_video_ayrimi!==false,
+    best:{son28:arr(obj(oz.en_iyi).son28).filter(v=>v&&typeof v==='object'),tum:arr(obj(oz.en_iyi).tum).filter(v=>v&&typeof v==='object')}};
+  const rows=[];
+  Object.keys(gl).forEach(k=>{const n=dn(k);if(isNaN(n))return;const r=obj(gl[k]);rows.push({n,r})});
+  rows.sort((a,b)=>a.n-b.n);
+  y.hasDaily=rows.length>0;
+  y.has=y.hasDaily||Object.keys(oz).length>0;
+  if(!rows.length){y.N=0;y.S0=0;y.E0=0;return y}
+  y.E0=rows[rows.length-1].n;y.S0=Math.max(rows[0].n,y.E0-3649);y.N=y.E0-y.S0+1;
+  const N=y.N,z=()=>new Float64Array(N),nn=()=>new Float64Array(N).fill(NaN);
+  y.v=z();y.m=z();y.g=z();y.l=z();y.a=z();y.u=nn();y.rev=nn();
+  const f=x=>isNum(x)&&x>=0?x:0;
+  rows.forEach(({n,r})=>{const i=n-y.S0;if(i<0||i>=N)return;
+    y.v[i]=f(r.izlenme);y.m[i]=f(r.dakika);y.g[i]=f(r.abone_kazanilan);y.l[i]=f(r.abone_kaybedilen);y.a[i]=f(r.ort_sure);
+    if(isNum(r.uzun_dakika))y.u[i]=f(r.uzun_dakika);
+    if(isNum(r.gelir))y.rev[i]=r.gelir});
+  y.hasRev=Array.prototype.some.call(y.rev,v=>v>0);
+  return y;
+}
+const yRg=y=>S.all?y.N:Math.min(S.range,y.N);
+function yWin(y,range,offset){let e=y.N-offset,s=e-range;e=Math.max(0,Math.min(y.N,e));s=Math.max(0,Math.min(e,s));return [s,e]}
+function yAgg(y,range,offset){
+  const [s,e]=yWin(y,range,offset);
+  let v=sumA(y.v,s,e),m=sumA(y.m,s,e),g=sumA(y.g,s,e),l=sumA(y.l,s,e),w=0;
+  for(let i=s;i<e;i++)w+=y.a[i]*y.v[i];
+  return {views:v,hours:m/60,gain:g,lost:l,net:g-l,avg:v>0?w/v:null,rev:sumA(y.rev,s,e),days:e-s,ok:y.N-offset-range>=0};
+}
+function yBuckets(y,s,e,mode){
+  const out=[];let cur=null;
+  for(let i=s;i<e;i++){
+    const n=y.S0+i;let key;
+    if(mode==='m'){const d=dtDate(n);key=d.getUTCFullYear()*12+d.getUTCMonth()}
+    else key=n-(((n+3)%7)+7)%7;
+    if(!cur||cur.key!==key){cur={key,s:i,e:i+1,n0:n};out.push(cur)}else cur.e=i+1;
+  }
+  return out;
+}
+const yLbl=(b,mode)=>mode==='m'?fmtDay(b.n0,{month:'short',year:'2-digit'}):fmtDay(b.key,{day:'numeric',month:'short'});
+/* eşik: mevcut değerler ve tahmini ulaşma tarihi */
+function yEsik(y){
+  const ab=obj(y.esik.abone),sa=obj(y.esik.saat);
+  const tAb=isNum(ab.hedef)&&ab.hedef>0?ab.hedef:1000,tSa=isNum(sa.hedef)&&sa.hedef>0?sa.hedef:4000;
+  let cAb=isNum(ab.mevcut)?ab.mevcut:(isNum(y.kanal.abone)?y.kanal.abone:null);
+  let cSa=isNum(sa.son12ay_uzun_saat)?sa.son12ay_uzun_saat:null;
+  const last=y.N?Math.min(28,y.N):0,s=y.N-last;
+  let rAb=0,rSa=0;
+  if(last>0){
+    rAb=(sumA(y.g,s,y.N)-sumA(y.l,s,y.N))/last;
+    let mins=0;for(let i=s;i<y.N;i++){const u=y.u[i];mins+=(y.ayrim&&u===u)?u:(y.ayrim?0:y.m[i])}
+    rSa=mins/60/last;
+    if(cSa===null){const s2=Math.max(0,y.N-365);let t=0;for(let i=s2;i<y.N;i++){const u=y.u[i];t+=(y.ayrim&&u===u)?u:(y.ayrim?0:y.m[i])}cSa=t/60}
+  }
+  const today=Math.floor(Date.now()/864e5),base=y.N?Math.max(y.E0,today):today;
+  return {ab:{cur:cAb,target:tAb,rate:rAb,eta:yEta(cAb,tAb,rAb,base)},sa:{cur:cSa,target:tSa,rate:rSa,eta:yEta(cSa,tSa,rSa,base)},ayrim:y.ayrim,hasRate:last>0};
+}
+function yEta(cur,target,rate,base){
+  if(!isNum(cur))return {k:'none'};
+  if(cur>=target)return {k:'done'};
+  if(!(rate>0))return {k:'none'};
+  const d=Math.ceil((target-cur)/rate);
+  if(!isFinite(d))return {k:'none'};
+  if(d>3650)return {k:'far'};
+  const dt=dtDate(base+d);
+  return {k:'ok',days:d,txt:(MN[dt.getUTCMonth()]||'')+' '+dt.getUTCFullYear(),n:base+d};
+}
+function yEtaTxt(e){
+  if(e.k==='done')return '<b>Hedefe ulaşıldı</b>';
+  if(e.k==='far')return 'Bu hızla ulaşmak <b>10 yıldan uzun</b> sürer';
+  if(e.k==='ok')return 'Tahmini ulaşma: <b>'+esc(e.txt)+'</b> · ~'+fN(e.days)+' gün';
+  return 'Bu hızla tahmin yapılamıyor';
+}
+const pctOf=(c,t)=>isNum(c)&&t>0?Math.max(0,Math.min(100,c/t*100)):0;
+const fPc=v=>v.toLocaleString('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
+
+function renderYtSummary(){
+  const el=$('#ytSum'),y=M.yt;
+  if(!y||!y.has){el.hidden=true;el.innerHTML='';return}
+  const es=yEsik(y),w7=y.N?yAgg(y,Math.min(7,y.N),0):null;
+  const ab=isNum(es.ab.cur)?es.ab.cur:null;
+  el.hidden=false;
+  el.innerHTML=`<div class="yh"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z"/></svg></div><b>YouTube · ${esc(String(y.kanal.ad||YT_NAME))}</b><span class="ch">›</span></div>
+  <div class="ys"><div><b>${fN(ab)}</b>abone</div><div><b>${w7?fN(w7.views):'—'}</b>son 7 gün görüntülenme</div></div>
+  <div class="mini"><div class="ml"><span>Abone eşiği</span><b>${fN(es.ab.cur)} / ${fN(es.ab.target)}</b></div><div class="bar sm"><i style="width:${pctOf(es.ab.cur,es.ab.target).toFixed(1)}%"></i></div></div>
+  <div class="mini"><div class="ml"><span>İzlenme saati (12 ay, uzun video)</span><b>${fH(es.sa.cur)} / ${fN(es.sa.target)}</b></div><div class="bar sm"><i style="width:${pctOf(es.sa.cur,es.sa.target).toFixed(1)}%"></i></div></div>`;
+}
+
+function renderYtGelir(){
+  const el=$('#ytGelir'),y=M.yt;
+  const note=(S.app!=='all'||S.country!=='all')?'<p class="mnote">Uygulama/ülke filtreleri YouTube verisine uygulanmaz.</p>':'';
+  if(!y||!y.hasDaily||!y.hasRev){
+    el.innerHTML=`<h3>YouTube (tahmini, USD)</h3><p class="emp" style="padding:6px 4px">YouTube geliri henüz başlamadı</p>`+note;return;
+  }
+  const a=yAgg(y,yRg(y),0),all=sumA(y.rev,0,y.N);
+  el.innerHTML=`<h3>YouTube (tahmini, USD)</h3>
+  <div class="gcur"><span class="muted">Seçili aralık</span><b>${fUSD(a.rev)}</b></div>
+  <div class="gcur" style="margin-top:6px"><span class="muted">Tüm kayıtlı dönem</span><b>${fUSD(all)}</b></div>
+  <p class="mnote">YouTube'un bildirdiği tahmini gelir, ABD doları. Türk lirası toplamlarına eklenmez.</p>`+note;
+}
+
+function renderKanal(){
+  const y=M.yt,empty=!y||!y.has;
+  $('#kEmpty').hidden=!empty;$('#kBody').hidden=empty;
+  if(empty){$('#kSub').textContent='';return}
+  const rg=y.N?yRg(y):0;
+  $('#kFilt').hidden=S.app==='all'&&S.country==='all';
+  const kn=String(y.kanal.ad||YT_NAME);
+  $('#kSub').textContent=y.hasDaily?`${kn} · ${fmtDay(y.E0-rg+1)} – ${fmtDay(y.E0)} · `+(S.all?'ilk veriden bugüne':`önceki ${rg} günle karşılaştırma`):`${kn} · günlük veri henüz yok`;
+  /* KPI */
+  const cur=y.N?yAgg(y,rg,0):{views:null,hours:null,gain:null,lost:null,net:null,avg:null};
+  const prev=y.N&&!S.all?yAgg(y,rg,rg):(S.all?'all':{ok:false});
+  const abNow=isNum(obj(y.esik.abone).mevcut)?y.esik.abone.mevcut:(isNum(y.kanal.abone)?y.kanal.abone:null);
+  const netTxt=y.N?`<span class="d ${cur.net>0?'up':cur.net<0?'down':'flat'}">${cur.net===0?'→ bu dönemde değişim yok':fSg(cur.net)+' bu dönemde'}</span>`:'<span class="d flat">veri yok</span>';
+  const kp=(l,v,d)=>`<div class="kpi"><div class="l">${esc(l)}</div><div class="v">${v}</div>${d}</div>`;
+  const pv=k=>pvOf(prev,k);
+  $('#kpiK').innerHTML=kp('Abone',fN(abNow),netTxt)
+    +kp('Görüntülenme',fN(cur.views),delta(cur.views,pv('views')))
+    +kp('İzlenme süresi (saat)',fH(cur.hours),delta(cur.hours,pv('hours')))
+    +kp('Ort. izlenme süresi',fDur(cur.avg),delta(cur.avg,pv('avg')));
+  /* grafikler */
+  const mode=S.kPer==='m'?'m':'w';
+  $('#kPerChips').innerHTML=[['w','Haftalık'],['m','Aylık']].map(([k,l])=>`<button class="chip ${mode===k?'on':''}" data-a="kper" data-p="${k}">${l}</button>`).join('');
+  const [s,e]=y.N?yWin(y,rg,0):[0,0];
+  const bks=y.N?yBuckets(y,s,e,mode):[];
+  const labs=bks.map(b=>yLbl(b,mode)),vw=bks.map(b=>sumA(y.v,b.s,b.e)),hr=bks.map(b=>sumA(y.m,b.s,b.e)/60);
+  const nt=bks.map(b=>sumA(y.g,b.s,b.e)-sumA(y.l,b.s,b.e)),gn=bks.map(b=>sumA(y.g,b.s,b.e)),ls=bks.map(b=>sumA(y.l,b.s,b.e));
+  const pn=mode==='m'?'Aylık':'Haftalık';
+  $('#hKan').textContent=pn+' görüntülenme ve izlenme süresi'+(mode==='w'?' (hafta başı: pazartesi)':'');
+  $('#hKanSub').textContent=pn+' net abone değişimi (kazanılan − kaybedilen)';
+  chart('cKan',{data:{labels:labs,datasets:[
+      {type:'bar',label:'Görüntülenme',data:vw,backgroundColor:'#7AA2FF',borderRadius:3,yAxisID:'y',order:2},
+      {type:'line',label:'İzlenme süresi (saat)',data:hr,borderColor:'#3DD9B4',backgroundColor:'#3DD9B4',borderWidth:2,pointRadius:bks.length<30?3:0,tension:.3,yAxisID:'y1',order:1}]},
+    options:{interaction:{mode:'index',intersect:false},scales:{x:xAxis,y:{...yAxis(fN),position:'left'},y1:{...yAxis(fH),position:'right',grid:{display:false}}},plugins:{legend:legendBottom,tooltip:{callbacks:{label:c=>c.dataset.type==='line'?` ${c.dataset.label}: ${fH(c.raw)}`:` ${c.dataset.label}: ${fN(c.raw)}`}}}}},bks.length>0&&(vw.some(v=>v>0)||hr.some(v=>v>0)),'Bu aralıkta kanal verisi yok.');
+  chart('cKanSub',{type:'bar',data:{labels:labs,datasets:[{label:'Net abone',data:nt,backgroundColor:nt.map(v=>v<0?'#FF6B6B':'#3DD9B4'),borderRadius:3}]},
+    options:{scales:{x:xAxis,y:{beginAtZero:true,ticks:{maxTicksLimit:5,precision:0,callback:v=>fSg(v)}}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` Net abone: ${fSg(c.raw)} (kazanılan ${fN(gn[c.dataIndex])}, kaybedilen ${fN(ls[c.dataIndex])})`}}}}},bks.length>0&&(gn.some(v=>v>0)||ls.some(v=>v>0)),'Bu aralıkta abone hareketi yok.');
+  $('#hKanT').textContent=pn+' döküm';
+  const trows=bks.map((b,i)=>({k:b.key,lbl:yLbl(b,mode),v:vw[i],h:hr[i],g:gn[i],l:ls[i],n:nt[i]}));
+  table('#tKan',[{k:'k',l:mode==='m'?'Ay':'Hafta',h:r=>esc(r.lbl)},{k:'v',l:'Görüntülenme',num:1,f:fN},{k:'h',l:'İzlenme (saat)',num:1,f:fH},{k:'g',l:'Kazanılan',num:1,f:fN},{k:'l',l:'Kaybedilen',num:1,f:fN},{k:'n',l:'Net abone',num:1,f:fSg}],trows,'k','Bu aralıkta kanal verisi yok.');
+  /* en çok izlenen */
+  const tk=S.kTop==='tum'?'tum':'son28';
+  $('#kTopChips').innerHTML=[['son28','Son 28 gün'],['tum','Tüm zamanlar']].map(([k,l])=>`<button class="chip ${tk===k?'on':''}" data-a="ktop" data-t="${k}">${l}</button>`).join('');
+  const vids=y.best[tk].slice(0,5);
+  $('#kTop').innerHTML=vids.length?'<div class="vids">'+vids.map(v=>{
+    const u=ytUrl(v.url),im=ytImg(v.kucuk_resim);
+    const inner=`<div class="th">${im?`<img src="${esc(im)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:''}</div><div class="vi"><div class="vt">${esc(v.baslik||'(başlıksız)')}</div><div class="vm">${esc(fDiso(v.tarih))}<br><b>${fN(v.izlenme)}</b> izlenme · <b>${fH(isNum(v.dakika)?v.dakika/60:null)}</b> saat</div></div>`;
+    return u?`<a class="vid" href="${esc(u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="vid">${inner}</div>`}).join('')+'</div>'
+    :'<p class="emp card">Henüz video verisi yok.</p>';
+  /* gelir eşiği */
+  const es=yEsik(y);
+  const both=es.ab.eta.k==='ok'&&es.sa.eta.k==='ok'?(es.ab.eta.n>=es.sa.eta.n?es.ab.eta:es.sa.eta):null;
+  const bar=(title,c,t,e,unit,extra)=>`<div class="pg"><div class="gh"><b>${esc(title)}</b><span class="gp">%${fPc(pctOf(c,t))}</span></div><div class="bar"><i style="width:${pctOf(c,t).toFixed(1)}%"></i></div><div class="pv"><b>${unit==='h'?fH(c):fN(c)}</b> / ${fN(t)} · ${yEtaTxt(e)}${extra||''}</div></div>`;
+  $('#kEsik').innerHTML=bar('Abone (1.000)',es.ab.cur,es.ab.target,es.ab.eta,'n',es.hasRate?` · son 28 günde günlük net ${es.ab.rate.toLocaleString('tr-TR',{maximumFractionDigits:2})}`:'')
+    +bar('İzlenme saati (4.000, son 12 ay, uzun video)',es.sa.cur,es.sa.target,es.sa.eta,'h',es.hasRate?` · son 28 günde günde ${es.sa.rate.toLocaleString('tr-TR',{maximumFractionDigits:2})} saat`:'')
+    +(es.ayrim?'':'<p class="mnote">Shorts ayrılamadı; saat tahmini (tüm videoların izlenme süresi sayıldı).</p>')
+    +(both?`<p class="mnote">İkisi birden tamamlanınca: <b style="color:var(--text)">${esc(both.txt)}</b> (~${fN(both.days)} gün)</p>`:'')
+    +'<p class="mnote">Tahmin son 28 günün günlük ortalamasına dayanır; hız değiştikçe tarih de değişir.</p>';
 }
 
 /* ---------- hatalar ---------- */
@@ -1096,7 +1323,7 @@ function saveGoal(key){
 }
 
 /* ---------- Veri durumu ---------- */
-const SRC_TR={depolama:'Play raporları (Cloud Storage)',hatalar:'Hata kayıtları',kalite:'Kalite (Vitals)',panel:'Panel özeti',surumler:'Sürümler',uygulamalar:'Uygulama listesi',yorumlar:'Yorumlar'};
+const SRC_TR={youtube:'YouTube kanalı',depolama:'Play raporları (Cloud Storage)',hatalar:'Hata kayıtları',kalite:'Kalite (Vitals)',panel:'Panel özeti',surumler:'Sürümler',uygulamalar:'Uygulama listesi',yorumlar:'Yorumlar'};
 function humanErr(src,msg){
   const t=String(msg||'');
   const parts=t.split(';').map(x=>x.trim()).filter(Boolean);
@@ -1125,9 +1352,9 @@ function renderVeri(){
 }
 
 /* ---------- gezinme ---------- */
-const VIEWS={genel:renderGenel,uygulamalar:renderUygulamalar,ulkeler:renderUlkeler,gelir:renderGelir,diger:()=>{},kalite:renderKalite,magaza:renderMagaza,yorumlar:renderYorumlar,rapor:renderRapor,hedefler:renderHedefler,veri:renderVeri};
+const VIEWS={genel:renderGenel,uygulamalar:renderUygulamalar,ulkeler:renderUlkeler,gelir:renderGelir,diger:()=>{},kalite:renderKalite,magaza:renderMagaza,yorumlar:renderYorumlar,rapor:renderRapor,hedefler:renderHedefler,veri:renderVeri,kanal:renderKanal};
 const VIEW_IDS=Object.keys(VIEWS);
-const PARENT={magaza:'diger',yorumlar:'diger',rapor:'diger',hedefler:'diger',veri:'diger'};
+const PARENT={kanal:'diger',magaza:'diger',yorumlar:'diger',rapor:'diger',hedefler:'diger',veri:'diger'};
 const TAB_IDS=['genel','uygulamalar','ulkeler','kalite','gelir','diger'];
 function setSt(s){document.body.dataset.st=s}
 function render(){
@@ -1207,6 +1434,8 @@ function act(a,d){
     case 'appcard':if(M){S.detail=d.id;render();try{$('#appDetail').scrollIntoView({behavior:'smooth',block:'start'})}catch(e){}}return;
     case 'metric':S.metric=d.k;render();return;
     case 'cur':S.cur=d.c;render();return;
+    case 'kper':S.kPer=d.p==='m'?'m':'w';render();return;
+    case 'ktop':S.kTop=d.t==='tum'?'tum':'son28';render();return;
     case 'star':S.rStar=d.s;render();return;
     case 'copy':copyReport();return;
     case 'goalsave':saveGoal(d.k);return;
